@@ -16,7 +16,7 @@ import turingUrl from '../assets/Dialogues/Turing.pdf'
 const AIGallery = () => {
   const dialogues = [
     { name: "Archimedes", url: archimedesUrl },
-    { name: "Bellavitis", url: bellavitisUrl },
+    { name: "Bellavitis", url: bellavitisUrl, lang: "IT" },
     { name: "Erdos", url: erdosUrl },
     { name: "Fibonacci", url: fibonacciUrl },
     { name: "Godel", url: godelUrl },
@@ -50,7 +50,14 @@ const AIGallery = () => {
                       <FileText size={20} color="#a78bfa" />
                     </div>
                     <div>
-                      <h4 style={{ margin: 0, fontSize: '1.1rem', color: '#fff' }}>{person.name}</h4>
+                      <h4 style={{ margin: 0, fontSize: '1.1rem', color: '#fff', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                        {person.name}
+                        {person.lang && (
+                          <span style={{ fontSize: '0.7rem', padding: '0.15rem 0.4rem', backgroundColor: 'rgba(255, 255, 255, 0.1)', color: '#cbd5e1', borderRadius: '4px', fontWeight: 'normal', letterSpacing: '0.05em' }}>
+                            {person.lang}
+                          </span>
+                        )}
+                      </h4>
                       <p style={{ margin: '0.2rem 0 0 0', color: '#9ca3af', fontSize: '0.85rem' }}>PDF Dialogue</p>
                     </div>
                   </div>

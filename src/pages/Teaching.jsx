@@ -78,7 +78,7 @@ const Teaching = () => {
               MacTutor is a free online resource containing biographies of more than 3000 mathematicians. <i>Mate-matician</i> is an app which I created to discover the wonderful MacTutor biographies repository in an interactive way. The app can be accessed through this link, using a google account. The link redirects to the public preview on the Google AI Studio platform. Let the browser load the app, then set it to full screen and try it yourself!
             </p>
             <p style={{ color: '#f3f4f6', marginBottom: '1.5rem' }}>
-              Alternatively, here is the link to the GitHub repository.
+              Alternatively, you may clone the corresponding GitHub repository.
             </p>
             <div style={{ display: 'flex', gap: '1rem' }}>
               <a href="https://aistudio.google.com/apps/c765648a-02a0-4004-97fc-af6eb15db905" target="_blank" rel="noopener noreferrer" className="btn btn-primary" style={{ display: 'flex', gap: '0.5rem', width: 'fit-content' }}>
