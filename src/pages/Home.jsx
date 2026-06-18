@@ -1,5 +1,5 @@
 import React from 'react'
-import { Mail, Github, Linkedin, ChevronRight } from 'lucide-react'
+import { Github, Linkedin, ChevronRight } from 'lucide-react'
 import { Link } from 'react-router-dom'
 
 const Home = () => {
@@ -11,11 +11,22 @@ const Home = () => {
           <div className="hero-content glass-card">
             <span className="subtitle">Research Profile</span>
             <h1 style={{ marginBottom: '1.5rem' }}>Alessandro Linzi</h1>
-            <p className="hero-desc">
-              I am a mathematician primarily working in Valuation Theory. My research interests include valued fields, ordered algebraic structures, valuation independence, and algebraic hyperstructures. 
-            </p>
-            <div style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
-              <a href="mailto:linzi.alessandro@gmail.com" className="btn btn-primary">
+            <div className="hero-desc" style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+              <p>
+                I am a mathematician specializing in the model theory of valued fields and algebraic hyperstructures (hyperfields, polygroups), with broader interests spanning valuation theory, mathematical logic, and the foundations of computation. My doctoral research established novel connections across these areas, leading to publications in journals such as Journal of Algebra and Israel Journal of Mathematics.
+              </p>
+              <p>
+                My expertise extends to constructive logic, proof theory, and category theory, with a particular interest in the computational interpretation of logical principles, including the Curry–Howard correspondence. I am especially drawn to the role of logic as a bridge between foundational mathematics, AI theory, and aspects of quantum logic.
+              </p>
+              <p>
+                Alongside research, I have significant teaching experience at the university level and have contributed to collaborative projects and mentoring of graduate students.
+              </p>
+              <p>
+                Further details about my work and publications can be found on this page.
+              </p>
+            </div>
+            <div style={{ display: 'flex', gap: '1rem', alignItems: 'center', marginTop: '1.5rem' }}>
+              <a href="mailto:alessandro.linzi.phd@icloud.com" className="btn btn-primary">
                 Contact Me
               </a>
               <Link to="/publications" className="btn btn-outline">
@@ -23,7 +34,7 @@ const Home = () => {
               </Link>
             </div>
             
-            <div className="social-links">
+            <div className="social-links" style={{ marginTop: '1.5rem' }}>
               <a href="https://github.com/linzialessandro" target="_blank" rel="noopener noreferrer" className="social-icon" aria-label="GitHub">
                 <Github size={20} />
               </a>
@@ -39,9 +50,11 @@ const Home = () => {
         <div className="container">
           <div className="quote-mark">"</div>
           <p className="quote-text serif">
-            Mathematics, rightly viewed, possesses not only truth, but supreme beauty—a beauty cold and austere, like that of sculpture, without appeal to any part of our weaker nature, without the gorgeous trappings of painting or music, yet sublimely pure, and capable of a stern perfection such as only the greatest art can show.
+            [...] 1+1=2<br/>
+            Dem. [...]<br/>
+            <i>The above proposition is occasionally useful. It is used at least three times, [...]</i>
           </p>
-          <span className="quote-author">— Bertrand Russell</span>
+          <span className="quote-author">— Bertrand Russell. Principia Mathematica. 1912. Volume II, p. 83 in the 2nd edition.</span>
         </div>
       </section>
     </div>

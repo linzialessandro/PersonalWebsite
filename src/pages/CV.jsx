@@ -1,5 +1,5 @@
 import React from 'react'
-import { FileText, Download } from 'lucide-react'
+import { FileText, Download, Bot, ExternalLink } from 'lucide-react'
 
 // Import asset
 import cvUrl from '../assets/cv-alessandro-linzi.pdf'
@@ -12,7 +12,35 @@ const CV = () => {
         <p className="subtitle" style={{ margin: '0 auto 3rem auto' }}>My Academic Background and Experience</p>
         
         <div className="document-content text-left">
+          
+          <div className="glass-card" style={{ marginBottom: '2rem' }}>
+            <h3 style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '1.5rem' }}>
+              <Bot size={24} /> Interactive AI CV
+            </h3>
+            <p style={{ color: '#f3f4f6', marginBottom: '1.5rem' }}>
+              Explore my background, experience, and publications through an interactive AI-powered conversational interface. Ask questions about my research in Valuation Theory, my academic journey, or my teaching experience.
+            </p>
+            
+            <div className="resource-card" style={{ background: 'rgba(255, 255, 255, 0.05)', borderRadius: '12px', border: '1px solid rgba(255, 255, 255, 0.1)' }}>
+              <div className="resource-info" style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+                <div style={{ background: 'rgba(59, 130, 246, 0.2)', padding: '1rem', borderRadius: '50%' }}>
+                  <Bot size={28} color="#60a5fa" />
+                </div>
+                <div>
+                  <h4 style={{ margin: 0, fontSize: '1.2rem', color: '#fff' }}>Interactive AI CV</h4>
+                  <p style={{ margin: '0.2rem 0 0 0', color: '#9ca3af' }}>Powered by Google AI Studio</p>
+                </div>
+              </div>
+              <a href="https://aistudio.google.com/apps/c765648a-02a0-4004-97fc-af6eb15db905" target="_blank" rel="noopener noreferrer" className="btn btn-primary" style={{ display: 'flex', gap: '0.5rem' }}>
+                Launch App <ExternalLink size={18} />
+              </a>
+            </div>
+          </div>
+
           <div className="glass-card">
+            <h3 style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '1.5rem' }}>
+              <FileText size={24} /> Standard CV Document
+            </h3>
             <div className="resource-card" style={{ background: 'rgba(255, 255, 255, 0.05)', borderRadius: '12px', border: '1px solid rgba(255, 255, 255, 0.1)' }}>
               <div className="resource-info" style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
                 <div style={{ background: 'rgba(59, 130, 246, 0.2)', padding: '1rem', borderRadius: '50%' }}>
@@ -23,12 +51,12 @@ const CV = () => {
                   <p style={{ margin: '0.2rem 0 0 0', color: '#9ca3af' }}>Detailed Curriculum Vitae (PDF format)</p>
                 </div>
               </div>
-              <a href={cvUrl} target="_blank" rel="noopener noreferrer" className="btn btn-primary" style={{ display: 'flex', gap: '0.5rem' }}>
+              <a href={cvUrl} download="cv-alessandro-linzi.pdf" target="_blank" rel="noopener noreferrer" className="btn btn-primary" style={{ display: 'flex', gap: '0.5rem' }}>
                 <Download size={18} /> Download CV
               </a>
             </div>
             
-            <div style={{ marginTop: '3rem', textAlign: 'left' }}>
+            <div style={{ marginTop: '2rem', textAlign: 'left' }}>
               <p style={{ marginBottom: '1.5rem', color: '#f3f4f6' }}>
                 You can download my full CV using the button above. The document contains comprehensive details regarding my:
               </p>
@@ -41,8 +69,19 @@ const CV = () => {
               </ul>
             </div>
           </div>
+
         </div>
       </div>
+
+      <section className="quote-section" style={{ padding: '4rem 0' }}>
+        <div className="container">
+          <div className="quote-mark">"</div>
+          <p className="quote-text serif" style={{ fontSize: '1.5rem' }}>
+            <i>[...] One can (assuming the consistency of classical mathematics) even give examples of propositions [...] which are really contentually true but are unprovable in the formal system of classical mathematics. Therefore if one adjoins the negation of such a proposition to the axioms of classical mathematics, one obtains a consistent system in which a contentually false proposition is provable.</i>
+          </p>
+          <span className="quote-author">— Kurt Gödel. Könisberg, September 7, 1930. Discussion on the Foundation of Mathematics, Translated and edited by J. W. Dawson Jr., History and Philosophy of Logic, 5:1. 1984.</span>
+        </div>
+      </section>
     </div>
   )
 }

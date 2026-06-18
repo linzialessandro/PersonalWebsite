@@ -10,7 +10,6 @@ import Publications from './pages/Publications'
 import Teaching from './pages/Teaching'
 import AcademicNet from './pages/AcademicNet'
 import AIGallery from './pages/AIGallery'
-import Dialogues from './pages/Dialogues'
 
 const App = () => {
   return (
@@ -24,7 +23,6 @@ const App = () => {
           <Route path="/teaching" element={<Teaching />} />
           <Route path="/academic-net" element={<AcademicNet />} />
           <Route path="/ai-gallery" element={<AIGallery />} />
-          <Route path="/dialogues" element={<Dialogues />} />
         </Routes>
       </main>
       <Footer />

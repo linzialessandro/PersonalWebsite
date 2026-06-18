@@ -2,57 +2,52 @@ import React from 'react'
 import { Link2, ExternalLink } from 'lucide-react'
 
 const AcademicNet = () => {
-  const networks = [
-    {
-      name: "ResearchGate",
-      description: "Follow my latest research updates and publications.",
-      url: "https://www.researchgate.net/profile/Alessandro-Linzi",
-      color: "#00ccbb"
-    },
-    {
-      name: "Google Scholar",
-      description: "View my citation metrics and academic footprint.",
-      url: "https://scholar.google.com/citations?user=eX42s68AAAAJ",
-      color: "#4285F4"
-    },
-    {
-      name: "ORCID",
-      description: "My ORCID academic identifier and record.",
-      url: "https://orcid.org/0000-0002-8615-5645",
-      color: "#A6CE39"
-    },
-    {
-      name: "arXiv",
-      description: "Access my preprints and latest mathematical articles.",
-      url: "https://arxiv.org/a/linzi_a_1.html",
-      color: "#B31B1B"
-    }
-  ]
-
   return (
     <div className="page-header">
       <div className="container">
-        <h1>Academic Network</h1>
-        <p className="subtitle" style={{ margin: '0 auto 3rem auto' }}>Connect with my research across different platforms</p>
+        <h1>Academic Net</h1>
         
-        <div className="document-content text-left">
-          <div className="grid-2">
-            {networks.map((net, index) => (
-              <div key={index} className="glass-card" style={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
-                <h3 style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: net.color, borderBottom: 'none', marginBottom: '0.5rem' }}>
-                  <Link2 size={24} /> {net.name}
-                </h3>
-                <p style={{ color: '#9ca3af', flex: 1, marginBottom: '1.5rem' }}>
-                  {net.description}
-                </p>
-                <a href={net.url} target="_blank" rel="noopener noreferrer" className="btn btn-outline" style={{ display: 'flex', gap: '0.5rem', width: 'fit-content' }}>
-                  Visit Profile <ExternalLink size={16} />
-                </a>
-              </div>
-            ))}
+        <div className="document-content text-left" style={{ marginTop: '3rem' }}>
+          
+          <div className="glass-card document-section" style={{ marginBottom: '2rem' }}>
+            <h3>Colleagues</h3>
+            <ul style={{ paddingLeft: '1.5rem', color: '#f3f4f6', lineHeight: '2' }}>
+              <li>Hashem Bordbar (<a href="https://www.linkedin.com/in/hashem-bordbar-688661b8" target="_blank" rel="noopener noreferrer" style={{color: '#60a5fa'}}>LinkedIn</a>, <a href="https://www.researchgate.net/profile/Hashem-Bordbar" target="_blank" rel="noopener noreferrer" style={{color: '#60a5fa'}}>Research Gate</a>)</li>
+              <li>Piotr Błaszkiewicz (<a href="https://www.researchgate.net/profile/Piotr-Blaszkiewicz" target="_blank" rel="noopener noreferrer" style={{color: '#60a5fa'}}>Research Gate</a>)</li>
+              <li><a href="http://www.nicolocangiotti.eu" target="_blank" rel="noopener noreferrer" style={{color: '#60a5fa'}}>Nicolò Cangiotti</a> (<a href="https://it.linkedin.com/in/nicolocangiotti" target="_blank" rel="noopener noreferrer" style={{color: '#60a5fa'}}>LinkedIn</a>, <a href="https://www.researchgate.net/profile/Nicolo-Cangiotti" target="_blank" rel="noopener noreferrer" style={{color: '#60a5fa'}}>Research Gate</a>)</li>
+              <li>Irina Elena Cristea (<a href="https://si.linkedin.com/in/irina-cristea-7701116" target="_blank" rel="noopener noreferrer" style={{color: '#60a5fa'}}>LinkedIn</a>, <a href="https://www.researchgate.net/profile/Irina-Cristea" target="_blank" rel="noopener noreferrer" style={{color: '#60a5fa'}}>Research Gate</a>)</li>
+              <li><a href="https://www.fvkuhlmann.de" target="_blank" rel="noopener noreferrer" style={{color: '#60a5fa'}}>Franz-Viktor Kuhlmann</a></li>
+              <li>Ahmad Hosseini (<a href="https://www.linkedin.com/in/ahmadshosseini/" target="_blank" rel="noopener noreferrer" style={{color: '#60a5fa'}}>LinkedIn</a>, <a href="https://www.researchgate.net/profile/Ahmad-Hosseini-21" target="_blank" rel="noopener noreferrer" style={{color: '#60a5fa'}}>Research Gate</a>)</li>
+              <li><a href="http://users.uoa.gr/~chrmas/" target="_blank" rel="noopener noreferrer" style={{color: '#60a5fa'}}>Christos Massouros</a></li>
+              <li>Hanna Stojałowska (<a href="https://www.researchgate.net/profile/Hanna-Stojalowska" target="_blank" rel="noopener noreferrer" style={{color: '#60a5fa'}}>Research Gate</a>)</li>
+              <li>Enrico Talotti (<a href="http://www.linkedin.com/in/enrico-talotti-aa2527183" target="_blank" rel="noopener noreferrer" style={{color: '#60a5fa'}}>LinkedIn</a>, <a href="https://www.researchgate.net/profile/Enrico-Talotti-2" target="_blank" rel="noopener noreferrer" style={{color: '#60a5fa'}}>Research Gate</a>, <a href="https://github.com/enh11" target="_blank" rel="noopener noreferrer" style={{color: '#60a5fa'}}>Github</a>)</li>
+            </ul>
           </div>
+
+          <div className="glass-card document-section" style={{ marginBottom: '2rem' }}>
+            <h3>Other links</h3>
+            <ul style={{ paddingLeft: '1.5rem', color: '#f3f4f6', lineHeight: '2' }}>
+              <li><a href="http://projects.ung.si/handa/index.html" target="_blank" rel="noopener noreferrer" style={{color: '#60a5fa'}}>Official website of the Symposium on Hypercompositional Algebra-New Developements and Applications (HAndA)</a></li>
+              <li><a href="http://aha.eled.duth.gr/Thesaurus1.1.htm" target="_blank" rel="noopener noreferrer" style={{color: '#60a5fa'}}>A Thesaurus of Hyperstructures</a></li>
+              <li><a href="https://www.valth.eu" target="_blank" rel="noopener noreferrer" style={{color: '#60a5fa'}}>The Valuation Theory Home Page</a></li>
+              <li><a href="https://ncatlab.org/nlab/show/HomePage" target="_blank" rel="noopener noreferrer" style={{color: '#60a5fa'}}>nLab</a> (very useful reference for category theory)</li>
+              <li><a href="https://ijpam.uniud.it/journal/home.html" target="_blank" rel="noopener noreferrer" style={{color: '#60a5fa'}}>Italian Journal of Pure and Applied Mathematics</a></li>
+            </ul>
+          </div>
+
         </div>
       </div>
+
+      <section className="quote-section" style={{ padding: '4rem 0' }}>
+        <div className="container">
+          <div className="quote-mark">"</div>
+          <p className="quote-text serif" style={{ fontSize: '1.5rem' }}>
+            <i>I claim that many patterns of Nature are so irregular and fragmented, that, compared with Euclid—a term used in this work to denote all of standard geometry—Nature exhibits not simply a higher degree but an altogether different level of complexity.</i>
+          </p>
+          <span className="quote-author">— Benoit Mandelbrot. The Fractal Geometry of Nature . 1977.</span>
+        </div>
+      </section>
+
     </div>
   )
 }
