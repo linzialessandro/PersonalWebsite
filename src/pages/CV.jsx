@@ -34,7 +34,7 @@ const CV = () => {
                   <p style={{ margin: '0.2rem 0 0 0', color: 'var(--text-secondary)' }}>Powered by Google AI Studio</p>
                 </div>
               </div>
-              <a href="https://aistudio.google.com/apps/c765648a-02a0-4004-97fc-af6eb15db905" target="_blank" rel="noopener noreferrer" className="btn btn-primary" style={{ display: 'flex', gap: '0.5rem' }}>
+              <a href="https://ai.studio/apps/5b6fbc32-605a-4d3d-a8ae-2cae49da706c" target="_blank" rel="noopener noreferrer" className="btn btn-primary" style={{ display: 'flex', gap: '0.5rem' }}>
                 [ Launch App ] <ExternalLink size={18} />
               </a>
             </div>
