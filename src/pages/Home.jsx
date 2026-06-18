@@ -1,9 +1,13 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Github, Linkedin, ChevronRight } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import TerminalWindow from '../components/TerminalWindow'
+import SiteInfoModal from '../components/SiteInfoModal'
+import { Info } from 'lucide-react'
 
 const Home = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false)
+
   return (
     <div className="home-page container" style={{ paddingTop: '2rem' }}>
       <TerminalWindow title="cat profile.txt" delay={0}>
@@ -57,6 +61,16 @@ const Home = () => {
           <span className="quote-author">— Bertrand Russell. Principia Mathematica. 1912. Volume II, p. 83 in the 2nd edition.</span>
         </section>
       </TerminalWindow>
+      <button 
+        className="floating-info-btn"
+        onClick={() => setIsModalOpen(true)}
+        aria-label="Site Information"
+        title="Site Information"
+      >
+        <Info size={24} />
+      </button>
+
+      <SiteInfoModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </div>
   )
 }
