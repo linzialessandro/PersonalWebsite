@@ -34,7 +34,7 @@ const AcademicNet = () => {
               <li><a href="http://aha.eled.duth.gr/Thesaurus1.1.htm" target="_blank" rel="noopener noreferrer" style={{color: '#60a5fa'}}>A Thesaurus of Hyperstructures</a></li>
               <li><a href="https://www.valth.eu" target="_blank" rel="noopener noreferrer" style={{color: '#60a5fa'}}>The Valuation Theory Home Page</a></li>
               <li><a href="https://ncatlab.org/nlab/show/HomePage" target="_blank" rel="noopener noreferrer" style={{color: '#60a5fa'}}>nLab</a> (very useful reference for category theory)</li>
-              <li><a href="https://ijpam.uniud.it/journal/home.html" target="_blank" rel="noopener noreferrer" style={{color: '#60a5fa'}}>Italian Journal of Pure and Applied Mathematics</a></li>
+              <li><a href="https://journals.uniurb.it/index.php/ijpam/index" target="_blank" rel="noopener noreferrer" style={{color: '#60a5fa'}}>Italian Journal of Pure and Applied Mathematics</a></li>
             </ul>
           </div>
 
