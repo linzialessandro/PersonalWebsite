@@ -1,14 +1,14 @@
 import React from 'react'
 import { Github, Linkedin, ChevronRight } from 'lucide-react'
 import { Link } from 'react-router-dom'
+import TerminalWindow from '../components/TerminalWindow'
 
 const Home = () => {
   return (
-    <div className="home-page">
-      <section className="hero">
-        <div className="hero-bg"></div>
-        <div className="container">
-          <div className="hero-content glass-card">
+    <div className="home-page container" style={{ paddingTop: '2rem' }}>
+      <TerminalWindow title="cat profile.txt" delay={0}>
+        <section className="hero" style={{ minHeight: 'auto', padding: '1rem 0' }}>
+          <div className="hero-content">
             <span className="subtitle">Research Profile</span>
             <h1 style={{ marginBottom: '1.5rem' }}>Alessandro Linzi</h1>
             <div className="hero-desc" style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
@@ -27,10 +27,10 @@ const Home = () => {
             </div>
             <div style={{ display: 'flex', gap: '1rem', alignItems: 'center', marginTop: '1.5rem' }}>
               <a href="mailto:alessandro.linzi.phd@icloud.com" className="btn btn-primary">
-                Contact Me
+                [ Contact Me ]
               </a>
               <Link to="/publications" className="btn btn-outline">
-                View Publications <ChevronRight size={18} style={{ marginLeft: '0.5rem' }} />
+                [ View Publications ] <ChevronRight size={18} style={{ marginLeft: '0.5rem' }} />
               </Link>
             </div>
             
@@ -43,11 +43,11 @@ const Home = () => {
               </a>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </TerminalWindow>
 
-      <section className="quote-section">
-        <div className="container">
+      <TerminalWindow title="./quote.sh" delay={500}>
+        <section className="quote-section" style={{ padding: '2rem 0' }}>
           <div className="quote-mark">"</div>
           <p className="quote-text serif">
             [...] 1+1=2<br/>
@@ -55,8 +55,8 @@ const Home = () => {
             <i>The above proposition is occasionally useful. It is used at least three times, [...]</i>
           </p>
           <span className="quote-author">— Bertrand Russell. Principia Mathematica. 1912. Volume II, p. 83 in the 2nd edition.</span>
-        </div>
-      </section>
+        </section>
+      </TerminalWindow>
     </div>
   )
 }

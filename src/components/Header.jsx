@@ -15,9 +15,17 @@ const Header = () => {
   return (
     <header className="header glass">
       <div className="container header-container">
-        <Link to="/" className="logo" onClick={closeMenu}>
-          Alessandro Linzi
-        </Link>
+        <div className="prompt">
+          <span className="prompt-user">alessandro</span>
+          <span className="prompt-char">@</span>
+          <span className="prompt-host">website</span>
+          <span className="prompt-char">:</span>
+          <span className="prompt-dir">~</span>
+          <span className="prompt-char">$</span>
+          <Link to="/" className="logo" onClick={closeMenu} style={{ marginLeft: '0.5rem', color: 'inherit' }}>
+            cd /home
+          </Link>
+        </div>
         
         <button className="mobile-menu-btn" onClick={toggleMenu} aria-label="Toggle menu">
           {isMenuOpen ? '✕' : '☰'}
@@ -26,22 +34,19 @@ const Header = () => {
         <nav>
           <ul className={`nav-links ${isMenuOpen ? 'open' : ''}`}>
             <li>
-              <Link to="/" className={`nav-link ${isActive('/')}`} onClick={closeMenu}>Home</Link>
+              <Link to="/cv" className={`nav-link ${isActive('/cv')}`} onClick={closeMenu}>./cv.sh</Link>
             </li>
             <li>
-              <Link to="/cv" className={`nav-link ${isActive('/cv')}`} onClick={closeMenu}>CV</Link>
+              <Link to="/publications" className={`nav-link ${isActive('/publications')}`} onClick={closeMenu}>./research.sh</Link>
             </li>
             <li>
-              <Link to="/publications" className={`nav-link ${isActive('/publications')}`} onClick={closeMenu}>Research</Link>
+              <Link to="/teaching" className={`nav-link ${isActive('/teaching')}`} onClick={closeMenu}>./teaching.sh</Link>
             </li>
             <li>
-              <Link to="/teaching" className={`nav-link ${isActive('/teaching')}`} onClick={closeMenu}>Teaching</Link>
+              <Link to="/academic-net" className={`nav-link ${isActive('/academic-net')}`} onClick={closeMenu}>./academic-net.sh</Link>
             </li>
             <li>
-              <Link to="/academic-net" className={`nav-link ${isActive('/academic-net')}`} onClick={closeMenu}>Academic Net</Link>
-            </li>
-            <li>
-              <Link to="/ai-gallery" className={`nav-link ${isActive('/ai-gallery')}`} onClick={closeMenu}>AI Gallery</Link>
+              <Link to="/ai-gallery" className={`nav-link ${isActive('/ai-gallery')}`} onClick={closeMenu}>./ai-gallery.sh</Link>
             </li>
           </ul>
         </nav>

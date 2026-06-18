@@ -1,14 +1,17 @@
 import React from 'react'
 import { ExternalLink, Book, FileText, Download } from 'lucide-react'
 import firstTexUrl from '../assets/FirstTeX.pdf'
+import TerminalWindow from '../components/TerminalWindow'
 
 const Teaching = () => {
   return (
-    <div className="page-header">
-      <div className="container">
-        <h1>Teaching</h1>
+    <div className="container" style={{ paddingTop: '2rem' }}>
+      <TerminalWindow title="./teaching_resources.sh" delay={0}>
+        <div className="page-header" style={{ padding: '1rem 0' }}>
+          <h1 style={{ marginBottom: '1rem' }}>Teaching</h1>
+        </div>
         
-        <div className="document-content text-left" style={{ marginTop: '3rem' }}>
+        <div className="document-content text-left">
           
           <div className="glass-card document-section" style={{ marginBottom: '2rem' }}>
             <h3>Book for Slovenian students of the School of Engineering and Management.</h3>
@@ -95,18 +98,16 @@ const Teaching = () => {
           </div>
 
         </div>
-      </div>
-
-      <section className="quote-section" style={{ padding: '4rem 0' }}>
-        <div className="container">
+      </TerminalWindow>
+      <TerminalWindow title="./euler_quote.sh" delay={300}>
+        <section className="quote-section" style={{ padding: '2rem 0' }}>
           <div className="quote-mark">"</div>
-          <p className="quote-text serif" style={{ fontSize: '1.5rem' }}>
+          <p className="quote-text serif" style={{ fontSize: '1.2rem' }}>
             <i>[...] All such expressions as √-1, √-2, √-3, √-4 &amp;c. are consequently impossible, or imaginary numbers, since they represent roots of negative quantities; and of such numbers we may truly assert that they are neither nothing, nor greater than nothing, nor less than nothing; which necessarily constitutes them imaginary, or impossible. [...]</i>
           </p>
           <span className="quote-author">— Leonhard Euler. Elements of Algebra (Translation from French). Chapter XIII, page 43, paragraph 144.</span>
-        </div>
-      </section>
-
+        </section>
+      </TerminalWindow>
     </div>
   )
 }

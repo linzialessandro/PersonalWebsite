@@ -1,13 +1,16 @@
 import React from 'react'
 import { Link2, ExternalLink } from 'lucide-react'
+import TerminalWindow from '../components/TerminalWindow'
 
 const AcademicNet = () => {
   return (
-    <div className="page-header">
-      <div className="container">
-        <h1>Academic Net</h1>
+    <div className="container" style={{ paddingTop: '2rem' }}>
+      <TerminalWindow title="cat academic-net.md" delay={0}>
+        <div className="page-header" style={{ padding: '1rem 0' }}>
+          <h1 style={{ marginBottom: '1rem' }}>Academic Net</h1>
+        </div>
         
-        <div className="document-content text-left" style={{ marginTop: '3rem' }}>
+        <div className="document-content text-left">
           
           <div className="glass-card document-section" style={{ marginBottom: '2rem' }}>
             <h3>Colleagues</h3>
@@ -36,18 +39,16 @@ const AcademicNet = () => {
           </div>
 
         </div>
-      </div>
-
-      <section className="quote-section" style={{ padding: '4rem 0' }}>
-        <div className="container">
+      </TerminalWindow>
+      <TerminalWindow title="./mandelbrot_quote.sh" delay={300}>
+        <section className="quote-section" style={{ padding: '2rem 0' }}>
           <div className="quote-mark">"</div>
-          <p className="quote-text serif" style={{ fontSize: '1.5rem' }}>
+          <p className="quote-text serif" style={{ fontSize: '1.2rem' }}>
             <i>I claim that many patterns of Nature are so irregular and fragmented, that, compared with Euclid—a term used in this work to denote all of standard geometry—Nature exhibits not simply a higher degree but an altogether different level of complexity.</i>
           </p>
           <span className="quote-author">— Benoit Mandelbrot. The Fractal Geometry of Nature . 1977.</span>
-        </div>
-      </section>
-
+        </section>
+      </TerminalWindow>
     </div>
   )
 }

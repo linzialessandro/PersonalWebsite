@@ -1,5 +1,6 @@
 import React from 'react'
 import { FileText, Download } from 'lucide-react'
+import TerminalWindow from '../components/TerminalWindow'
 
 // Import assets
 import archimedesUrl from '../assets/Dialogues/Archimedes.pdf'
@@ -26,13 +27,15 @@ const AIGallery = () => {
   ]
 
   return (
-    <div className="page-header">
-      <div className="container">
-        <h1>AI Gallery</h1>
-        <p className="subtitle" style={{ margin: '0 auto 3rem auto' }}>Conversations with great mathematical minds</p>
+    <div className="container" style={{ paddingTop: '2rem' }}>
+      <TerminalWindow title="ls -l ./ai-gallery" delay={0}>
+        <div className="page-header" style={{ padding: '1rem 0' }}>
+          <h1 style={{ marginBottom: '1rem' }}>AI Gallery</h1>
+          <p className="subtitle" style={{ margin: '0 auto 3rem auto' }}>Conversations with great mathematical minds</p>
+        </div>
         
         <div className="document-content text-left">
-          <div className="glass-card document-section">
+          <div className="document-section">
             <h3 style={{ marginBottom: '1.5rem' }}>AI-Generated Dialogues</h3>
             <p style={{ color: '#f3f4f6', marginBottom: '2rem' }}>
               A collection of imaginative dialogues featuring historical figures in mathematics and computer science. 
@@ -59,7 +62,7 @@ const AIGallery = () => {
             </div>
           </div>
         </div>
-      </div>
+      </TerminalWindow>
     </div>
   )
 }
