@@ -80,7 +80,7 @@ const Teaching = () => {
             <p style={{ color: '#f3f4f6', marginBottom: '1.5rem' }}>
               Alternatively, you may clone the corresponding GitHub repository.
             </p>
-            <div style={{ display: 'flex', gap: '1rem' }}>
+            <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
               <a href="https://aistudio.google.com/apps/c765648a-02a0-4004-97fc-af6eb15db905" target="_blank" rel="noopener noreferrer" className="btn btn-primary" style={{ display: 'flex', gap: '0.5rem', width: 'fit-content' }}>
                 <ExternalLink size={18} /> Open App in AI Studio
               </a>

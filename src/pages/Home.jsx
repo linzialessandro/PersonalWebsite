@@ -29,7 +29,7 @@ const Home = () => {
                 Further details about my work and publications can be found on this page.
               </p>
             </div>
-            <div style={{ display: 'flex', gap: '1rem', alignItems: 'center', marginTop: '1.5rem' }}>
+            <div style={{ display: 'flex', gap: '1rem', alignItems: 'center', marginTop: '1.5rem', flexWrap: 'wrap' }}>
               <a href="mailto:alessandro.linzi.phd@icloud.com" className="btn btn-primary">
                 [ Contact Me ]
               </a>
