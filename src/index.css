@@ -574,3 +574,40 @@ h2 {
   font-size: 0.95rem;
   line-height: 1.5;
 }
+
+/* Global Button Fixes */
+.btn {
+  white-space: nowrap;
+  text-align: center;
+}
+
+/* Mobile Enhancements */
+@media (max-width: 768px) {
+  .resource-card {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.5rem;
+  }
+  
+  .resource-card .btn {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .prompt {
+    font-size: 0.85rem;
+    flex-wrap: wrap;
+    max-width: calc(100vw - 80px); /* Leave room for hamburger menu */
+  }
+  
+  .prompt-user, .prompt-host, .prompt-dir {
+    word-break: break-all;
+  }
+
+  .terminal-title {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 60vw;
+  }
+}
