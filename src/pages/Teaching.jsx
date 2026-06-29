@@ -97,6 +97,70 @@ const Teaching = () => {
             </p>
           </div>
 
+          <div className="glass-card document-section" style={{ marginBottom: '2rem' }}>
+            <h3>Prompt Engineering for Math Students</h3>
+            <p style={{ color: '#f3f4f6', marginBottom: '1rem' }}>
+              As AI becomes more prevalent, learning how to use it effectively is crucial. When stuck on a math problem, don't just ask an AI for the answer. Instead, ask it to act as a <strong>Socratic tutor</strong>.
+            </p>
+            <p style={{ color: '#9ca3af', fontStyle: 'italic', paddingLeft: '1rem', borderLeft: '3px solid #60a5fa' }}>
+              "I am stuck on this calculus problem. Please don't give me the final answer. Instead, explain the concept of the chain rule as it applies here, and give me a hint on what my first step should be."
+            </p>
+          </div>
+
+          <div className="glass-card document-section" style={{ marginBottom: '2rem' }}>
+            <h3>Interactive Coding for Mathematics</h3>
+            <p style={{ color: '#f3f4f6', marginBottom: '1rem' }}>
+              Programming is an incredible tool for visualizing and solving mathematical problems. I highly recommend students explore Python with libraries like <code>NumPy</code>, <code>SymPy</code>, and <code>Matplotlib</code>.
+            </p>
+            <ul style={{ paddingLeft: '1.5rem', color: '#f3f4f6', lineHeight: '2' }}>
+              <li>
+                <a href="https://colab.research.google.com/" target="_blank" rel="noopener noreferrer" style={{color: '#60a5fa'}}>
+                  Google Colab
+                </a> — Run Python directly in your browser with zero setup.
+              </li>
+              <li>
+                <a href="https://scipy-lectures.org/" target="_blank" rel="noopener noreferrer" style={{color: '#60a5fa'}}>
+                  SciPy Lectures
+                </a> — Great tutorials for learning scientific computing in Python.
+              </li>
+            </ul>
+          </div>
+
+          <div className="glass-card document-section" style={{ marginBottom: '2rem' }}>
+            <h3>Modern Visualization Tools</h3>
+            <ul style={{ paddingLeft: '1.5rem', color: '#f3f4f6', lineHeight: '2' }}>
+              <li>
+                <a href="https://www.desmos.com/calculator" target="_blank" rel="noopener noreferrer" style={{color: '#60a5fa'}}>
+                  Desmos Graphing Calculator
+                </a> — A beautiful, intuitive, and widely used online graphing calculator.
+              </li>
+              <li>
+                <a href="https://www.3blue1brown.com/" target="_blank" rel="noopener noreferrer" style={{color: '#60a5fa'}}>
+                  3Blue1Brown
+                </a> &amp; <a href="https://www.manim.community/" target="_blank" rel="noopener noreferrer" style={{color: '#60a5fa'}}>Manim</a> — Incredible math animations and the open-source Python engine used to create them.
+              </li>
+            </ul>
+          </div>
+
+          <div className="glass-card document-section" style={{ marginBottom: '2rem' }}>
+            <h3>Mathematics Competitions</h3>
+            <p style={{ color: '#f3f4f6', marginBottom: '1rem' }}>
+              For students who enjoy challenging problem-solving and out-of-the-box thinking:
+            </p>
+            <ul style={{ paddingLeft: '1.5rem', color: '#f3f4f6', lineHeight: '2' }}>
+              <li>
+                <a href="https://projecteuler.net/" target="_blank" rel="noopener noreferrer" style={{color: '#60a5fa'}}>
+                  Project Euler
+                </a> — A series of challenging mathematical/computer programming problems.
+              </li>
+              <li>
+                <a href="https://artofproblemsolving.com/community/c13_contests" target="_blank" rel="noopener noreferrer" style={{color: '#60a5fa'}}>
+                  Art of Problem Solving (AoPS)
+                </a> — An amazing community and archive of math olympiad problems from around the world.
+              </li>
+            </ul>
+          </div>
+
         </div>
       </TerminalWindow>
       <TerminalWindow title="./euler_quote.sh" delay={300}>

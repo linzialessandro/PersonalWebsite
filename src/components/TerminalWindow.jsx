@@ -1,115 +1,70 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { motion } from 'framer-motion';
 
 const TerminalWindow = ({ title = 'bash', children, delay = 0 }) => {
-  const contentRef = useRef(null);
-  const [isTyping, setIsTyping] = useState(true);
+  const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    const el = contentRef.current;
-    if (!el) return;
-
-    // Collect text nodes
-    const walk = document.createTreeWalker(el, NodeFilter.SHOW_TEXT, null, false);
-    const nodes = [];
-    let n;
-    while ((n = walk.nextNode())) {
-      if (n.nodeValue.trim().length > 0) {
-        nodes.push({
-          node: n,
-          originalText: n.nodeValue,
-        });
-      }
-    }
-
-    // Clear text content temporarily
-    nodes.forEach(n => n.node.nodeValue = '');
-
-    // Hide images and SVGs temporarily
-    const mediaElements = el.querySelectorAll('img, svg, .social-icon');
-    mediaElements.forEach(e => {
-      e.style.opacity = '0';
-      e.style.transition = 'opacity 0.5s ease';
-    });
-
-    let nodeIndex = 0;
-    let charIndex = 0;
-    let timeoutId;
-
-    // Create the blinking cursor
-    const cursor = document.createElement('span');
-    cursor.className = 'terminal-cursor';
-    cursor.textContent = '█';
-
-    // Start typing after initial delay
-    const startTimeoutId = setTimeout(() => {
-      typeNextChar();
+    const timer = setTimeout(() => {
+      setIsVisible(true);
     }, delay);
-
-    function typeNextChar() {
-      if (nodeIndex >= nodes.length) {
-        // Finish typing
-        setIsTyping(false);
-        if (cursor.parentNode) {
-          cursor.parentNode.removeChild(cursor);
-        }
-        // Reveal media elements
-        mediaElements.forEach(e => {
-          e.style.opacity = '1';
-        });
-        return;
-      }
-
-      const current = nodes[nodeIndex];
-      
-      // If we are starting a new node, append the cursor after it
-      if (charIndex === 0 && current.node.parentNode) {
-        current.node.parentNode.insertBefore(cursor, current.node.nextSibling);
-      }
-
-      if (charIndex < current.originalText.length) {
-        current.node.nodeValue = current.originalText.substring(0, charIndex + 1);
-        charIndex++;
-        // Speed up typing for large blocks (random interval 2-15ms)
-        timeoutId = setTimeout(typeNextChar, Math.random() * 13 + 2);
-      } else {
-        nodeIndex++;
-        charIndex = 0;
-        timeoutId = setTimeout(typeNextChar, 10);
-      }
-    }
-
-    return () => {
-      clearTimeout(startTimeoutId);
-      clearTimeout(timeoutId);
-      if (cursor.parentNode) {
-        cursor.parentNode.removeChild(cursor);
-      }
-      // On unmount, restore texts if aborted
-      nodes.forEach(n => {
-        if (n.node.nodeValue !== n.originalText) {
-          n.node.nodeValue = n.originalText;
-        }
-      });
-      mediaElements.forEach(e => {
-        e.style.opacity = '1';
-      });
-    };
+    return () => clearTimeout(timer);
   }, [delay]);
 
   return (
-    <div className="terminal-window">
-      <div className="terminal-header">
-        <div className="terminal-buttons">
-          <span className="close"></span>
-          <span className="minimize"></span>
-          <span className="maximize"></span>
+    <motion.div 
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+      className="bg-[#0a0a0a]/90 border border-border/50 rounded-xl mb-8 overflow-hidden shadow-2xl backdrop-blur-md"
+    >
+      <div className="bg-secondary/40 px-4 py-2.5 flex items-center border-b border-border/40">
+        <div className="flex gap-2 mr-4">
+          <span className="w-3 h-3 rounded-full bg-red-500 border border-red-600/50"></span>
+          <span className="w-3 h-3 rounded-full bg-yellow-500 border border-yellow-600/50"></span>
+          <span className="w-3 h-3 rounded-full bg-green-500 border border-green-600/50"></span>
         </div>
-        <div className="terminal-title">{title}</div>
+        <div className="text-muted-foreground text-xs flex-grow text-center mr-12 font-mono">
+          {title}
+        </div>
       </div>
-      <div className="terminal-body" ref={contentRef}>
-        {children}
+      <div className="p-6 md:p-8 text-foreground font-mono text-sm leading-relaxed relative min-h-[200px]">
+        {isVisible && (
+          <motion.div
+            initial="hidden"
+            animate="visible"
+            variants={{
+              hidden: { opacity: 0 },
+              visible: {
+                opacity: 1,
+                transition: {
+                  staggerChildren: 0.1,
+                  delayChildren: 0.2
+                }
+              }
+            }}
+          >
+            {/* We map over the children to animate them sequentially if possible, 
+                otherwise we just fade the whole block. */}
+            <motion.div 
+              variants={{
+                hidden: { opacity: 0, x: -5 },
+                visible: { opacity: 1, x: 0 }
+              }}
+            >
+              {children}
+            </motion.div>
+            <motion.span 
+              variants={{
+                hidden: { opacity: 0 },
+                visible: { opacity: 1 }
+              }}
+              className="inline-block w-2.5 h-[1.2em] bg-accent align-middle mt-4 animate-[blink_1s_step-end_infinite]"
+            ></motion.span>
+          </motion.div>
+        )}
       </div>
-    </div>
+    </motion.div>
   );
 };
 
