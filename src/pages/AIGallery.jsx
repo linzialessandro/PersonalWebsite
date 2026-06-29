@@ -1,6 +1,7 @@
 import React from "react";
 import TerminalWindow from "../components/TerminalWindow";
 import { dialogues, poetry } from "../data/aiGallery";
+import aiArtImage from "../assets/ai-art.jpg";
 
 const AIGallery = () => {
   return (
@@ -101,7 +102,7 @@ const AIGallery = () => {
               }}
             >
               <img
-                src="/ai-art.jpg"
+                src={aiArtImage}
                 alt="AI Generated Mathematical Art"
                 style={{
                   maxWidth: "100%",
