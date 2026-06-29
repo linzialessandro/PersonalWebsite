@@ -268,7 +268,10 @@ const CV = () => {
       <TerminalWindow title="./godel_quote.sh" delay={300}>
         <section className="quote-section" style={{ padding: "2rem 0" }}>
           <div className="quote-mark">"</div>
-          <p className="quote-text serif" style={{ fontSize: "1.2rem" }}>
+          <p
+            className="quote-text serif"
+            style={{ fontSize: "0.95rem", color: "var(--muted-foreground)" }}
+          >
             <i>
               [...] One can (assuming the consistency of classical mathematics)
               even give examples of propositions [...] which are really

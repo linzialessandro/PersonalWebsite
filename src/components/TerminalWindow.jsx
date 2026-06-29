@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react';
-import { motion } from 'framer-motion';
+import React, { useEffect, useState } from "react";
+import { motion } from "framer-motion";
 
-const TerminalWindow = ({ title = 'bash', children, delay = 0 }) => {
+const TerminalWindow = ({ title = "bash", children, delay = 0 }) => {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
@@ -12,7 +12,7 @@ const TerminalWindow = ({ title = 'bash', children, delay = 0 }) => {
   }, [delay]);
 
   return (
-    <motion.div 
+    <motion.div
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
@@ -28,7 +28,7 @@ const TerminalWindow = ({ title = 'bash', children, delay = 0 }) => {
           {title}
         </div>
       </div>
-      <div className="p-6 md:p-8 text-foreground font-mono text-sm leading-relaxed relative min-h-[200px]">
+      <div className="p-6 md:p-8 text-foreground font-mono text-base md:text-lg leading-relaxed relative min-h-[200px]">
         {isVisible && (
           <motion.div
             initial="hidden"
@@ -39,25 +39,25 @@ const TerminalWindow = ({ title = 'bash', children, delay = 0 }) => {
                 opacity: 1,
                 transition: {
                   staggerChildren: 0.1,
-                  delayChildren: 0.2
-                }
-              }
+                  delayChildren: 0.2,
+                },
+              },
             }}
           >
             {/* We map over the children to animate them sequentially if possible, 
                 otherwise we just fade the whole block. */}
-            <motion.div 
+            <motion.div
               variants={{
                 hidden: { opacity: 0, x: -5 },
-                visible: { opacity: 1, x: 0 }
+                visible: { opacity: 1, x: 0 },
               }}
             >
               {children}
             </motion.div>
-            <motion.span 
+            <motion.span
               variants={{
                 hidden: { opacity: 0 },
-                visible: { opacity: 1 }
+                visible: { opacity: 1 },
               }}
               className="inline-block w-2.5 h-[1.2em] bg-accent align-middle mt-4 animate-[blink_1s_step-end_infinite]"
             ></motion.span>
