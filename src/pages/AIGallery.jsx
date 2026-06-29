@@ -81,6 +81,46 @@ const AIGallery = () => {
               </div>
             ))}
           </div>
+
+          <div
+            className="glass-card document-section"
+            style={{ marginBottom: "2rem" }}
+          >
+            <h3>Algorithmic Art</h3>
+            <p style={{ color: "#f3f4f6", marginBottom: "1rem" }}>
+              Visualizing the profound complexity of mathematics through
+              generative algorithms.
+            </p>
+            <div
+              style={{
+                textAlign: "center",
+                background: "rgba(0, 0, 0, 0.2)",
+                padding: "2rem",
+                borderRadius: "12px",
+                border: "1px solid rgba(255, 255, 255, 0.1)",
+              }}
+            >
+              <img
+                src="/ai-art.jpg"
+                alt="AI Generated Mathematical Art"
+                style={{
+                  maxWidth: "100%",
+                  borderRadius: "8px",
+                  boxShadow: "0 4px 20px rgba(0,0,0,0.5)",
+                }}
+              />
+              <p
+                style={{
+                  color: "#9ca3af",
+                  marginTop: "1rem",
+                  fontSize: "0.9rem",
+                  fontStyle: "italic",
+                }}
+              >
+                "The Mandelbrot Dream" — Generated with AI
+              </p>
+            </div>
+          </div>
         </div>
       </TerminalWindow>
       <TerminalWindow title="./lovelace_quote.sh" delay={300}>
