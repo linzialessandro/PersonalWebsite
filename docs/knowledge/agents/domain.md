@@ -1,3 +1,11 @@
+---
+type: Agent Rule
+title: Domain Docs Consumption Guidelines
+description: How the engineering skills should consume this repo's domain documentation when exploring the codebase.
+tags: [agents, domain, architecture]
+timestamp: 2026-06-29T21:47:00Z
+---
+
 # Domain Docs
 
 How the engineering skills should consume this repo's domain documentation when exploring the codebase.

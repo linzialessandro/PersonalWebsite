@@ -1,3 +1,11 @@
+---
+type: Agent Rule
+title: Issue Tracker Conventions
+description: How the engineering skills should interact with the GitHub issue tracker.
+tags: [agents, issue-tracker, github]
+timestamp: 2026-06-29T21:47:00Z
+---
+
 # Issue tracker: GitHub
 
 Issues and PRDs for this repo live as GitHub issues. Use the `gh` CLI for all operations.
