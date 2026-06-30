@@ -9,6 +9,8 @@ timestamp: 2026-06-29T21:47:00Z
 
 Welcome to the Website project knowledge graph.
 
-- [Agents Knowledge](/docs/knowledge/agents/index.md)
-- [Architecture Knowledge](/docs/knowledge/architecture/index.md)
-- [Components Knowledge](/docs/knowledge/components/index.md)
+- [Architecture](/docs/knowledge/architecture/index.md) — tech stack, design system, routing
+- [Components](/docs/knowledge/components/index.md) — reusable React components
+- [Pages](/docs/knowledge/pages/index.md) — route-level page components
+- [Data](/docs/knowledge/data/index.md) — static content modules
+- [Agents](/docs/knowledge/agents/index.md) — agent behaviour rules and triage
