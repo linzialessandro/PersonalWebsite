@@ -9,7 +9,7 @@ timestamp: 2026-06-30T18:35:00Z
 
 # AI Gallery Page
 
-Route: `/ai-gallery`. A creative showcase using data from [AI Gallery Data](/docs/knowledge/data/ai-gallery-data.md).
+Route: `/ai-gallery`. A creative showcase using data from [AI Gallery Data](/data/ai-gallery-data.md).
 
 ## Dialogues
 

@@ -9,7 +9,7 @@ timestamp: 2026-06-30T18:33:00Z
 
 # Footer Component
 
-A stateless footer rendered at the bottom of every page via [Layout](/docs/knowledge/components/layout.md).
+A stateless footer rendered at the bottom of every page via [Layout](/components/layout.md).
 
 ## Content
 

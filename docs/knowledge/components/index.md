@@ -1,19 +1,13 @@
----
-type: Index
-title: Components Knowledge Base
-description: Documentation mapping out the frontend components of the application.
-tags: [components, frontend, react]
-timestamp: 2026-06-30T18:33:00Z
----
-
 # Components Knowledge Base
 
-This module documents the React components used across the website.
+Documentation mapping out the frontend components of the application.
 
-- [Layout](/docs/knowledge/components/layout.md)
-- [Header](/docs/knowledge/components/header.md)
-- [Footer](/docs/knowledge/components/footer.md)
-- [Terminal Window](/docs/knowledge/components/terminal-window.md)
-- [Site Info Modal](/docs/knowledge/components/site-info-modal.md)
-- [PublicationItem](/docs/knowledge/components/publication-item.md)
-- [ResourceCard](/docs/knowledge/components/resource-card.md)
+# Concepts
+
+- [Layout](/components/layout.md) - Root layout shell that composes Header, page content (via React Router Outlet), and Footer.
+- [Header](/components/header.md) - Sticky top navigation bar with terminal-style branding and responsive mobile menu.
+- [Footer](/components/footer.md) - Site-wide footer with copyright notice and social links (Email, GitHub, LinkedIn).
+- [Terminal Window](/components/terminal-window.md) - Styled container that mimics a macOS terminal window with traffic-light buttons and a blinking cursor animation.
+- [Site Info Modal](/components/site-info-modal.md) - Overlay modal displaying open-source license, privacy policy, and acknowledgements inside a TerminalWindow frame.
+- [PublicationItem](/components/publication-item.md) - Card component that renders a single academic publication with title, authors, journal, and optional external link.
+- [ResourceCard](/components/resource-card.md) - Reusable card for linking to external resources or downloads, with an icon, title, subtitle, and action button.

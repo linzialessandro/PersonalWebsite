@@ -9,7 +9,7 @@ timestamp: 2026-06-30T18:35:00Z
 
 # Teaching Page
 
-Route: `/teaching`. The largest page by source size (16 KB). Renders content from [Teaching Data](/docs/knowledge/data/teaching-data.md).
+Route: `/teaching`. The largest page by source size (16 KB). Renders content from [Teaching Data](/data/teaching-data.md).
 
 ## Content Sections
 
@@ -28,4 +28,4 @@ The data defines 10 sections, each with a `type` field that determines rendering
 | `modern-vis`         | links-list | Desmos, 3Blue1Brown, Manim                                 |
 | `math-comp`          | links-list | Project Euler, AoPS                                        |
 
-Uses [ResourceCard](/docs/knowledge/components/resource-card.md) for download items.
+Uses [ResourceCard](/components/resource-card.md) for download items.

@@ -9,7 +9,7 @@ timestamp: 2026-06-30T18:35:00Z
 
 # Home Page
 
-The landing page at route `/`. Two-column grid on desktop (`lg` breakpoint): left column has identity and branding, right column has a [TerminalWindow](/docs/knowledge/components/terminal-window.md) running `cat profile.txt`.
+The landing page at route `/`. Two-column grid on desktop (`lg` breakpoint): left column has identity and branding, right column has a [TerminalWindow](/components/terminal-window.md) running `cat profile.txt`.
 
 ## Left Column
 
@@ -21,7 +21,7 @@ The landing page at route `/`. Two-column grid on desktop (`lg` breakpoint): lef
 
 ## Right Column
 
-A [TerminalWindow](/docs/knowledge/components/terminal-window.md) with title `cat profile.txt` and 300ms delay, containing three sections: `EXPERTISE`, `RESEARCH_INTERESTS`, `ACADEMIC_EXPERIENCE`.
+A [TerminalWindow](/components/terminal-window.md) with title `cat profile.txt` and 300ms delay, containing three sections: `EXPERTISE`, `RESEARCH_INTERESTS`, `ACADEMIC_EXPERIENCE`.
 
 ## Quote Section
 
@@ -29,4 +29,4 @@ A Framer Motion `whileInView` reveal block quoting Bertrand Russell's _Principia
 
 ## Site Info Button
 
-A fixed-position `Info` icon button in the bottom-right corner triggers the [SiteInfoModal](/docs/knowledge/components/site-info-modal.md).
+A fixed-position `Info` icon button in the bottom-right corner triggers the [SiteInfoModal](/components/site-info-modal.md).

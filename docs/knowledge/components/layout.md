@@ -11,8 +11,8 @@ timestamp: 2026-06-30T18:33:00Z
 
 A thin wrapper used as the top-level route element in React Router. Renders three children in order:
 
-1. [Header](/docs/knowledge/components/header.md)
+1. [Header](/components/header.md)
 2. `<main>` containing `<Outlet />` (the matched child route)
-3. [Footer](/docs/knowledge/components/footer.md)
+3. [Footer](/components/footer.md)
 
 No props, no state. All page-level components render inside this shell.

@@ -9,7 +9,7 @@ timestamp: 2026-06-30T18:33:00Z
 
 # Site Info Modal
 
-A controlled modal (`isOpen` / `onClose` props) that renders three info blocks — Open Source, Privacy, and Acknowledgements — inside a [TerminalWindow](/docs/knowledge/components/terminal-window.md) with the title `./site_info.sh`.
+A controlled modal (`isOpen` / `onClose` props) that renders three info blocks — Open Source, Privacy, and Acknowledgements — inside a [TerminalWindow](/components/terminal-window.md) with the title `./site_info.sh`.
 
 ## Behaviour
 

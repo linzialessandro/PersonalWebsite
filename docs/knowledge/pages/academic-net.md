@@ -9,7 +9,7 @@ timestamp: 2026-06-30T18:35:00Z
 
 # Academic Network Page
 
-Route: `/academic-net`. Displays two sections from [Academic Network Data](/docs/knowledge/data/academic-net-data.md).
+Route: `/academic-net`. Displays two sections from [Academic Network Data](/data/academic-net-data.md).
 
 ## Collaborators
 

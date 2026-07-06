@@ -9,7 +9,7 @@ timestamp: 2026-06-30T18:35:00Z
 
 # Teaching Data
 
-Exports a single array `teachingSections` consumed by [Teaching Page](/docs/knowledge/pages/teaching.md). Each section has an `id`, `title`, and `type` that determines rendering:
+Exports a single array `teachingSections` consumed by [Teaching Page](/pages/teaching.md). Each section has an `id`, `title`, and `type` that determines rendering:
 
 | Type         | Behaviour                           |
 | ------------ | ----------------------------------- |

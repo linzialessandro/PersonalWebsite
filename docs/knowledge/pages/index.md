@@ -1,18 +1,12 @@
----
-type: Index
-title: Pages Knowledge Base
-description: Documentation of the site's page-level route components.
-tags: [pages, routing, react]
-timestamp: 2026-06-30T18:35:00Z
----
-
 # Pages Knowledge Base
 
-Each page is a route component rendered inside [Layout](/docs/knowledge/components/layout.md) via React Router. See [Routing](/docs/knowledge/architecture/routing.md) for the route table.
+Documentation of the site's page-level route components.
 
-- [Home](/docs/knowledge/pages/home.md)
-- [CV](/docs/knowledge/pages/cv.md)
-- [Publications](/docs/knowledge/pages/publications.md)
-- [Teaching](/docs/knowledge/pages/teaching.md)
-- [Academic Network](/docs/knowledge/pages/academic-net.md)
-- [AI Gallery](/docs/knowledge/pages/ai-gallery.md)
+# Concepts
+
+- [Home](/pages/home.md) - Landing page with hero section, terminal-style profile, Principia Mathematica quote, and Site Info Modal trigger.
+- [CV](/pages/cv.md) - Curriculum vitae page with PDF download and AI-powered interactive CV link.
+- [Publications](/pages/publications.md) - Academic publications page with three sections — published papers, preprints, and submitted manuscripts.
+- [Teaching](/pages/teaching.md) - Teaching resources page with 10 content sections covering books, LaTeX guides, apps, AI literacy, coding tools, and math competitions.
+- [Academic Network](/pages/academic-net.md) - Page listing research collaborators and useful academic links in the hypercompositional algebra community.
+- [AI Gallery](/pages/ai-gallery.md) - Creative page showcasing AI-generated dialogues with historical mathematicians and mathematical poetry.

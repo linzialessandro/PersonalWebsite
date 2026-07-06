@@ -9,7 +9,7 @@ timestamp: 2026-06-30T18:35:00Z
 
 # Publications Page
 
-Route: `/publications`. Renders three sections using data from [Publications Data](/docs/knowledge/data/publications-data.md).
+Route: `/publications`. Renders three sections using data from [Publications Data](/data/publications-data.md).
 
 ## Sections
 
@@ -19,4 +19,4 @@ Route: `/publications`. Renders three sections using data from [Publications Dat
 | Preprints | `preprints`    | 1 paper   |
 | Submitted | `submissions`  | 3 papers  |
 
-Each entry is rendered via [PublicationItem](/docs/knowledge/components/publication-item.md). The author name "A. Linzi" is bolded in every entry.
+Each entry is rendered via [PublicationItem](/components/publication-item.md). The author name "A. Linzi" is bolded in every entry.

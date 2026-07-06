@@ -9,7 +9,7 @@ timestamp: 2026-06-30T18:35:00Z
 
 # Academic Network Data
 
-Exports two arrays consumed by [Academic Network Page](/docs/knowledge/pages/academic-net.md).
+Exports two arrays consumed by [Academic Network Page](/pages/academic-net.md).
 
 | Export       | Count | Description                                                         |
 | ------------ | ----- | ------------------------------------------------------------------- |

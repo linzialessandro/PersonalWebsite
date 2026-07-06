@@ -9,7 +9,7 @@ timestamp: 2026-06-30T18:35:00Z
 
 # AI Gallery Data
 
-Exports two arrays consumed by [AI Gallery Page](/docs/knowledge/pages/ai-gallery.md).
+Exports two arrays consumed by [AI Gallery Page](/pages/ai-gallery.md).
 
 | Export      | Count | Description                                                   |
 | ----------- | ----- | ------------------------------------------------------------- |

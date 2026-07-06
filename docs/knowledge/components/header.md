@@ -9,7 +9,7 @@ timestamp: 2026-06-30T18:33:00Z
 
 # Header Component
 
-A sticky header rendered at the top of every page via [Layout](/docs/knowledge/components/layout.md). Styled as a rounded pill with glassmorphism (`backdrop-blur-xl`, `bg-background/80`).
+A sticky header rendered at the top of every page via [Layout](/components/layout.md). Styled as a rounded pill with glassmorphism (`backdrop-blur-xl`, `bg-background/80`).
 
 ## Branding
 

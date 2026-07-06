@@ -9,7 +9,7 @@ timestamp: 2026-06-30T18:33:00Z
 
 # Terminal Window Component
 
-A presentation wrapper that renders its children inside a terminal-themed frame. Used by [Site Info Modal](/docs/knowledge/components/site-info-modal.md) and the Home page hero.
+A presentation wrapper that renders its children inside a terminal-themed frame. Used by [Site Info Modal](/components/site-info-modal.md) and the Home page hero.
 
 ## Props
 

@@ -1,16 +1,15 @@
 ---
-type: Index
-title: Website Knowledge Base
-description: Root index of the Website project's Open Knowledge Format (OKF) graph.
-timestamp: 2026-06-29T21:47:00Z
+okf_version: "0.1"
 ---
 
-# Knowledge Base
+# Website Knowledge Base
 
-Welcome to the Website project knowledge graph.
+Root index of the Website project's Open Knowledge Format (OKF) graph.
 
-- [Architecture](/docs/knowledge/architecture/index.md) — tech stack, design system, routing
-- [Components](/docs/knowledge/components/index.md) — reusable React components
-- [Pages](/docs/knowledge/pages/index.md) — route-level page components
-- [Data](/docs/knowledge/data/index.md) — static content modules
-- [Agents](/docs/knowledge/agents/index.md) — agent behaviour rules and triage
+# Categories
+
+- [Architecture](/architecture/index.md) - Details about the project's architecture, tech stack, and design decisions.
+- [Components](/components/index.md) - Documentation mapping out the frontend components of the application.
+- [Pages](/pages/index.md) - Documentation of the site's page-level route components.
+- [Data](/data/index.md) - Documentation of the static data modules that feed content into page components.
+- [Agents](/agents/index.md) - Documentation governing agent behavior, issue tracking, and domain mapping.

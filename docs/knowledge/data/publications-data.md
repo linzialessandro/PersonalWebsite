@@ -9,7 +9,7 @@ timestamp: 2026-06-30T18:35:00Z
 
 # Publications Data
 
-Exports three arrays consumed by [Publications Page](/docs/knowledge/pages/publications.md).
+Exports three arrays consumed by [Publications Page](/pages/publications.md).
 
 | Export         | Count | Description                  |
 | -------------- | ----- | ---------------------------- |

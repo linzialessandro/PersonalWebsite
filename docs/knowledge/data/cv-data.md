@@ -9,7 +9,7 @@ timestamp: 2026-06-30T18:35:00Z
 
 # CV Data
 
-Exports a single object `cvData` consumed by [CV Page](/docs/knowledge/pages/cv.md).
+Exports a single object `cvData` consumed by [CV Page](/pages/cv.md).
 
 | Field      | Value                                              |
 | ---------- | -------------------------------------------------- |
