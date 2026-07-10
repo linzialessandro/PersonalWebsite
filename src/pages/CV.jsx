@@ -80,7 +80,7 @@ const CV = () => {
                 </div>
                 <div style={{ marginTop: "auto" }}>
                   <a
-                    href="https://ai.studio/apps/5b6fbc32-605a-4d3d-a8ae-2cae49da706c"
+                    href="https://ai.studio/apps/5b6fbc32-605a-4d3d-a8ae-2cae49da706c?fullscreenApplet=true"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="btn btn-outline"
