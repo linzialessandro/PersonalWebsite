@@ -217,7 +217,7 @@ const Teaching = () => {
             </p>
             <div style={{ display: "flex", gap: "1rem", flexWrap: "wrap" }}>
               <a
-                href="https://aistudio.google.com/apps/c765648a-02a0-4004-97fc-af6eb15db905"
+                href="https://ai.studio/apps/d7d3b68b-cce8-4dfb-8479-25120f4cf98d?fullscreenApplet=true"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn btn-primary"

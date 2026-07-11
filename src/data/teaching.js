@@ -91,7 +91,7 @@ export const teachingSections = [
       "Alternatively, you may clone the corresponding GitHub repository.",
     links: [
       {
-        url: "https://aistudio.google.com/apps/c765648a-02a0-4004-97fc-af6eb15db905",
+        url: "https://ai.studio/apps/d7d3b68b-cce8-4dfb-8479-25120f4cf98d?fullscreenApplet=true",
         label: "Open App in AI Studio",
       },
       { url: "https://github.com/linzialessandro", label: "View GitHub Repo" },
