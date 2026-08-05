@@ -31,13 +31,13 @@ This project is a modern Single Page Application (SPA) built to highlight my wor
 
 ## Socratic Dialogue Generation
 
-The project includes a utility script to dynamically generate Socratic dialogue PDFs from text specifications:
+The project includes a utility script to dynamically generate Socratic dialogue PDFs from JSON data sources located in `src/data/dialogues/`:
 
 ```bash
 node generate_dialogues.mjs
 ```
 
-This script uses `pdfkit` to compile dialogue transcripts (e.g. Lovelace, Noether, Ramanujan, von Neumann) into PDF files under `src/assets/Dialogues/`.
+This script compiles dialogue transcripts (e.g. Lovelace, Noether, Ramanujan, von Neumann) into beautifully formatted PDF documents using a custom **XeLaTeX** template, saving the output under `src/assets/Dialogues/`. Note that `xelatex` must be installed on your system to run this generator.
 
 ## Local Development
 
