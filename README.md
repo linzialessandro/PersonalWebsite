@@ -25,19 +25,9 @@ This project is a modern Single Page Application (SPA) built to highlight my wor
   - `AIGallery.jsx`: Creative gallery of AI-generated dialogues and poetry.
 - `src/data/`: Static mock data modules defining the content for the pages (`cv.js`, `publications.js`, `teaching.js`, `academicNet.js`, `aiGallery.js`).
 - `src/assets/`: Static assets including PDFs for CV and teaching materials.
-  - `src/assets/Dialogues/`: Contains dynamically generated Socratic dialogue PDFs.
+  - `src/assets/Dialogues/`: Contains Socratic dialogue PDFs.
 - `src/index.css`: Global styles, typography scale, and custom Tailwind CSS theme configuration.
 - `docs/knowledge/`: Open Knowledge Format (OKF) documentation graph.
-
-## Socratic Dialogue Generation
-
-The project includes a utility script to dynamically generate Socratic dialogue PDFs from JSON data sources located in `src/data/dialogues/`:
-
-```bash
-node generate_dialogues.mjs
-```
-
-This script compiles dialogue transcripts (e.g. Lovelace, Noether, Ramanujan, von Neumann) into beautifully formatted PDF documents using a custom **XeLaTeX** template, saving the output under `src/assets/Dialogues/`. Note that `xelatex` must be installed on your system to run this generator.
 
 ## Local Development
 
