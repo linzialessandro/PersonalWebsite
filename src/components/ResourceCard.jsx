@@ -1,91 +1,72 @@
-import React from "react";
-import { Download } from "lucide-react";
+import { Download, ExternalLink } from "lucide-react";
 
 const ResourceCard = ({
   title,
   subtitle,
+  description,
   icon: Icon,
-  color,
+  tone = "violet",
   link,
   linkText,
   isDownload,
-  bgOpacity = "0.2",
-  borderColor = "rgba(255, 255, 255, 0.1)",
+  downloadName,
+  badge,
+  stacked = false,
 }) => {
+  const iconClass =
+    tone === "cyan"
+      ? "resource-icon resource-icon-cyan"
+      : tone === "green"
+        ? "resource-icon resource-icon-green"
+        : "resource-icon resource-icon-violet";
+
   return (
-    <div
-      className="resource-card"
-      style={{
-        background: "rgba(255, 255, 255, 0.05)",
-        borderRadius: "12px",
-        border: `1px solid ${borderColor}`,
-        padding: "1rem",
-      }}
+    <article
+      className={`resource-card${stacked ? " resource-card-stack" : ""}`}
     >
       <div
         className="resource-info"
-        style={{ display: "flex", alignItems: "center", gap: "1rem" }}
+        style={stacked ? { alignItems: "flex-start" } : undefined}
       >
-        {Icon && (
-          <div
-            style={{
-              background: color.replace("1)", bgOpacity),
-              padding: "0.75rem",
-              borderRadius: "50%",
-            }}
-          >
-            <Icon
-              size={20}
-              color={color.replace(/rgba?\(.*?,\s*(.*?)\)/, "$1")}
-              style={{ color: color }}
-            />
+        {Icon ? (
+          <div className={iconClass}>
+            <Icon size={20} />
           </div>
-        )}
+        ) : null}
         <div>
-          <h4
-            style={{
-              margin: 0,
-              fontSize: "1.1rem",
-              color: "#fff",
-              display: "flex",
-              alignItems: "center",
-              gap: "0.5rem",
-            }}
-          >
+          <h4 className="m-0 text-[1.1rem] text-on-primary flex items-center gap-2">
             {title}
+            {badge ? (
+              <span className="text-[0.7rem] font-normal tracking-wide px-1.5 py-0.5 rounded bg-white/10 text-slate-300">
+                {badge}
+              </span>
+            ) : null}
           </h4>
-          {subtitle && (
-            <p
-              style={{
-                margin: "0.2rem 0 0 0",
-                color: "#9ca3af",
-                fontSize: "0.85rem",
-              }}
-            >
+          {subtitle ? (
+            <p className="mt-1 mb-0 text-sm text-muted-foreground">
               {subtitle}
             </p>
-          )}
+          ) : null}
+          {description ? (
+            <p className="mt-2 mb-0 text-sm text-muted-foreground leading-relaxed">
+              {description}
+            </p>
+          ) : null}
         </div>
       </div>
-      {link && (
+      {link ? (
         <a
           href={link}
-          download={isDownload}
+          download={isDownload ? downloadName || true : undefined}
           target="_blank"
           rel="noopener noreferrer"
           className="btn btn-outline"
-          style={{
-            padding: "0.5rem 1rem",
-            fontSize: "0.9rem",
-            display: "flex",
-            gap: "0.5rem",
-          }}
         >
-          {isDownload && <Download size={16} />}
+          {isDownload ? <Download size={16} /> : <ExternalLink size={16} />}
           {linkText || (isDownload ? "Download" : "Open")}
         </a>
-      )}
-    </div>
+      ) : null}
+    </article>
   );
 };
 

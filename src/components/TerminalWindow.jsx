@@ -1,25 +1,33 @@
-import React, { useEffect, useState } from "react";
-import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
+import { motion, useReducedMotion } from "framer-motion";
 
 const TerminalWindow = ({ title = "bash", children, delay = 0 }) => {
-  const [isVisible, setIsVisible] = useState(false);
+  const prefersReducedMotion = useReducedMotion();
+  const [isVisible, setIsVisible] = useState(
+    prefersReducedMotion || delay === 0
+  );
 
   useEffect(() => {
+    if (prefersReducedMotion || delay === 0) {
+      setIsVisible(true);
+      return undefined;
+    }
+
     const timer = setTimeout(() => {
       setIsVisible(true);
     }, delay);
     return () => clearTimeout(timer);
-  }, [delay]);
+  }, [delay, prefersReducedMotion]);
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 20 }}
+      initial={prefersReducedMotion ? false : { opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
       className="bg-[#0a0a0a]/90 border border-border/50 rounded-xl mb-8 overflow-hidden shadow-2xl backdrop-blur-md"
     >
       <div className="bg-secondary/40 px-4 py-2.5 flex items-center border-b border-border/40">
-        <div className="flex gap-2 mr-4">
+        <div className="flex gap-2 mr-4" aria-hidden="true">
           <span className="w-3 h-3 rounded-full bg-red-500 border border-red-600/50"></span>
           <span className="w-3 h-3 rounded-full bg-yellow-500 border border-yellow-600/50"></span>
           <span className="w-3 h-3 rounded-full bg-green-500 border border-green-600/50"></span>
@@ -34,21 +42,22 @@ const TerminalWindow = ({ title = "bash", children, delay = 0 }) => {
             initial="hidden"
             animate="visible"
             variants={{
-              hidden: { opacity: 0 },
+              hidden: { opacity: prefersReducedMotion ? 1 : 0 },
               visible: {
                 opacity: 1,
                 transition: {
-                  staggerChildren: 0.1,
-                  delayChildren: 0.2,
+                  staggerChildren: prefersReducedMotion ? 0 : 0.1,
+                  delayChildren: prefersReducedMotion ? 0 : 0.2,
                 },
               },
             }}
           >
-            {/* We map over the children to animate them sequentially if possible, 
-                otherwise we just fade the whole block. */}
             <motion.div
               variants={{
-                hidden: { opacity: 0, x: -5 },
+                hidden: {
+                  opacity: prefersReducedMotion ? 1 : 0,
+                  x: prefersReducedMotion ? 0 : -5,
+                },
                 visible: { opacity: 1, x: 0 },
               }}
             >
@@ -56,10 +65,11 @@ const TerminalWindow = ({ title = "bash", children, delay = 0 }) => {
             </motion.div>
             <motion.span
               variants={{
-                hidden: { opacity: 0 },
+                hidden: { opacity: prefersReducedMotion ? 1 : 0 },
                 visible: { opacity: 1 },
               }}
               className="inline-block w-2.5 h-[1.2em] bg-accent align-middle mt-4 animate-[blink_1s_step-end_infinite]"
+              aria-hidden="true"
             ></motion.span>
           </motion.div>
         )}

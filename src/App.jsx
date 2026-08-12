@@ -1,18 +1,21 @@
-import React from "react";
-import { HashRouter as Router, Routes, Route } from "react-router-dom";
+import { lazy, Suspense } from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { MotionConfig } from "framer-motion";
 import Layout from "./components/Layout";
-
-// Pages
+import PageFallback from "./components/PageFallback";
 import Home from "./pages/Home";
-import CV from "./pages/CV";
-import Publications from "./pages/Publications";
-import Teaching from "./pages/Teaching";
-import AcademicNet from "./pages/AcademicNet";
-import AIGallery from "./pages/AIGallery";
+import { getBasename } from "./lib/site";
 
-const App = () => {
+const CV = lazy(() => import("./pages/CV"));
+const Publications = lazy(() => import("./pages/Publications"));
+const Teaching = lazy(() => import("./pages/Teaching"));
+const AcademicNet = lazy(() => import("./pages/AcademicNet"));
+const AIGallery = lazy(() => import("./pages/AIGallery"));
+const NotFound = lazy(() => import("./pages/NotFound"));
+
+export const AppRoutes = () => {
   return (
-    <Router>
+    <Suspense fallback={<PageFallback />}>
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
@@ -21,9 +24,20 @@ const App = () => {
           <Route path="teaching" element={<Teaching />} />
           <Route path="academic-net" element={<AcademicNet />} />
           <Route path="ai-gallery" element={<AIGallery />} />
+          <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>
-    </Router>
+    </Suspense>
+  );
+};
+
+const App = () => {
+  return (
+    <MotionConfig reducedMotion="user">
+      <BrowserRouter basename={getBasename()}>
+        <AppRoutes />
+      </BrowserRouter>
+    </MotionConfig>
   );
 };
 

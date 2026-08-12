@@ -1,55 +1,88 @@
-import React from 'react'
-import { Info, X } from 'lucide-react'
-import TerminalWindow from './TerminalWindow'
+import { createPortal } from "react-dom";
+import { X } from "lucide-react";
+import TerminalWindow from "./TerminalWindow";
+import { useDialog } from "../hooks/useDialog";
+import { profile } from "../data/profile";
 
 const SiteInfoModal = ({ isOpen, onClose }) => {
-  if (!isOpen) return null
+  const dialogRef = useDialog({ isOpen, onClose });
 
-  return (
+  if (!isOpen) return null;
+
+  return createPortal(
     <div className="modal-overlay" onClick={onClose}>
-      <div className="modal-content" onClick={e => e.stopPropagation()}>
+      <div
+        ref={dialogRef}
+        className="modal-content"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="site-info-title"
+        onClick={(event) => event.stopPropagation()}
+      >
         <TerminalWindow title="./site_info.sh" delay={0}>
-          <div style={{ padding: '1.5rem', display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-              <h2 style={{ margin: 0 }}>Site Information</h2>
-              <button onClick={onClose} className="modal-close-btn" aria-label="Close modal">
+          <div className="flex flex-col gap-6 p-2">
+            <div className="flex justify-between items-center gap-4">
+              <h2 id="site-info-title" className="m-0">
+                Site Information
+              </h2>
+              <button
+                onClick={onClose}
+                className="modal-close-btn"
+                aria-label="Close site information"
+              >
                 <X size={24} />
               </button>
             </div>
-            
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+
+            <div className="flex flex-col gap-4">
               <div className="info-block">
-                <h3 style={{ fontSize: '1.1rem', marginBottom: '0.5rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                  <span style={{ color: 'var(--accent-success)' }}>&gt;</span> Open Source
+                <h3 className="text-[1.1rem] mb-2 flex items-center gap-2">
+                  <span className="text-accent">&gt;</span> Open Source
                 </h3>
                 <p>
-                  This entire website is open source under the MIT License. Feel free to explore the source code on my GitHub.
+                  This entire website is open source under the MIT License.
+                  Explore the source on{" "}
+                  <a
+                    href={profile.links.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-link"
+                  >
+                    GitHub
+                  </a>
+                  .
                 </p>
               </div>
 
               <div className="info-block">
-                <h3 style={{ fontSize: '1.1rem', marginBottom: '0.5rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                  <span style={{ color: 'var(--accent-success)' }}>&gt;</span> Privacy
+                <h3 className="text-[1.1rem] mb-2 flex items-center gap-2">
+                  <span className="text-accent">&gt;</span> Privacy
                 </h3>
                 <p>
-                  There are no cookies, trackers, or other invasive technologies here. The only tracking mechanism is Google Search Console, which I had to use strictly to ensure the website gets indexed on Google.
+                  There are no cookies, trackers, or third-party font requests
+                  here. Fonts are served from this site. The only indexing
+                  mechanism is Google Search Console verification.
                 </p>
               </div>
 
               <div className="info-block">
-                <h3 style={{ fontSize: '1.1rem', marginBottom: '0.5rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                  <span style={{ color: 'var(--accent-success)' }}>&gt;</span> Acknowledgements
+                <h3 className="text-[1.1rem] mb-2 flex items-center gap-2">
+                  <span className="text-accent">&gt;</span> Acknowledgements
                 </h3>
                 <p>
-                  Finally, I must mention that some tasks in building this website were delegated to AI agents. I am warmly grateful to my silicon-based assistants—they type faster than me and don't require coffee breaks.
+                  Some tasks in building this website were delegated to AI
+                  agents. I am gratefully indebted to those silicon-based
+                  assistants—they type faster than me and do not require coffee
+                  breaks.
                 </p>
               </div>
             </div>
           </div>
         </TerminalWindow>
       </div>
-    </div>
-  )
-}
+    </div>,
+    document.body
+  );
+};
 
-export default SiteInfoModal
+export default SiteInfoModal;

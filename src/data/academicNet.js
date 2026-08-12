@@ -23,7 +23,7 @@ export const colleagues = [
   },
   {
     name: "Nicolò Cangiotti",
-    url: "http://www.nicolocangiotti.eu",
+    url: "https://www.nicolocangiotti.eu",
     links: [
       { url: "https://it.linkedin.com/in/nicolocangiotti", text: "LinkedIn" },
       {
@@ -78,14 +78,14 @@ export const colleagues = [
     name: "Enrico Talotti",
     links: [
       {
-        url: "http://www.linkedin.com/in/enrico-talotti-aa2527183",
+        url: "https://www.linkedin.com/in/enrico-talotti-aa2527183",
         text: "LinkedIn",
       },
       {
         url: "https://www.researchgate.net/profile/Enrico-Talotti-2",
         text: "Research Gate",
       },
-      { url: "https://github.com/enh11", text: "Github" },
+      { url: "https://github.com/enh11", text: "GitHub" },
     ],
   },
 ];
@@ -97,7 +97,7 @@ export const otherLinks = [
   },
   {
     text: "A Thesaurus of Hyperstructures",
-    url: "http://aha.eled.duth.gr/Thesaurus1.1.htm",
+    url: "https://aha.eled.duth.gr/Thesaurus1.1.htm",
   },
   {
     text: "The Valuation Theory Home Page",

@@ -2,36 +2,29 @@
 
 Welcome to the repository for my personal and professional website. This site serves as a central hub for my academic profile, research publications, teaching materials, and interactive projects.
 
+Live site: [https://linzialessandro.github.io/PersonalWebsite/](https://linzialessandro.github.io/PersonalWebsite/)
+
 ## About This Repository
 
 This project is a modern Single Page Application (SPA) built to highlight my work in Valuation Theory and related mathematical fields. It was developed using:
 
 - **React 18**: For modular component architecture and efficient rendering.
 - **Vite 6**: As the frontend build tool for fast development and optimized production builds.
-- **Tailwind CSS v4**: Utility-first styling combined with a custom theme and glassmorphism-inspired design tokens.
-- **React Router v7**: For seamless navigation between pages via `HashRouter` (ensuring compatibility with static hosting like GitHub Pages).
+- **Tailwind CSS v4**: Utility-first styling combined with a custom theme and component layer.
+- **React Router v7**: Path-based routing via `BrowserRouter`, with a `404.html` fallback for GitHub Pages and a redirect from older hash URLs.
 - **Framer Motion**: For smooth micro-animations and page transitions.
 - **Lucide React**: For icons.
 
 ## Project Structure
 
-- `src/components/`: Reusable UI components (`Header.jsx`, `Footer.jsx`, `Layout.jsx`, `TerminalWindow.jsx`, `ResourceCard.jsx`, `PublicationItem.jsx`, `SiteInfoModal.jsx`).
-- `src/pages/`: Individual page views:
-  - `Home.jsx`: Landing page containing academic bio and terminal overview.
-  - `CV.jsx`: Timeline of academic and professional history.
-  - `Publications.jsx`: List of papers and research materials.
-  - `Teaching.jsx`: Curated math resources and download links.
-  - `AcademicNet.jsx`: Grid of collaborators and mathematical reference links.
-  - `AIGallery.jsx`: Creative gallery of AI-generated dialogues and poetry.
-- `src/data/`: Static mock data modules defining the content for the pages (`cv.js`, `publications.js`, `teaching.js`, `academicNet.js`, `aiGallery.js`).
-- `src/assets/`: Static assets including PDFs for CV and teaching materials.
-  - `src/assets/Dialogues/`: Contains Socratic dialogue PDFs.
-- `src/index.css`: Global styles, typography scale, and custom Tailwind CSS theme configuration.
+- `src/components/`: Reusable UI components (`Header`, `Footer`, `Layout`, `TerminalWindow`, `ResourceCard`, `PublicationItem`, `SiteInfoModal`).
+- `src/pages/`: Individual page views (Home, CV, Publications, Teaching, Academic Net, AI Gallery).
+- `src/data/`: Static content modules that feed the pages (`cv.js`, `publications.js`, `teaching.js`, `academicNet.js`, `aiGallery.js`, `profile.js`).
+- `src/assets/`: Static assets including PDFs for the CV and teaching materials.
+- `src/index.css`: Design tokens, typography, and component styles.
 - `docs/knowledge/`: Open Knowledge Format (OKF) documentation graph.
 
 ## Local Development
-
-To run the website locally on your machine:
 
 1. Clone the repository.
 2. Install dependencies:
@@ -44,26 +37,26 @@ To run the website locally on your machine:
    ```
 4. Open your browser and navigate to `http://localhost:5173`.
 
-## Formatting & Linting
+## Formatting, Linting & Tests
 
-The project uses ESLint and Prettier for code quality and formatting, managed on commits using Husky and lint-staged:
+The project uses ESLint and Prettier on commits (Husky + lint-staged), plus a small Vitest suite for content contracts and routing.
 
 ```bash
-# Run manual lint check
 npm run lint
+npm test
 ```
 
 ## Deployment
 
-The repository is configured to be seamlessly deployed to GitHub Pages.
+Pushes to `main` run GitHub Actions: lint, test, build, then publish `dist` to the `gh-pages` branch. GitHub Pages is served from that branch at `/PersonalWebsite/`.
 
-To deploy the latest changes:
+A production build also copies `index.html` to `404.html` so deep links such as `/publications` work on GitHub Pages. Older `#/publications` URLs are rewritten to path routes on first load.
+
+Manual deploy is still available:
 
 ```bash
 npm run deploy
 ```
-
-This command automatically builds the project and pushes the optimized static assets to the `gh-pages` branch.
 
 ---
 

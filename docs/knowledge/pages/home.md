@@ -17,7 +17,7 @@ The landing page at route `/`. Two-column grid on desktop (`lg` breakpoint): lef
 - Name: "Alessandro Linzi".
 - Tagline: mathematician specializing in model theory of valued fields, constructive logic, and foundations of computation.
 - CTA buttons: mailto link ("Contact Me"), internal link to `/publications`.
-- Social icons: GitHub, LinkedIn.
+- Social icons from `SocialLinks` / `profile.js` (email, ORCID, Scholar, arXiv, GitHub, LinkedIn).
 
 ## Right Column
 

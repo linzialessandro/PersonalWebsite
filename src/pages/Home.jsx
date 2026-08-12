@@ -6,6 +6,7 @@ import TerminalWindow from "../components/TerminalWindow";
 import SiteInfoModal from "../components/SiteInfoModal";
 import SocialLinks from "../components/SocialLinks";
 import { profile } from "../data/profile";
+import PageMeta from "../components/PageMeta";
 
 const Home = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -29,6 +30,7 @@ const Home = () => {
 
   return (
     <div className="container mx-auto px-6 pt-12 pb-24 md:pt-20">
+      <PageMeta description={profile.tagline} />
       <motion.div
         className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-start"
         variants={containerVariants}

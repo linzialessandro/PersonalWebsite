@@ -1,15 +1,17 @@
 ---
 type: Concept
 title: Routing
-description: Client-side routing configuration using HashRouter and nested routes under Layout.
+description: Client-side routing configuration using BrowserRouter, lazy inner routes, and a GitHub Pages SPA fallback.
 resource: src/App.jsx
 tags: [architecture, routing, react-router]
-timestamp: 2026-06-30T18:35:00Z
+timestamp: 2026-08-13T12:00:00Z
 ---
 
 # Routing
 
-The app uses `HashRouter` from `react-router-dom` (not `BrowserRouter`) because it deploys to GitHub Pages, which does not support server-side URL rewriting.
+The app uses `BrowserRouter` from `react-router-dom` with a production basename of `/PersonalWebsite/` so URLs are real paths (`/publications`) instead of hashes. GitHub Pages has no rewrite rules, so the Vite build copies `index.html` to `404.html`. A first-load helper in `src/lib/hashRedirect.js` rewrites legacy `#/path` URLs to the equivalent path.
+
+Home is imported eagerly. Inner pages are `React.lazy` route modules.
 
 ## Route Table
 
@@ -23,7 +25,8 @@ All routes are nested under a single [Layout](/components/layout.md) route.
 | `/teaching`     | [Teaching](/pages/teaching.md)             | `./teaching.sh`     |
 | `/academic-net` | [Academic Network](/pages/academic-net.md) | `./academic-net.sh` |
 | `/ai-gallery`   | [AI Gallery](/pages/ai-gallery.md)         | `./ai-gallery.sh`   |
+| `*`             | `NotFound`                                 | —                   |
 
 ## Deployment
 
-Vite config sets `base: './'` for relative asset paths. Deployment uses `gh-pages -d dist` (the `deploy` npm script).
+Production Vite `base` is `/PersonalWebsite/`. CI builds on every push/PR and deploys `dist` to `gh-pages` from `main`.

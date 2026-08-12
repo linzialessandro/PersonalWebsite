@@ -11,7 +11,8 @@ timestamp: 2026-06-30T18:35:00Z
 
 Exports a single object `cvData` consumed by [CV Page](/pages/cv.md).
 
-| Field      | Value                                              |
-| ---------- | -------------------------------------------------- |
-| `pdfUrl`   | Imported from `src/assets/cv-alessandro-linzi.pdf` |
-| `aiCvLink` | Google AI Studio interactive CV app                |
+| Field        | Value                                              |
+| ------------ | -------------------------------------------------- |
+| `pdfUrl`     | Imported from `src/assets/cv-alessandro-linzi.pdf` |
+| `aiCvLink`   | Google AI Studio interactive CV app (fullscreen)   |
+| `highlights` | Short list of CV sections shown on the page        |

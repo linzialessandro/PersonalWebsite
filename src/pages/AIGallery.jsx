@@ -1,249 +1,99 @@
-import React from "react";
-import { FileText, Download } from "lucide-react";
+import { FileText } from "lucide-react";
 import TerminalWindow from "../components/TerminalWindow";
-
-// Import assets
-import archimedesUrl from "../assets/Dialogues/Archimedes.pdf";
-import bellavitisUrl from "../assets/Dialogues/Bellavitis.pdf";
-import erdosUrl from "../assets/Dialogues/Erdos.pdf";
-import fibonacciUrl from "../assets/Dialogues/Fibonacci.pdf";
-import godelUrl from "../assets/Dialogues/Godel.pdf";
-import hilbertUrl from "../assets/Dialogues/Hilbert.pdf";
-import leibnizUrl from "../assets/Dialogues/Leibniz.pdf";
-import russellUrl from "../assets/Dialogues/Russell.pdf";
-import turingUrl from "../assets/Dialogues/Turing.pdf";
-import aiArtImage from "../assets/ai-art.jpg";
+import PageShell from "../components/PageShell";
+import PageMeta from "../components/PageMeta";
+import ResourceCard from "../components/ResourceCard";
+import { dialogues, poetry } from "../data/aiGallery";
+import aiArtImage from "../assets/ai-art.webp";
 
 const AIGallery = () => {
-  const dialogues = [
-    { name: "Archimedes", url: archimedesUrl },
-    { name: "Bellavitis", url: bellavitisUrl, lang: "IT" },
-    { name: "Erdos", url: erdosUrl },
-    { name: "Fibonacci", url: fibonacciUrl },
-    { name: "Godel", url: godelUrl },
-    { name: "Hilbert", url: hilbertUrl },
-    { name: "Leibniz", url: leibnizUrl },
-    { name: "Russell", url: russellUrl },
-    { name: "Turing", url: turingUrl },
-  ];
-
   return (
-    <div className="container" style={{ paddingTop: "2rem" }}>
+    <PageShell>
+      <PageMeta
+        title="AI Gallery"
+        description="AI-generated dialogues, poetry, and algorithmic art."
+      />
       <TerminalWindow title="ls -l ./ai-gallery" delay={0}>
-        <div className="page-header" style={{ padding: "1rem 0" }}>
-          <h1 style={{ marginBottom: "1rem" }}>AI Gallery</h1>
-          <p className="subtitle" style={{ margin: "0 auto 3rem auto" }}>
+        <div className="page-header">
+          <h1>AI Gallery</h1>
+          <p className="subtitle">
             Conversations with great mathematical minds
           </p>
         </div>
 
-        <div className="document-content text-left">
-          <div className="document-section">
-            <h3 style={{ marginBottom: "1.5rem" }}>AI-Generated Dialogues</h3>
-            <p style={{ color: "#f3f4f6", marginBottom: "2rem" }}>
+        <div className="document-content">
+          <section className="document-section">
+            <h3>AI-Generated Dialogues</h3>
+            <p className="text-slate-200 mb-8">
               A collection of imaginative dialogues featuring historical figures
               in mathematics and computer science. These texts explore their
               foundational ideas and historical contexts.
             </p>
 
             <div className="grid-2">
-              {dialogues.map((person, index) => (
-                <div
-                  key={index}
-                  className="resource-card"
-                  style={{
-                    background: "rgba(255, 255, 255, 0.05)",
-                    borderRadius: "12px",
-                    border: "1px solid rgba(255, 255, 255, 0.1)",
-                    padding: "1rem",
-                  }}
-                >
-                  <div
-                    className="resource-info"
-                    style={{
-                      display: "flex",
-                      alignItems: "center",
-                      gap: "1rem",
-                    }}
-                  >
-                    <div
-                      style={{
-                        background: "rgba(139, 92, 246, 0.2)",
-                        padding: "0.75rem",
-                        borderRadius: "50%",
-                      }}
-                    >
-                      <FileText size={20} color="#a78bfa" />
-                    </div>
-                    <div>
-                      <h4
-                        style={{
-                          margin: 0,
-                          fontSize: "1.1rem",
-                          color: "#fff",
-                          display: "flex",
-                          alignItems: "center",
-                          gap: "0.5rem",
-                        }}
-                      >
-                        {person.name}
-                        {person.lang && (
-                          <span
-                            style={{
-                              fontSize: "0.7rem",
-                              padding: "0.15rem 0.4rem",
-                              backgroundColor: "rgba(255, 255, 255, 0.1)",
-                              color: "#cbd5e1",
-                              borderRadius: "4px",
-                              fontWeight: "normal",
-                              letterSpacing: "0.05em",
-                            }}
-                          >
-                            {person.lang}
-                          </span>
-                        )}
-                      </h4>
-                      <p
-                        style={{
-                          margin: "0.2rem 0 0 0",
-                          color: "#9ca3af",
-                          fontSize: "0.85rem",
-                        }}
-                      >
-                        PDF Dialogue
-                      </p>
-                    </div>
-                  </div>
-                  <a
-                    href={person.url}
-                    download={`${person.name}.pdf`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="btn btn-outline"
-                    style={{
-                      padding: "0.5rem 1rem",
-                      fontSize: "0.9rem",
-                      display: "flex",
-                      gap: "0.5rem",
-                    }}
-                  >
-                    <Download size={16} /> Download
-                  </a>
-                </div>
+              {dialogues.map((person) => (
+                <ResourceCard
+                  key={person.name}
+                  title={person.name}
+                  subtitle="PDF Dialogue"
+                  icon={FileText}
+                  tone="violet"
+                  link={person.url}
+                  linkText="Download"
+                  isDownload
+                  downloadName={`${person.name}.pdf`}
+                  badge={person.lang}
+                />
               ))}
             </div>
-          </div>
+          </section>
 
-          <div className="document-section" style={{ marginTop: "3rem" }}>
-            <h3 style={{ marginBottom: "1.5rem" }}>
-              Mathematical Poetry generated by AI
-            </h3>
-            <p style={{ color: "#f3f4f6", marginBottom: "2rem" }}>
+          <section className="document-section mt-12">
+            <h3>Mathematical Poetry generated by AI</h3>
+            <p className="text-slate-200 mb-8">
               We asked our AI models to capture the beauty of mathematics in
               poetic form.
             </p>
 
             <div className="grid-2">
-              <div
-                className="resource-card"
-                style={{
-                  background: "rgba(255, 255, 255, 0.05)",
-                  borderRadius: "12px",
-                  border: "1px solid rgba(255, 255, 255, 0.1)",
-                  padding: "1.5rem",
-                }}
-              >
-                <h4 style={{ color: "#fff", marginBottom: "1rem" }}>
-                  The Riemann Zeta
-                </h4>
-                <p
-                  style={{
-                    color: "#cbd5e1",
-                    fontStyle: "italic",
-                    lineHeight: "1.8",
-                    fontSize: "0.95rem",
-                  }}
-                >
-                  A line of zeros, perfectly aligned,
-                  <br />
-                  In critical strip where primes are intertwined.
-                  <br />
-                  A mystery deep that Riemann left behind,
-                  <br />
-                  The greatest secret of the human mind.
-                </p>
-              </div>
-              <div
-                className="resource-card"
-                style={{
-                  background: "rgba(255, 255, 255, 0.05)",
-                  borderRadius: "12px",
-                  border: "1px solid rgba(255, 255, 255, 0.1)",
-                  padding: "1.5rem",
-                }}
-              >
-                <h4 style={{ color: "#fff", marginBottom: "1rem" }}>
-                  Fibonacci's Spiral
-                </h4>
-                <p
-                  style={{
-                    color: "#cbd5e1",
-                    fontStyle: "italic",
-                    lineHeight: "1.8",
-                    fontSize: "0.95rem",
-                  }}
-                >
-                  One, then one again, the sequence starts,
-                  <br />
-                  To two, then three, the golden spiral parts.
-                  <br />
-                  Five petals bloom, eight leaves upon the tree,
-                  <br />
-                  Nature's own design in harmony.
-                </p>
-              </div>
+              {poetry.map((poem) => (
+                <article key={poem.title} className="glass-card">
+                  <h4 className="text-on-primary mb-4 mt-0">{poem.title}</h4>
+                  <p className="text-slate-300 italic leading-8 text-[0.95rem] m-0">
+                    {poem.lines.map((line) => (
+                      <span key={line}>
+                        {line}
+                        <br />
+                      </span>
+                    ))}
+                  </p>
+                </article>
+              ))}
             </div>
-          </div>
+          </section>
 
-          <div className="document-section" style={{ marginTop: "3rem" }}>
-            <h3 style={{ marginBottom: "1.5rem" }}>Algorithmic Art</h3>
-            <p style={{ color: "#f3f4f6", marginBottom: "2rem" }}>
+          <section className="document-section mt-12">
+            <h3>Algorithmic Art</h3>
+            <p className="text-slate-200 mb-8">
               Visualizing the profound complexity of mathematics through
               generative algorithms.
             </p>
-            <div
-              style={{
-                textAlign: "center",
-                background: "rgba(0, 0, 0, 0.2)",
-                padding: "2rem",
-                borderRadius: "12px",
-                border: "1px solid rgba(255, 255, 255, 0.1)",
-              }}
-            >
+            <figure className="m-0 text-center bg-black/20 p-8 rounded-xl border border-white/10">
               <img
                 src={aiArtImage}
-                alt="AI Generated Mathematical Art"
-                style={{
-                  maxWidth: "100%",
-                  borderRadius: "8px",
-                  boxShadow: "0 4px 20px rgba(0,0,0,0.5)",
-                }}
+                alt="AI generated mathematical art titled The Mandelbrot Dream"
+                width={1024}
+                height={1024}
+                className="max-w-full rounded-lg mx-auto shadow-[0_4px_20px_rgba(0,0,0,0.5)]"
               />
-              <p
-                style={{
-                  color: "#9ca3af",
-                  marginTop: "1rem",
-                  fontSize: "0.9rem",
-                  fontStyle: "italic",
-                }}
-              >
-                "The Mandelbrot Dream" — Generated with AI
-              </p>
-            </div>
-          </div>
+              <figcaption className="text-muted-foreground mt-4 text-sm italic">
+                &ldquo;The Mandelbrot Dream&rdquo; — Generated with AI
+              </figcaption>
+            </figure>
+          </section>
         </div>
       </TerminalWindow>
-    </div>
+    </PageShell>
   );
 };
 

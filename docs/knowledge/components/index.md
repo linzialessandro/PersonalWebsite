@@ -4,8 +4,8 @@ Documentation mapping out the frontend components of the application.
 
 # Concepts
 
-- [Layout](/components/layout.md) - Root layout shell that composes Header, page content (via React Router Outlet), and Footer.
-- [Header](/components/header.md) - Sticky top navigation bar with terminal-style branding and responsive mobile menu.
+- [Layout](/components/layout.md) - Root layout shell that composes a skip link, Header, page content, and Footer.
+- [Header](/components/header.md) - Sticky top navigation bar with terminal-style branding and an accessible mobile menu.
 - [Footer](/components/footer.md) - Site-wide footer with copyright notice and social links (Email, GitHub, LinkedIn).
 - [Terminal Window](/components/terminal-window.md) - Styled container that mimics a macOS terminal window with traffic-light buttons and a blinking cursor animation.
 - [Site Info Modal](/components/site-info-modal.md) - Overlay modal displaying open-source license, privacy policy, and acknowledgements inside a TerminalWindow frame.

@@ -2,7 +2,7 @@ import React from "react";
 
 const PublicationItem = ({ pub, index }) => {
   return (
-    <div className="glass-card pub-item" style={{ padding: "1.5rem" }}>
+    <article className="glass-card pub-item">
       <h3 className="pub-title">
         {index ? `${index}. ` : ""}
         {pub.title}
@@ -26,7 +26,7 @@ const PublicationItem = ({ pub, index }) => {
           {pub.linkText || "View Publication"} ↗
         </a>
       )}
-    </div>
+    </article>
   );
 };
 
