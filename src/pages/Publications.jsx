@@ -269,6 +269,39 @@ const Publications = () => {
                 arXiv:2509.19854 ↗
               </a>
             </div>
+            <div className="glass-card pub-item" style={{ padding: "1.5rem" }}>
+              <h3 className="pub-title">
+                2. Finite-field Krasner quotients: isomorphism thresholds,
+                characteristics, and censuses.
+              </h3>
+              <p className="pub-authors">
+                <strong>A. Linzi</strong>.
+              </p>
+              <p className="pub-journal">2026.</p>
+              <a
+                href="https://www.arxiv.org/abs/2608.03625"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="pub-link"
+              >
+                arXiv:2608.03625 ↗
+              </a>
+            </div>
+            <div className="glass-card pub-item" style={{ padding: "1.5rem" }}>
+              <h3 className="pub-title">3. Valued Mosaics.</h3>
+              <p className="pub-authors">
+                <strong>A. Linzi</strong>.
+              </p>
+              <p className="pub-journal">2026.</p>
+              <a
+                href="https://www.arxiv.org/abs/2608.10616"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="pub-link"
+              >
+                arXiv:2608.10616 ↗
+              </a>
+            </div>
           </div>
         </div>
 
@@ -278,24 +311,6 @@ const Publications = () => {
             <div className="glass-card pub-item" style={{ padding: "1.5rem" }}>
               <h3 className="pub-title">
                 A Horn Theory of Fields and Certain Hyperfields.
-              </h3>
-              <p className="pub-authors">
-                <strong>A. Linzi</strong>.
-              </p>
-              <p className="pub-journal">submitted.</p>
-            </div>
-            <div className="glass-card pub-item" style={{ padding: "1.5rem" }}>
-              <h3 className="pub-title">
-                On the graded rings and Krasner hyperfields of valued fields.
-              </h3>
-              <p className="pub-authors">
-                <strong>A. Linzi</strong>.
-              </p>
-              <p className="pub-journal">submitted.</p>
-            </div>
-            <div className="glass-card pub-item" style={{ padding: "1.5rem" }}>
-              <h3 className="pub-title">
-                On some classes of multivalued algebraic structures.
               </h3>
               <p className="pub-authors">
                 <strong>A. Linzi</strong>.

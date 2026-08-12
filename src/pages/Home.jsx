@@ -1,10 +1,11 @@
 import React, { useState } from "react";
-import { Github, Linkedin, ChevronRight, Mail } from "lucide-react";
+import { ChevronRight, Mail, Info } from "lucide-react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import TerminalWindow from "../components/TerminalWindow";
 import SiteInfoModal from "../components/SiteInfoModal";
-import { Info } from "lucide-react";
+import SocialLinks from "../components/SocialLinks";
+import { profile } from "../data/profile";
 
 const Home = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -45,17 +46,16 @@ const Home = () => {
           </div>
 
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-4 text-on-primary font-heading drop-shadow-md">
-            Alessandro Linzi
+            {profile.name}
           </h1>
 
           <p className="text-xl text-muted-foreground mb-8 font-body leading-relaxed max-w-md">
-            Mathematician specializing in the model theory of valued fields,
-            constructive logic, and the foundations of computation.
+            {profile.tagline}
           </p>
 
           <div className="flex flex-wrap gap-4 items-center">
             <a
-              href="mailto:alessandro.linzi.phd@icloud.com"
+              href={`mailto:${profile.email}`}
               className="group relative inline-flex items-center justify-center px-6 py-3 font-mono text-sm font-medium text-background bg-accent rounded-lg overflow-hidden transition-all hover:scale-105 hover:shadow-[0_0_20px_rgba(34,197,94,0.4)]"
             >
               <span className="relative flex items-center gap-2">
@@ -75,26 +75,7 @@ const Home = () => {
             </Link>
           </div>
 
-          <div className="flex items-center gap-4 mt-8">
-            <a
-              href="https://github.com/linzialessandro"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="p-2 text-muted-foreground hover:text-accent transition-colors rounded-full hover:bg-accent/10"
-            >
-              <Github size={22} />
-              <span className="sr-only">GitHub</span>
-            </a>
-            <a
-              href="https://www.linkedin.com/in/alessandro-linzi-65bb41354/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="p-2 text-muted-foreground hover:text-[#0a66c2] transition-colors rounded-full hover:bg-[#0a66c2]/10"
-            >
-              <Linkedin size={22} />
-              <span className="sr-only">LinkedIn</span>
-            </a>
-          </div>
+          <SocialLinks size={22} className="mt-8 gap-4" />
         </motion.div>
 
         {/* Right Column: Terminal Window */}

@@ -97,26 +97,29 @@ export const preprints = [
     link: "https://www.arxiv.org/abs/2509.19854",
     linkText: "arXiv:2509.19854",
   },
+  {
+    id: 2,
+    title:
+      "Finite-field Krasner quotients: isomorphism thresholds, characteristics, and censuses.",
+    authors: "A. Linzi.",
+    journal: "2026.",
+    link: "https://www.arxiv.org/abs/2608.03625",
+    linkText: "arXiv:2608.03625",
+  },
+  {
+    id: 3,
+    title: "Valued Mosaics.",
+    authors: "A. Linzi.",
+    journal: "2026.",
+    link: "https://www.arxiv.org/abs/2608.10616",
+    linkText: "arXiv:2608.10616",
+  },
 ];
 
 export const submissions = [
   {
     id: 1,
     title: "A Horn Theory of Fields and Certain Hyperfields.",
-    authors: "A. Linzi.",
-    journal: "submitted.",
-    link: null,
-  },
-  {
-    id: 2,
-    title: "On the graded rings and Krasner hyperfields of valued fields.",
-    authors: "A. Linzi.",
-    journal: "submitted.",
-    link: null,
-  },
-  {
-    id: 3,
-    title: "On some classes of multivalued algebraic structures.",
     authors: "A. Linzi.",
     journal: "submitted.",
     link: null,
