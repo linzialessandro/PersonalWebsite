@@ -85,7 +85,6 @@ const SocialLinks = ({ size = 18, className = "" }) => {
             : {})}
         >
           <Icon size={size} />
-          <span className="sr-only">{label}</span>
         </a>
       ))}
     </div>

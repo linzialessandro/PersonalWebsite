@@ -11,8 +11,6 @@
   --color-muted: #1a1e2f;
   --color-muted-foreground: #94a3b8;
   --color-border: #334155;
-  --color-terminal: #0a0a0a;
-  --color-link: #67e8f9;
 
   --font-heading: "Archivo", sans-serif;
   --font-body: "Space Grotesk", sans-serif;
@@ -256,13 +254,6 @@
     font-size: 0.92rem;
   }
 
-  .pub-meta {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: baseline;
-    gap: 0.35rem 0.75rem;
-  }
-
   .pub-link {
     width: fit-content;
     color: var(--color-accent-cyan);
@@ -274,62 +265,9 @@
     text-decoration: underline;
   }
 
-  .resource-card {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 1rem;
-    flex-wrap: wrap;
-    background: rgb(255 255 255 / 0.035);
-    border: 1px solid rgb(148 163 184 / 0.14);
-    border-radius: 0.75rem;
-    padding: 1rem 1.2rem;
-  }
-
-  .resource-card-stack {
-    flex-direction: column;
-    align-items: stretch;
-  }
-
-  .resource-card-stack .btn {
-    width: 100%;
-  }
-
   .plain-list {
     list-style: none;
     padding-left: 0;
-  }
-
-  .resource-info {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    min-width: 0;
-  }
-
-  .resource-icon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 2.5rem;
-    height: 2.5rem;
-    border-radius: 9999px;
-    flex-shrink: 0;
-  }
-
-  .resource-icon-cyan {
-    background: rgb(34 211 238 / 0.12);
-    color: #22d3ee;
-  }
-
-  .resource-icon-violet {
-    background: rgb(167 139 250 / 0.12);
-    color: #a78bfa;
-  }
-
-  .resource-icon-green {
-    background: rgb(34 197 94 / 0.12);
-    color: #4ade80;
   }
 
   .btn {
@@ -467,27 +405,6 @@
       grid-template-columns: 16rem minmax(0, 1fr);
       align-items: baseline;
     }
-  }
-
-  .quote-section {
-    margin-top: 3.5rem;
-    padding-top: 1.75rem;
-    border-top: 1px solid rgb(148 163 184 / 0.14);
-    max-width: 40rem;
-  }
-
-  .quote-text {
-    margin: 0 0 0.75rem;
-    color: var(--color-muted-foreground);
-    font-size: 0.95rem;
-    line-height: 1.7;
-    font-style: italic;
-  }
-
-  .quote-author {
-    color: var(--color-muted-foreground);
-    font-size: 0.8rem;
-    letter-spacing: 0.03em;
   }
 
   .modal-overlay {

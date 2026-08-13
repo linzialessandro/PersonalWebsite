@@ -17,8 +17,8 @@ This project is a modern Single Page Application (SPA) built to highlight my wor
 
 ## Project Structure
 
-- `src/components/`: Reusable UI components (`Header`, `Footer`, `Layout`, `TerminalWindow`, `ResourceCard`, `PublicationItem`, `SiteInfoModal`).
-- `src/pages/`: Individual page views (Home, CV, Publications, Teaching, Academic Net, AI Gallery).
+- `src/components/`: Reusable UI (`Header`, `Footer`, `Layout`, `PublicationItem`, `SiteInfoModal`).
+- `src/pages/`: Home, Research, Teaching, CV, Network, Dialogues.
 - `src/data/`: Static content modules that feed the pages (`cv.js`, `publications.js`, `teaching.js`, `academicNet.js`, `aiGallery.js`, `profile.js`).
 - `src/assets/`: Static assets including PDFs for the CV and teaching materials.
 - `src/index.css`: Design tokens, typography, and component styles.
