@@ -1,84 +1,94 @@
-import { FileText, Bot } from "lucide-react";
-import TerminalWindow from "../components/TerminalWindow";
+import { Download } from "lucide-react";
 import PageShell from "../components/PageShell";
 import PageMeta from "../components/PageMeta";
-import QuotePanel from "../components/QuotePanel";
-import ResourceCard from "../components/ResourceCard";
-import { cvData } from "../data/cv";
+import PageHeader from "../components/PageHeader";
+import ExternalTextLink from "../components/ExternalTextLink";
+import { cvData, education, positions, service } from "../data/cv";
+import profilePhoto from "../assets/profile.jpg";
+
+const Timeline = ({ items }) => (
+  <div className="timeline">
+    {items.map((item) => (
+      <article key={`${item.org}-${item.years}`} className="timeline-item">
+        <p className="timeline-years">{item.years}</p>
+        <div>
+          <h3 className="timeline-org">{item.org}</h3>
+          <p className="timeline-role">
+            {item.role}
+            {item.place ? ` · ${item.place}` : ""}
+          </p>
+          {item.unit ? <p className="timeline-role">{item.unit}</p> : null}
+        </div>
+      </article>
+    ))}
+  </div>
+);
 
 const CV = () => {
   return (
     <PageShell>
       <PageMeta
         title="Curriculum Vitae"
-        description="Academic background, experience, and CV download for Alessandro Linzi."
+        description="Appointments, education, and CV download for Alessandro Linzi."
       />
-      <TerminalWindow title="cat cv.md" delay={0}>
-        <div className="page-header">
-          <h1>Curriculum Vitae</h1>
-          <p className="subtitle">My Academic Background and Experience</p>
-        </div>
+      <div className="flex flex-col sm:flex-row sm:items-start gap-6 mb-2">
+        <img
+          src={profilePhoto}
+          alt="Alessandro Linzi"
+          width={104}
+          height={104}
+          className="portrait-sm"
+        />
+        <PageHeader
+          kicker="Curriculum Vitae"
+          title="Appointments and education"
+        >
+          A short record of academic posts and degrees. The full document is
+          available as a PDF.
+        </PageHeader>
+      </div>
 
-        <div className="document-content">
-          <section className="document-section">
-            <h3 className="mb-6">Curriculum Vitae Options</h3>
-            <p className="text-slate-200 mb-8">
-              Explore my background, experience, and publications through an
-              interactive AI-powered conversational interface, or download the
-              standard PDF document.
-            </p>
+      <div className="flex flex-wrap gap-3 mb-12">
+        <a
+          href={cvData.pdfUrl}
+          download="cv-alessandro-linzi.pdf"
+          className="btn btn-primary"
+        >
+          <Download size={16} />
+          Download PDF
+        </a>
+      </div>
 
-            <div className="grid-2">
-              <ResourceCard
-                stacked
-                title="Interactive AI CV"
-                description="Ask questions about my research, academic journey, or teaching experience in a conversational interface."
-                icon={Bot}
-                tone="cyan"
-                link={cvData.aiCvLink}
-                linkText="Launch App"
-              />
-              <ResourceCard
-                stacked
-                title="Standard CV Document"
-                description="Download my comprehensive detailed Curriculum Vitae containing education, positions, and publications."
-                icon={FileText}
-                tone="violet"
-                link={cvData.pdfUrl}
-                linkText="Download PDF"
-                isDownload
-                downloadName="cv-alessandro-linzi.pdf"
-              />
-            </div>
+      <div className="content-stack">
+        <section className="content-block">
+          <h2>Appointments</h2>
+          <Timeline items={positions} />
+        </section>
 
-            <div className="mt-12 bg-black/20 p-6 rounded-xl border border-white/5">
-              <h4 className="text-on-primary mb-5 mt-0 text-[1.05rem]">
-                What&apos;s inside the standard CV?
-              </h4>
-              <ul className="plain-list grid grid-cols-[repeat(auto-fit,minmax(220px,1fr))] gap-4 m-0 text-slate-300">
-                {cvData.highlights.map((item) => (
-                  <li key={item} className="flex items-center gap-3">
-                    <span className="text-sky-400 text-xl">▹</span>
-                    {item}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </section>
-        </div>
-      </TerminalWindow>
+        <section className="content-block">
+          <h2>Education</h2>
+          <Timeline items={education} />
+        </section>
 
-      <QuotePanel
-        title="./godel_quote.sh"
-        author="Kurt Gödel. Königsberg, September 7, 1930. Discussion on the Foundation of Mathematics, Translated and edited by J. W. Dawson Jr., History and Philosophy of Logic, 5:1. 1984."
-      >
-        [...] One can (assuming the consistency of classical mathematics) even
-        give examples of propositions [...] which are really contentually true
-        but are unprovable in the formal system of classical mathematics.
-        Therefore if one adjoins the negation of such a proposition to the
-        axioms of classical mathematics, one obtains a consistent system in
-        which a contentually false proposition is provable.
-      </QuotePanel>
+        <section className="content-block">
+          <h2>Editorial work</h2>
+          <ul className="plain-list prose-quiet m-0">
+            {service.map((item) => (
+              <li key={item} className="py-1">
+                {item}
+              </li>
+            ))}
+          </ul>
+        </section>
+
+        <p className="text-sm text-muted-foreground m-0">
+          An experimental conversational interface over this material is{" "}
+          <ExternalTextLink href={cvData.aiCvLink}>
+            available here
+          </ExternalTextLink>
+          .
+        </p>
+      </div>
     </PageShell>
   );
 };

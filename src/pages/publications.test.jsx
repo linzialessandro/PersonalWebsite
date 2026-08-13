@@ -19,9 +19,9 @@ describe("Publications page", () => {
     }
 
     expect(
-      screen.getAllByRole("link", { name: /view publication|arxiv/i })
+      screen.getAllByRole("link", { name: /doi|arxiv|^link$/i })
     ).toHaveLength(
-      publications.filter((item) => item.link).length + preprints.length
+      [...publications, ...preprints].filter((item) => item.link).length
     );
   });
 });

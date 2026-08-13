@@ -9,15 +9,52 @@ import russellUrl from "../assets/Dialogues/Russell.pdf";
 import turingUrl from "../assets/Dialogues/Turing.pdf";
 
 export const dialogues = [
-  { name: "Archimedes", url: archimedesUrl },
-  { name: "Bellavitis", url: bellavitisUrl, lang: "IT" },
-  { name: "Erdos", url: erdosUrl },
-  { name: "Fibonacci", url: fibonacciUrl },
-  { name: "Godel", url: godelUrl },
-  { name: "Hilbert", url: hilbertUrl },
-  { name: "Leibniz", url: leibnizUrl },
-  { name: "Russell", url: russellUrl },
-  { name: "Turing", url: turingUrl },
+  {
+    name: "Archimedes",
+    url: archimedesUrl,
+    topic: "Mechanical reasoning and compound engines of thought",
+  },
+  {
+    name: "Bellavitis",
+    url: bellavitisUrl,
+    lang: "IT",
+    topic: "Equipollenze and a universal language for science",
+  },
+  {
+    name: "Erdős",
+    url: erdosUrl,
+    topic: "Autoformalisation and mathematical beauty",
+  },
+  {
+    name: "Fibonacci",
+    url: fibonacciUrl,
+    topic: "Recurrence, calculation, and transmission of methods",
+  },
+  {
+    name: "Gödel",
+    url: godelUrl,
+    topic: "Incompleteness and formal systems",
+  },
+  {
+    name: "Hilbert",
+    url: hilbertUrl,
+    topic: "The axiomatic method and modern proof assistants",
+  },
+  {
+    name: "Leibniz",
+    url: leibnizUrl,
+    topic: "Characteristica universalis and mechanical reasoning",
+  },
+  {
+    name: "Russell",
+    url: russellUrl,
+    topic: "Foundations, language, and logical form",
+  },
+  {
+    name: "Turing",
+    url: turingUrl,
+    topic: "Computation, intelligence, and machine ethics",
+  },
 ];
 
 export const poetry = [
@@ -31,12 +68,12 @@ export const poetry = [
     ],
   },
   {
-    title: "Fibonacci's Spiral",
+    title: "Fibonacci’s Spiral",
     lines: [
       "One, then one again, the sequence starts,",
       "To two, then three, the golden spiral parts.",
       "Five petals bloom, eight leaves upon the tree,",
-      "Nature's own design in harmony.",
+      "Nature’s own design in harmony.",
     ],
   },
 ];

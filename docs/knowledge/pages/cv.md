@@ -1,19 +1,12 @@
 ---
 type: Concept
 title: CV Page
-description: Curriculum vitae page with PDF download and AI-powered interactive CV link.
+description: On-page appointments and education, with a PDF download.
 resource: src/pages/CV.jsx
-tags: [pages, cv, career]
-timestamp: 2026-06-30T18:35:00Z
+tags: [pages, cv]
+timestamp: 2026-08-13T18:00:00Z
 ---
 
 # CV Page
 
-Route: `/cv`. Displays Alessandro's curriculum vitae.
-
-## Data Source
-
-Imports from [CV Data](/data/cv-data.md) (`src/data/cv.js`), which provides:
-
-- `pdfUrl`: static PDF asset (`assets/cv-alessandro-linzi.pdf`)
-- `aiCvLink`: Google AI Studio interactive CV app URL
+Route: `/cv`. Timeline of appointments and education from `src/data/cv.js`, plus a PDF download. The AI Studio interface is a single text link.

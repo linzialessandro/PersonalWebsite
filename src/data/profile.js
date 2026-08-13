@@ -1,9 +1,11 @@
 export const profile = {
-  name: "Alessandro Linzi, PhD",
+  name: "Alessandro Linzi",
+  honorific: "PhD",
   shortName: "Alessandro Linzi",
   email: "alessandro.linzi.phd@icloud.com",
+  location: "Udine, Italy",
   tagline:
-    "Mathematician specializing in the model theory of valued fields, constructive logic, and the foundations of computation.",
+    "Mathematician working on the model theory of valued fields, algebraic hyperstructures, and the computational interpretation of logic.",
   links: {
     github: "https://github.com/linzialessandro",
     linkedin: "https://www.linkedin.com/in/alessandro-linzi-65bb41354/",
@@ -12,3 +14,18 @@ export const profile = {
     arxiv: "https://arxiv.org/search/?searchtype=author&query=Linzi,+A",
   },
 };
+
+export const researchThemes = [
+  {
+    title: "Valued fields and hyperfields",
+    text: "Valuation theory for Krasner hyperfields, hypervaluations, and the hyperfields that arise from valued fields.",
+  },
+  {
+    title: "Hyperstructures and categories",
+    text: "Polygroups, L-mosaics, and orthomodular lattices, including a categorical form of Krasner’s theorem.",
+  },
+  {
+    title: "Logic and formalisation",
+    text: "Constructive logic, the Curry–Howard correspondence, and formal proofs in Lean 4.",
+  },
+];

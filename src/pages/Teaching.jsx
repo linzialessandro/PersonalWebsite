@@ -1,36 +1,37 @@
 import { Download, ExternalLink } from "lucide-react";
-import TerminalWindow from "../components/TerminalWindow";
 import PageShell from "../components/PageShell";
 import PageMeta from "../components/PageMeta";
-import QuotePanel from "../components/QuotePanel";
-import SectionCard from "../components/SectionCard";
+import PageHeader from "../components/PageHeader";
 import ExternalTextLink from "../components/ExternalTextLink";
 import {
-  teachingBook,
-  firstTexUrl,
-  latexGuides,
-  italianLatexGuides,
   codingResources,
-  visualizationResources,
   competitionResources,
+  firstTexUrl,
+  italianLatexGuides,
+  latexGuides,
   teachingApps,
+  teachingBook,
+  teachingNav,
+  visualizationResources,
 } from "../data/teaching";
 
 const ResourceLinkList = ({ items }) => (
-  <ul>
+  <ul className="plain-list m-0">
     {items.map((item) => (
-      <li key={item.url}>
+      <li key={item.url} className="py-1.5">
         <ExternalTextLink href={item.url}>{item.label}</ExternalTextLink>
         {item.extra ? (
           <>
             {" "}
-            &amp;{" "}
+            and{" "}
             <ExternalTextLink href={item.extra.url}>
               {item.extra.label}
             </ExternalTextLink>
           </>
         ) : null}
-        {item.suffix}
+        {item.suffix ? (
+          <span className="text-muted-foreground">{item.suffix}</span>
+        ) : null}
       </li>
     ))}
   </ul>
@@ -41,86 +42,86 @@ const Teaching = () => {
     <PageShell>
       <PageMeta
         title="Teaching"
-        description="Teaching resources, LaTeX guides, and mathematical tools."
+        description="Course materials, student resources, and teaching projects."
       />
-      <TerminalWindow title="./teaching_resources.sh" delay={0}>
-        <div className="page-header">
-          <h1>Teaching</h1>
-        </div>
+      <PageHeader kicker="Teaching" title="Materials and resources">
+        A textbook, a short LaTeX guide, and a curated set of tools for students
+        of mathematics.
+      </PageHeader>
 
-        <div className="document-content">
-          <SectionCard title={teachingBook.title}>
-            <ul>
-              <li>
-                {teachingBook.authors} <i>{teachingBook.italicTitle}</i>{" "}
-                {teachingBook.rest}{" "}
-                <ExternalTextLink href={teachingBook.url}>
-                  [LINK]
-                </ExternalTextLink>
-              </li>
-            </ul>
-          </SectionCard>
+      <ul className="page-toc">
+        {teachingNav.map((item) => (
+          <li key={item.id}>
+            <a href={`#${item.id}`}>{item.label}</a>
+          </li>
+        ))}
+      </ul>
 
-          <SectionCard title="GeoGebra">
-            <p className="text-slate-200 m-0">
-              <ExternalTextLink href={teachingApps.geogebra}>
-                GeoGebra
-              </ExternalTextLink>{" "}
-              is a free mathematics platform that empowers students and
-              educators with dynamic tools for learning and teaching. This
-              comprehensive suite offers an extensive collection of interactive
-              mathematical resources available directly through your web
-              browser.
+      <div className="content-stack">
+        <section id="materials" className="content-block">
+          <h2>Materials</h2>
+          <article className="glass-card mb-4">
+            <p className="page-kicker mb-2">Textbook</p>
+            <h3 className="text-lg mt-0 mb-2">
+              <i>{teachingBook.title}</i>
+            </h3>
+            <p className="text-muted-foreground m-0 mb-3">
+              {teachingBook.authors}. {teachingBook.imprint}
             </p>
-          </SectionCard>
+            <p className="prose-quiet m-0 mb-4">{teachingBook.note}</p>
+            <ExternalTextLink href={teachingBook.url}>
+              Read online
+            </ExternalTextLink>
+          </article>
 
-          <SectionCard title="LaTeX for Your First Paper">
-            <p className="text-slate-200 mb-6">
-              A concise essential guide written by me in the form of a
-              presentation.
+          <article className="glass-card">
+            <p className="page-kicker mb-2">Notes</p>
+            <h3 className="text-lg mt-0 mb-2">LaTeX for a first paper</h3>
+            <p className="prose-quiet m-0 mb-4">
+              A short presentation on the essentials of writing mathematics in
+              LaTeX.
             </p>
             <a
               href={firstTexUrl}
               download
+              className="btn btn-outline w-fit"
               target="_blank"
               rel="noopener noreferrer"
-              className="btn btn-outline w-fit"
             >
-              <Download size={18} /> Download Presentation
+              <Download size={16} />
+              Download
             </a>
-          </SectionCard>
+          </article>
+        </section>
 
-          <SectionCard title="LaTeX Resources for Users and Beginners">
-            <ResourceLinkList items={latexGuides} />
-            <h4>Italian Resources</h4>
-            <p className="text-muted-foreground mb-2">
-              Three very useful texts by Lorenzo Pantieri which I still consult
-              very often:
+        <section id="projects" className="content-block">
+          <h2>Projects</h2>
+          <article className="glass-card mb-4">
+            <h3 className="text-lg mt-0 mb-2">SenzaTesto</h3>
+            <p className="prose-quiet m-0 mb-4">
+              An open collection of AI-generated mathematics exercises for
+              Italian students and teachers.
             </p>
-            <ResourceLinkList items={italianLatexGuides} />
-          </SectionCard>
-
-          <SectionCard title="Mate-ematician">
-            <p className="text-slate-200 mb-4">
-              MacTutor is a free online resource containing biographies of more
-              than 3000 mathematicians. <i>Mate-matician</i> is an app which I
-              created to discover the wonderful MacTutor biographies repository
-              in an interactive way. The app can be accessed through this link,
-              using a Google account. The link redirects to the public preview
-              on the Google AI Studio platform. Let the browser load the app,
-              then set it to full screen and try it yourself!
+            <ExternalTextLink href={teachingApps.senzaTesto}>
+              Open SenzaTesto
+            </ExternalTextLink>
+          </article>
+          <article className="glass-card">
+            <h3 className="text-lg mt-0 mb-2">Mate-matician</h3>
+            <p className="prose-quiet m-0 mb-4">
+              An experimental browser app for browsing MacTutor biographies. It
+              runs as a public preview on Google AI Studio and needs a Google
+              account.
             </p>
-            <p className="text-slate-200 mb-6">
-              Alternatively, you may clone the corresponding GitHub repository.
-            </p>
-            <div className="flex gap-4 flex-wrap">
+            <div className="flex flex-wrap gap-3">
               <a
                 href={teachingApps.mateStudio}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn btn-primary w-fit"
+                className="btn btn-outline w-fit"
               >
-                <ExternalLink size={18} /> Open App in AI Studio
+                <ExternalLink size={16} />
+                Open preview
               </a>
               <a
                 href={teachingApps.mateGithub}
@@ -128,82 +129,57 @@ const Teaching = () => {
                 rel="noopener noreferrer"
                 className="btn btn-outline w-fit"
               >
-                <ExternalLink size={18} /> View GitHub Repo
+                GitHub
               </a>
             </div>
-          </SectionCard>
+          </article>
+        </section>
 
-          <SectionCard title="SenzaTesto Database">
-            <p className="text-slate-200 m-0">
-              <ExternalTextLink href={teachingApps.senzaTesto}>
-                SenzaTesto
-              </ExternalTextLink>{" "}
-              is the first open-source database of mathematics exercises
-              generated by Artificial Intelligence, free for all Italian
-              students and professors. It provides a vast collection of
-              procedural math problems to support teaching and learning.
+        <section id="students" className="content-block">
+          <h2>For students</h2>
+
+          <div className="mb-8">
+            <h3 className="text-base mb-2">Typesetting</h3>
+            <ResourceLinkList items={latexGuides} />
+            <p className="text-sm text-muted-foreground mt-4 mb-2">
+              Italian texts by Lorenzo Pantieri:
             </p>
-          </SectionCard>
+            <ResourceLinkList items={italianLatexGuides} />
+          </div>
 
-          <SectionCard title="It seems everyone is talking about AI—but what's it all about?">
-            <p className="text-slate-200 m-0">
-              Here is the{" "}
+          <div className="mb-8">
+            <h3 className="text-base mb-2">Computation and pictures</h3>
+            <p className="text-sm text-muted-foreground mb-3">
+              Python with NumPy, SymPy, and Matplotlib is enough to start.
+            </p>
+            <ResourceLinkList items={codingResources} />
+            <div className="mt-3">
+              <ResourceLinkList items={visualizationResources} />
+            </div>
+          </div>
+
+          <div className="mb-8">
+            <h3 className="text-base mb-2">Problems</h3>
+            <ResourceLinkList items={competitionResources} />
+          </div>
+
+          <div>
+            <h3 className="text-base mb-2">Working with AI</h3>
+            <p className="prose-quiet mb-3">
+              If you are stuck, do not ask a model for the answer. Ask it to act
+              as a Socratic tutor: explain the relevant idea and give a first
+              hint.
+            </p>
+            <p className="text-sm text-muted-foreground m-0">
+              Google’s{" "}
               <ExternalTextLink href={teachingApps.aiLiteracy}>
                 AI Literacy Guide
               </ExternalTextLink>{" "}
-              provided by Google.
+              is a short, general introduction.
             </p>
-          </SectionCard>
-
-          <SectionCard title="Prompt Engineering for Math Students">
-            <p className="text-slate-200 mb-4">
-              As AI becomes more prevalent, learning how to use it effectively
-              is crucial. When stuck on a math problem, don&apos;t just ask an
-              AI for the answer. Instead, ask it to act as a{" "}
-              <strong>Socratic tutor</strong>.
-            </p>
-            <p className="text-muted-foreground italic pl-4 border-l-[3px] border-sky-400 m-0">
-              &ldquo;I am stuck on this calculus problem. Please don&apos;t give
-              me the final answer. Instead, explain the concept of the chain
-              rule as it applies here, and give me a hint on what my first step
-              should be.&rdquo;
-            </p>
-          </SectionCard>
-
-          <SectionCard title="Interactive Coding for Mathematics">
-            <p className="text-slate-200 mb-4">
-              Programming is an incredible tool for visualizing and solving
-              mathematical problems. I highly recommend students explore Python
-              with libraries like <code>NumPy</code>, <code>SymPy</code>, and{" "}
-              <code>Matplotlib</code>.
-            </p>
-            <ResourceLinkList items={codingResources} />
-          </SectionCard>
-
-          <SectionCard title="Modern Visualization Tools">
-            <ResourceLinkList items={visualizationResources} />
-          </SectionCard>
-
-          <SectionCard title="Mathematics Competitions">
-            <p className="text-slate-200 mb-4">
-              For students who enjoy challenging problem-solving and
-              out-of-the-box thinking:
-            </p>
-            <ResourceLinkList items={competitionResources} />
-          </SectionCard>
-        </div>
-      </TerminalWindow>
-      <QuotePanel
-        title="./euler_quote.sh"
-        author="Leonhard Euler. Elements of Algebra (Translation from French). Chapter XIII, page 43, paragraph 144."
-      >
-        [...] All such expressions as √-1, √-2, √-3, √-4 &amp;c. are
-        consequently impossible, or imaginary numbers, since they represent
-        roots of negative quantities; and of such numbers we may truly assert
-        that they are neither nothing, nor greater than nothing, nor less than
-        nothing; which necessarily constitutes them imaginary, or impossible.
-        [...]
-      </QuotePanel>
+          </div>
+        </section>
+      </div>
     </PageShell>
   );
 };

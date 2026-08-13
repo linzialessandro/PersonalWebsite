@@ -1,19 +1,25 @@
-import TerminalWindow from "../components/TerminalWindow";
-import PublicationItem from "../components/PublicationItem";
 import PageShell from "../components/PageShell";
 import PageMeta from "../components/PageMeta";
-import QuotePanel from "../components/QuotePanel";
-import ExternalTextLink from "../components/ExternalTextLink";
-import { publications, preprints, submissions } from "../data/publications";
+import PageHeader from "../components/PageHeader";
+import PublicationItem from "../components/PublicationItem";
+import {
+  groupByYear,
+  preprints,
+  publications,
+  submissions,
+} from "../data/publications";
 
-const PubList = ({ items, numbered = true }) => (
-  <div className="pub-list">
-    {items.map((pub, index) => (
-      <PublicationItem
-        key={pub.id ?? pub.title}
-        pub={pub}
-        index={numbered ? index + 1 : undefined}
-      />
+const YearList = ({ items }) => (
+  <div>
+    {groupByYear(items).map(([year, group]) => (
+      <section key={year}>
+        <h3 className="pub-year">{year}</h3>
+        <div className="pub-list">
+          {group.map((pub) => (
+            <PublicationItem key={pub.id ?? pub.title} pub={pub} />
+          ))}
+        </div>
+      </section>
     ))}
   </div>
 );
@@ -22,45 +28,46 @@ const Publications = () => {
   return (
     <PageShell>
       <PageMeta
-        title="Publications"
-        description="Research papers, preprints, and submissions by Alessandro Linzi."
+        title="Research"
+        description="Papers, preprints, and submissions by Alessandro Linzi."
       />
-      <TerminalWindow title="cat publications.txt" delay={0}>
-        <div className="page-header">
-          <h1>Publications</h1>
-          <p className="subtitle">
-            The following list is ordered increasingly by year of publication.
-          </p>
-        </div>
+      <PageHeader kicker="Research" title="Publications">
+        Peer-reviewed articles, preprints, and work under review. Listed newest
+        first.
+      </PageHeader>
 
-        <div className="document-content">
-          <PubList items={publications} />
-        </div>
+      <ul className="page-toc">
+        <li>
+          <a href="#articles">Articles</a>
+        </li>
+        <li>
+          <a href="#preprints">Preprints</a>
+        </li>
+        <li>
+          <a href="#submitted">Submitted</a>
+        </li>
+      </ul>
 
-        <h2 className="mt-16 mb-8">Preprints</h2>
-        <div className="document-content">
-          <PubList items={preprints} />
-        </div>
+      <div className="content-stack">
+        <section id="articles" className="content-block">
+          <h2>Articles</h2>
+          <YearList items={publications} />
+        </section>
 
-        <h2 className="mt-16 mb-8">Submissions</h2>
-        <div className="document-content">
-          <PubList items={submissions} numbered={false} />
-        </div>
-      </TerminalWindow>
-      <QuotePanel
-        title="./wiles_quote.sh"
-        author={
-          <>
-            Andrew Wiles on Solving Fermat (
-            <ExternalTextLink href="https://aistudio.google.com/apps/c765648a-02a0-4004-97fc-af6eb15db905?showAssistant=true&showCode=true">
-              interview transcript
-            </ExternalTextLink>
-            )
-          </>
-        }
-      >
-        My mind is now at rest.
-      </QuotePanel>
+        <section id="preprints" className="content-block">
+          <h2>Preprints</h2>
+          <YearList items={preprints} />
+        </section>
+
+        <section id="submitted" className="content-block">
+          <h2>Submitted</h2>
+          <div className="pub-list">
+            {submissions.map((pub) => (
+              <PublicationItem key={pub.id ?? pub.title} pub={pub} />
+            ))}
+          </div>
+        </section>
+      </div>
     </PageShell>
   );
 };

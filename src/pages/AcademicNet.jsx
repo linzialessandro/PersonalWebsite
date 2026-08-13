@@ -1,78 +1,63 @@
-import TerminalWindow from "../components/TerminalWindow";
 import PageShell from "../components/PageShell";
 import PageMeta from "../components/PageMeta";
-import QuotePanel from "../components/QuotePanel";
-import SectionCard from "../components/SectionCard";
+import PageHeader from "../components/PageHeader";
 import ExternalTextLink from "../components/ExternalTextLink";
 import { colleagues, otherLinks } from "../data/academicNet";
-
-const ColleagueItem = ({ person }) => {
-  const name = person.url ? (
-    <ExternalTextLink href={person.url}>{person.name}</ExternalTextLink>
-  ) : (
-    person.name
-  );
-
-  return (
-    <li>
-      {name}
-      {person.links?.length
-        ? person.links.map((link, index) => (
-            <span key={link.url}>
-              {index === 0 ? " (" : ", "}
-              <ExternalTextLink href={link.url}>{link.text}</ExternalTextLink>
-              {index === person.links.length - 1 ? ")" : ""}
-            </span>
-          ))
-        : null}
-    </li>
-  );
-};
 
 const AcademicNet = () => {
   return (
     <PageShell>
       <PageMeta
-        title="Academic Net"
-        description="Collaborators and mathematical reference links."
+        title="Network"
+        description="Collaborators and reference sites in valuation theory and hyperstructures."
       />
-      <TerminalWindow title="cat academic-net.md" delay={0}>
-        <div className="page-header">
-          <h1>Academic Net</h1>
-        </div>
+      <PageHeader kicker="Network" title="People and references">
+        Colleagues I have worked with, and a few sites I return to.
+      </PageHeader>
 
-        <div className="document-content">
-          <SectionCard title="Colleagues">
-            <ul>
-              {colleagues.map((person) => (
-                <ColleagueItem key={person.name} person={person} />
-              ))}
-            </ul>
-          </SectionCard>
+      <div className="content-stack">
+        <section className="content-block">
+          <h2>People</h2>
+          <div className="colleague-grid">
+            {colleagues.map((person) => (
+              <article key={person.name} className="colleague-card">
+                <span className="colleague-name">
+                  {person.url ? (
+                    <ExternalTextLink href={person.url}>
+                      {person.name}
+                    </ExternalTextLink>
+                  ) : (
+                    person.name
+                  )}
+                </span>
+                {person.links?.length ? (
+                  <span className="colleague-links">
+                    {person.links.map((link) => (
+                      <ExternalTextLink key={link.url} href={link.url}>
+                        {link.text}
+                      </ExternalTextLink>
+                    ))}
+                  </span>
+                ) : null}
+              </article>
+            ))}
+          </div>
+        </section>
 
-          <SectionCard title="Other links">
-            <ul>
-              {otherLinks.map((item) => (
-                <li key={item.url}>
-                  <ExternalTextLink href={item.url}>
-                    {item.text}
-                  </ExternalTextLink>
-                  {item.suffix}
-                </li>
-              ))}
-            </ul>
-          </SectionCard>
-        </div>
-      </TerminalWindow>
-      <QuotePanel
-        title="./mandelbrot_quote.sh"
-        author="Benoit Mandelbrot. The Fractal Geometry of Nature. 1977."
-      >
-        I claim that many patterns of Nature are so irregular and fragmented,
-        that, compared with Euclid—a term used in this work to denote all of
-        standard geometry—Nature exhibits not simply a higher degree but an
-        altogether different level of complexity.
-      </QuotePanel>
+        <section className="content-block">
+          <h2>References</h2>
+          <div>
+            {otherLinks.map((item) => (
+              <article key={item.url} className="resource-row">
+                <ExternalTextLink href={item.url}>
+                  {item.label}
+                </ExternalTextLink>
+                <p className="m-0 text-muted-foreground">{item.text}</p>
+              </article>
+            ))}
+          </div>
+        </section>
+      </div>
     </PageShell>
   );
 };

@@ -8,7 +8,7 @@ export const colleagues = [
       },
       {
         url: "https://www.researchgate.net/profile/Hashem-Bordbar",
-        text: "Research Gate",
+        text: "ResearchGate",
       },
     ],
   },
@@ -17,7 +17,7 @@ export const colleagues = [
     links: [
       {
         url: "https://www.researchgate.net/profile/Piotr-Blaszkiewicz",
-        text: "Research Gate",
+        text: "ResearchGate",
       },
     ],
   },
@@ -28,7 +28,7 @@ export const colleagues = [
       { url: "https://it.linkedin.com/in/nicolocangiotti", text: "LinkedIn" },
       {
         url: "https://www.researchgate.net/profile/Nicolo-Cangiotti",
-        text: "Research Gate",
+        text: "ResearchGate",
       },
     ],
   },
@@ -41,7 +41,7 @@ export const colleagues = [
       },
       {
         url: "https://www.researchgate.net/profile/Irina-Cristea",
-        text: "Research Gate",
+        text: "ResearchGate",
       },
     ],
   },
@@ -56,7 +56,7 @@ export const colleagues = [
       { url: "https://www.linkedin.com/in/ahmadshosseini/", text: "LinkedIn" },
       {
         url: "https://www.researchgate.net/profile/Ahmad-Hosseini-21",
-        text: "Research Gate",
+        text: "ResearchGate",
       },
     ],
   },
@@ -70,7 +70,7 @@ export const colleagues = [
     links: [
       {
         url: "https://www.researchgate.net/profile/Hanna-Stojalowska",
-        text: "Research Gate",
+        text: "ResearchGate",
       },
     ],
   },
@@ -83,7 +83,7 @@ export const colleagues = [
       },
       {
         url: "https://www.researchgate.net/profile/Enrico-Talotti-2",
-        text: "Research Gate",
+        text: "ResearchGate",
       },
       { url: "https://github.com/enh11", text: "GitHub" },
     ],
@@ -92,24 +92,28 @@ export const colleagues = [
 
 export const otherLinks = [
   {
-    text: "Official website of the Symposium on Hypercompositional Algebra-New Developements and Applications (HAndA)",
+    label: "HAndA Symposium",
+    text: "Hypercompositional Algebra — New Developments and Applications",
     url: "http://projects.ung.si/handa/index.html",
   },
   {
-    text: "A Thesaurus of Hyperstructures",
+    label: "Thesaurus of Hyperstructures",
+    text: "A reference index for the field",
     url: "https://aha.eled.duth.gr/Thesaurus1.1.htm",
   },
   {
-    text: "The Valuation Theory Home Page",
+    label: "Valuation Theory Home Page",
+    text: "Community site for valuation theory",
     url: "https://www.valth.eu",
   },
   {
-    text: "nLab",
+    label: "nLab",
+    text: "Collaborative wiki for category theory and related mathematics",
     url: "https://ncatlab.org/nlab/show/HomePage",
-    suffix: " (very useful reference for category theory)",
   },
   {
-    text: "Italian Journal of Pure and Applied Mathematics",
+    label: "Italian Journal of Pure and Applied Mathematics",
+    text: "Journal homepage",
     url: "https://journals.uniurb.it/index.php/ijpam/index",
   },
 ];

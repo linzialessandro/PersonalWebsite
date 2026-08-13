@@ -1,20 +1,12 @@
 ---
 type: Concept
-title: Academic Network Page
-description: Page listing research collaborators and useful academic links in the hypercompositional algebra community.
+title: Network Page
+description: Collaborators and reference sites.
 resource: src/pages/AcademicNet.jsx
-tags: [pages, network, collaborators]
-timestamp: 2026-06-30T18:35:00Z
+tags: [pages, network]
+timestamp: 2026-08-13T18:00:00Z
 ---
 
-# Academic Network Page
+# Network Page
 
-Route: `/academic-net`. Displays two sections from [Academic Network Data](/data/academic-net-data.md).
-
-## Collaborators
-
-9 colleagues with name, optional personal website, and profile links (LinkedIn, ResearchGate, GitHub).
-
-## Other Links
-
-5 external academic resources: HAndA symposium, Thesaurus of Hyperstructures, Valuation Theory Home Page, nLab, and Italian Journal of Pure and Applied Mathematics.
+Route: `/academic-net`. People as compact rows with profile links; references as labelled resources.

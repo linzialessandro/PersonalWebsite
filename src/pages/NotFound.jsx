@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import PageShell from "../components/PageShell";
 import PageMeta from "../components/PageMeta";
-import TerminalWindow from "../components/TerminalWindow";
+import PageHeader from "../components/PageHeader";
 
 const NotFound = () => {
   return (
@@ -10,21 +10,14 @@ const NotFound = () => {
         title="Not found"
         description="The requested page does not exist."
       />
-      <TerminalWindow title="bash: command not found" delay={0}>
-        <div className="page-header">
-          <h1>404</h1>
-          <p className="subtitle">
-            No page at this path. The command you entered is not in the site
-            map.
-          </p>
-        </div>
-        <p className="text-accent mt-6">
-          &gt; Try{" "}
-          <Link to="/" className="text-link">
-            cd /home
-          </Link>
-        </p>
-      </TerminalWindow>
+      <PageHeader kicker="404" title="This page is not here">
+        The address does not match a page on this site.
+      </PageHeader>
+      <p className="m-0">
+        <Link to="/" className="text-link">
+          Back to the home page
+        </Link>
+      </p>
     </PageShell>
   );
 };

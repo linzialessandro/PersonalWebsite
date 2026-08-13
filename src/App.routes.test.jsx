@@ -12,12 +12,10 @@ describe("App routes", () => {
     );
 
     expect(
-      await screen.findByRole("heading", { name: "404" })
+      await screen.findByRole("heading", { name: "This page is not here" })
     ).toBeInTheDocument();
     expect(
-      screen
-        .getAllByRole("link", { name: "cd /home" })
-        .every((link) => link.getAttribute("href") === "/")
-    ).toBe(true);
+      screen.getByRole("link", { name: "Back to the home page" })
+    ).toHaveAttribute("href", "/");
   });
 });
