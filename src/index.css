@@ -14,7 +14,6 @@
 
   --font-heading: "Archivo", sans-serif;
   --font-body: "Space Grotesk", sans-serif;
-  --font-mono: "JetBrains Mono", monospace;
 }
 
 @layer base {
@@ -93,6 +92,32 @@
 
   .skip-link:focus {
     top: 1rem;
+  }
+
+  .mobile-nav {
+    position: absolute;
+    top: 4.6rem;
+    left: 1rem;
+    right: 1rem;
+    z-index: 40;
+    padding: 0.5rem;
+    border: 1px solid rgb(148 163 184 / 0.4);
+    border-radius: 1rem;
+    background: rgb(2 6 23 / 0.95);
+    backdrop-filter: blur(24px);
+    box-shadow: 0 24px 50px rgb(0 0 0 / 0.35);
+    animation: mobile-nav-in 0.16s ease-out;
+  }
+
+  @keyframes mobile-nav-in {
+    from {
+      opacity: 0;
+      transform: translateY(-0.5rem);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
   }
 
   .page-shell {

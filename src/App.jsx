@@ -1,6 +1,5 @@
 import { lazy, Suspense } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { MotionConfig } from "framer-motion";
 import Layout from "./components/Layout";
 import PageFallback from "./components/PageFallback";
 import Home from "./pages/Home";
@@ -33,11 +32,9 @@ export const AppRoutes = () => {
 
 const App = () => {
   return (
-    <MotionConfig reducedMotion="user">
-      <BrowserRouter basename={getBasename()}>
-        <AppRoutes />
-      </BrowserRouter>
-    </MotionConfig>
+    <BrowserRouter basename={getBasename()}>
+      <AppRoutes />
+    </BrowserRouter>
   );
 };
 

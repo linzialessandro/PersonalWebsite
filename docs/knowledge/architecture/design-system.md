@@ -25,11 +25,10 @@ The visual language is defined in `src/index.css` using Tailwind CSS 4's `@theme
 
 ## Typography
 
-| Token            | Font           | Usage            |
-| ---------------- | -------------- | ---------------- |
-| `--font-heading` | Archivo        | Headings (h1–h6) |
-| `--font-body`    | Space Grotesk  | Body text        |
-| `--font-mono`    | JetBrains Mono | Loading fallback |
+| Token            | Font          | Usage            |
+| ---------------- | ------------- | ---------------- |
+| `--font-heading` | Archivo       | Headings (h1–h6) |
+| `--font-body`    | Space Grotesk | Body text        |
 
 Archivo and Space Grotesk are self-hosted via `@fontsource` and imported from `src/main.jsx`.
 

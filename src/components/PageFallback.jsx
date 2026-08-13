@@ -1,7 +1,7 @@
 const PageFallback = () => {
   return (
     <div className="page-shell" role="status" aria-live="polite">
-      <p className="font-mono text-muted-foreground">Loading…</p>
+      <p className="text-muted-foreground">Loading…</p>
     </div>
   );
 };

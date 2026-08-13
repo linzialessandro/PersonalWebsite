@@ -12,7 +12,6 @@ This project is a modern Single Page Application (SPA) built to highlight my wor
 - **Vite 6**: As the frontend build tool for fast development and optimized production builds.
 - **Tailwind CSS v4**: Utility-first styling combined with a custom theme and component layer.
 - **React Router v7**: Path-based routing via `BrowserRouter`, with a `404.html` fallback for GitHub Pages and a redirect from older hash URLs.
-- **Framer Motion**: For smooth micro-animations and page transitions.
 - **Lucide React**: For icons.
 
 ## Project Structure

@@ -19,9 +19,8 @@ The website is a modern single-page application built primarily using React and 
 ## Styling and UI
 
 - **Tailwind CSS 4**: Used for utility-first styling (`tailwindcss`, `@tailwindcss/vite`).
-- **Framer Motion**: Utilized for animations and interactive UI components (`framer-motion`).
 - **Lucide React**: Icon library (`lucide-react`).
-- **Fonts**: Self-hosted via `@fontsource` (Archivo, Space Grotesk, JetBrains Mono).
+- **Fonts**: Self-hosted via `@fontsource` (Archivo, Space Grotesk).
 
 ## Deployment & Tooling
 

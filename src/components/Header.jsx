@@ -1,7 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
-import { AnimatePresence, motion } from "framer-motion";
 import { navLinks } from "../data/nav";
 import { profile } from "../data/profile";
 import profilePhoto from "../assets/profile.jpg";
@@ -102,35 +101,28 @@ const Header = () => {
         </div>
       </div>
 
-      <AnimatePresence>
-        {isMenuOpen && (
-          <motion.div
-            ref={menuRef}
-            id="mobile-nav"
-            role="navigation"
-            aria-label="Mobile"
-            initial={{ opacity: 0, y: -8 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -8 }}
-            transition={{ duration: 0.16, ease: "easeOut" }}
-            className="lg:hidden absolute top-[4.6rem] left-4 right-4 bg-background/95 backdrop-blur-2xl border border-border/40 shadow-2xl rounded-2xl overflow-hidden z-40 p-2"
-          >
-            <ul className="flex flex-col">
-              {navLinks.map((link) => (
-                <li key={link.path}>
-                  <Link
-                    to={link.path}
-                    onClick={closeMenu}
-                    className={`${linkClass(link.path)} px-4 py-3 text-[15px]`}
-                  >
-                    {link.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </motion.div>
-        )}
-      </AnimatePresence>
+      {isMenuOpen ? (
+        <nav
+          ref={menuRef}
+          id="mobile-nav"
+          aria-label="Mobile"
+          className="mobile-nav lg:hidden"
+        >
+          <ul className="flex flex-col">
+            {navLinks.map((link) => (
+              <li key={link.path}>
+                <Link
+                  to={link.path}
+                  onClick={closeMenu}
+                  className={`${linkClass(link.path)} px-4 py-3 text-[15px]`}
+                >
+                  {link.name}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </nav>
+      ) : null}
     </header>
   );
 };
