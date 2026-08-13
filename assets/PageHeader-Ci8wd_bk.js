@@ -1,0 +1,1 @@
+import{j as e}from"./index-DptBY_j0.js";const t=({children:s})=>e.jsx("div",{className:"page-shell",children:s}),n=({kicker:s,title:l,children:a})=>e.jsxs("header",{className:"page-header",children:[s?e.jsx("p",{className:"page-kicker",children:s}):null,e.jsx("h1",{children:l}),a?e.jsx("div",{className:"subtitle",children:a}):null]});export{t as P,n as a};
