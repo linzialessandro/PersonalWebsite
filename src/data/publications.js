@@ -101,6 +101,17 @@ export const publications = [
     year: 2025,
     link: "https://ijpam.uniud.it/online_issue/202554/04%20Cangiotti-Linzi-Talotti.pdf",
   },
+  {
+    id: 13,
+    title:
+      "A formal model of Cooperative Learning for Understanding and Epistemic Progress.",
+    authors: "A. Linzi.",
+    venue: "SN Social Sciences",
+    year: 2026,
+    link: "https://doi.org/10.1007/s43545-026-01807-9",
+    extraLink: "https://linzialessandro.github.io/CLUE-visualizer/",
+    extraLinkText: "Visualizer",
+  },
 ];
 
 export const preprints = [

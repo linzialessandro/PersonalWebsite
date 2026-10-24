@@ -23,14 +23,26 @@ const PublicationItem = ({ pub }) => {
         </p>
       </div>
       {pub.link ? (
-        <a
-          href={pub.link}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="pub-link"
-        >
-          {linkLabel}
-        </a>
+        <div className="flex flex-col gap-1">
+          <a
+            href={pub.link}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="pub-link"
+          >
+            {linkLabel}
+          </a>
+          {pub.extraLink ? (
+            <a
+              href={pub.extraLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="pub-link"
+            >
+              {pub.extraLinkText || "Link"}
+            </a>
+          ) : null}
+        </div>
       ) : (
         <span className="pub-journal">In review</span>
       )}
