@@ -8,8 +8,21 @@ export const cvData = {
 
 export const positions = [
   {
+    org: "Bonaldo Stringher (Udine)",
+    role: "Mathematics Teacher (class A026)",
+    unit: "Full-time, 18 weekly hours. Also taught here Nov 2025–Jun 2026; current contract ends 30 Jun 2027.",
+    place: "Udine, Italy",
+    years: "Sep 2026–Present",
+  },
+  {
+    org: "ISIS Mattei Latisana",
+    role: "Mathematics Teacher",
+    place: "Latisana, Italy",
+    years: "Apr–Jun 2025",
+  },
+  {
     org: "University of Nova Gorica",
-    role: "Assistant Professor (Postdoc)",
+    role: "Assistant with PhD in the field of Mathematics",
     unit: "Centre for Information Technologies and Applied Mathematics",
     place: "Nova Gorica, Slovenia",
     years: "2022–2024",
@@ -50,6 +63,10 @@ export const education = [
     place: "Udine, Italy",
     years: "2010–2015",
   },
+];
+
+export const credentials = [
+  "eCampus A026 abilitazione (Italian teaching qualification, Mathematics)",
 ];
 
 export const service = [

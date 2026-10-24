@@ -5,7 +5,7 @@ export const profile = {
   email: "alessandro.linzi.phd@icloud.com",
   location: "Udine, Italy",
   tagline:
-    "Mathematician working on the model theory of valued fields, algebraic hyperstructures, and the computational interpretation of logic.",
+    "Mathematician and teacher working on the model theory of valued fields, algebraic hyperstructures, and the computational interpretation of logic, with an interest in the theory of AI.",
   links: {
     github: "https://github.com/linzialessandro",
     linkedin: "https://www.linkedin.com/in/alessandro-linzi-65bb41354/",

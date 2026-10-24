@@ -3,7 +3,7 @@ import PageShell from "../components/PageShell";
 import PageMeta from "../components/PageMeta";
 import PageHeader from "../components/PageHeader";
 import ExternalTextLink from "../components/ExternalTextLink";
-import { cvData, education, positions, service } from "../data/cv";
+import { credentials, cvData, education, positions, service } from "../data/cv";
 import profilePhoto from "../assets/profile.jpg";
 
 const Timeline = ({ items }) => (
@@ -29,7 +29,7 @@ const CV = () => {
     <PageShell>
       <PageMeta
         title="Curriculum Vitae"
-        description="Appointments, education, and CV download for Alessandro Linzi."
+        description="Appointments, education, qualifications, and CV download for Alessandro Linzi."
       />
       <div className="flex flex-col sm:flex-row sm:items-start gap-6 mb-2">
         <img
@@ -43,8 +43,8 @@ const CV = () => {
           kicker="Curriculum Vitae"
           title="Appointments and education"
         >
-          A short record of academic posts and degrees. The full document is
-          available as a PDF.
+          A short record of teaching and academic posts, degrees, and
+          qualifications. The full document is available as a PDF.
         </PageHeader>
       </div>
 
@@ -68,6 +68,17 @@ const CV = () => {
         <section className="content-block">
           <h2>Education</h2>
           <Timeline items={education} />
+        </section>
+
+        <section className="content-block">
+          <h2>Teaching qualification</h2>
+          <ul className="plain-list prose-quiet m-0">
+            {credentials.map((item) => (
+              <li key={item} className="py-1">
+                {item}
+              </li>
+            ))}
+          </ul>
         </section>
 
         <section className="content-block">
