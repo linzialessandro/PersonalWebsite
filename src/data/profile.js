@@ -12,6 +12,7 @@ export const profile = {
     orcid: "https://orcid.org/0000-0002-1422-7674",
     scholar: "https://scholar.google.com/citations?user=9nI0sgsAAAAJ&hl=it",
     arxiv: "https://arxiv.org/search/?searchtype=author&query=Linzi,+A",
+    gumroad: "https://alessandrolinzi.gumroad.com/",
   },
 };
 

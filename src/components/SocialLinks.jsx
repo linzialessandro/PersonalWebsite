@@ -4,6 +4,7 @@ import {
   Linkedin,
   Mail,
   ScrollText,
+  ShoppingBag,
 } from "lucide-react";
 import { profile } from "../data/profile";
 
@@ -66,6 +67,13 @@ const items = [
     label: "LinkedIn",
     Icon: Linkedin,
     hoverClass: "hover:text-[#0a66c2] hover:bg-[#0a66c2]/10",
+    external: true,
+  },
+  {
+    href: profile.links.gumroad,
+    label: "Gumroad",
+    Icon: ShoppingBag,
+    hoverClass: "hover:text-accent hover:bg-accent/10",
     external: true,
   },
 ];
