@@ -51,54 +51,49 @@ const Header = () => {
   }, [isMenuOpen]);
 
   const linkClass = (path) =>
-    `block rounded-md px-3 py-2 text-sm tracking-tight transition-colors ${
-      isActive(path)
-        ? "text-foreground bg-white/5"
-        : "text-muted-foreground hover:text-foreground hover:bg-white/5"
-    }`;
+    isActive(path) ? "nav-link nav-link-active" : "nav-link";
+
+  const mobileLinkClass = (path) =>
+    isActive(path)
+      ? "mobile-nav-link mobile-nav-link-active"
+      : "mobile-nav-link";
 
   return (
-    <header className="sticky top-0 z-50 px-4 md:px-6 pt-4">
-      <div className="max-w-6xl mx-auto">
-        <div className="bg-background/80 backdrop-blur-xl border border-border/40 rounded-2xl px-4 py-2.5 flex justify-between items-center">
-          <Link
-            to="/"
-            className="flex items-center gap-2.5 font-heading font-semibold text-[0.95rem] tracking-tight text-foreground hover:text-accent transition-colors"
-            onClick={closeMenu}
-          >
-            <img
-              src={profilePhoto}
-              alt=""
-              width={28}
-              height={28}
-              className="avatar"
-            />
-            {profile.shortName}
-          </Link>
+    <header className="site-masthead">
+      <div className="masthead-inner">
+        <Link to="/" className="masthead-brand" onClick={closeMenu}>
+          <img
+            src={profilePhoto}
+            alt=""
+            width={24}
+            height={24}
+            className="avatar"
+          />
+          <span>{profile.shortName}</span>
+        </Link>
 
-          <button
-            ref={buttonRef}
-            className="lg:hidden text-foreground p-2 rounded-full hover:bg-white/5 transition-colors"
-            onClick={() => setIsMenuOpen((open) => !open)}
-            aria-label={isMenuOpen ? "Close menu" : "Open menu"}
-            aria-expanded={isMenuOpen}
-            aria-controls="mobile-nav"
-          >
-            {isMenuOpen ? <X size={18} /> : <Menu size={18} />}
-          </button>
+        <button
+          ref={buttonRef}
+          className="lg:hidden icon-btn"
+          onClick={() => setIsMenuOpen((open) => !open)}
+          aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+          aria-expanded={isMenuOpen}
+          aria-controls="mobile-nav"
+        >
+          {isMenuOpen ? <X size={18} /> : <Menu size={18} />}
+        </button>
 
-          <nav className="hidden lg:block" aria-label="Primary">
-            <ul className="flex items-center gap-0.5">
-              {navLinks.map((link) => (
-                <li key={link.path}>
-                  <Link to={link.path} className={linkClass(link.path)}>
-                    {link.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </nav>
-        </div>
+        <nav className="hidden lg:block" aria-label="Primary">
+          <ul className="masthead-nav-list">
+            {navLinks.map((link) => (
+              <li key={link.path}>
+                <Link to={link.path} className={linkClass(link.path)}>
+                  {link.name}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </nav>
       </div>
 
       {isMenuOpen ? (
@@ -108,13 +103,13 @@ const Header = () => {
           aria-label="Mobile"
           className="mobile-nav lg:hidden"
         >
-          <ul className="flex flex-col">
+          <ul className="plain-list m-0 flex flex-col">
             {navLinks.map((link) => (
               <li key={link.path}>
                 <Link
                   to={link.path}
                   onClick={closeMenu}
-                  className={`${linkClass(link.path)} px-4 py-3 text-[15px]`}
+                  className={mobileLinkClass(link.path)}
                 >
                   {link.name}
                 </Link>

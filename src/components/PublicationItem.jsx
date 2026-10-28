@@ -19,7 +19,7 @@ const PublicationItem = ({ pub }) => {
         <p className="pub-journal">
           {pub.venue}
           {pub.year ? `, ${pub.year}` : ""}
-          {pub.kind === "preface" ? " · preface" : ""}
+          {pub.kind === "preface" ? ", preface" : ""}
         </p>
       </div>
       {pub.link ? (

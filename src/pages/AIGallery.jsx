@@ -31,8 +31,8 @@ const AIGallery = () => {
                     {person.name}
                   </a>
                   {person.lang ? (
-                    <span className="ml-2 text-xs text-muted-foreground uppercase tracking-wide">
-                      {person.lang}
+                    <span className="ml-2 text-xs text-muted-foreground italic">
+                      ({person.lang.toLowerCase()})
                     </span>
                   ) : null}
                 </div>
@@ -46,7 +46,7 @@ const AIGallery = () => {
           <h2>Verses</h2>
           <div className="grid-2">
             {poetry.map((poem) => (
-              <article key={poem.title} className="glass-card">
+              <article key={poem.title} className="index-plate">
                 <h3 className="text-base mt-0 mb-3">{poem.title}</h3>
                 <p className="text-muted-foreground italic leading-7 text-[0.95rem] m-0">
                   {poem.lines.map((line) => (
@@ -69,7 +69,7 @@ const AIGallery = () => {
               alt="AI generated image titled The Mandelbrot Dream"
               width={1024}
               height={1024}
-              className="w-full rounded-lg border border-white/10"
+              className="archival-figure-img"
             />
             <figcaption className="text-muted-foreground mt-3 text-sm">
               The Mandelbrot Dream. Generated with AI.

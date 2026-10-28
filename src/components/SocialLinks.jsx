@@ -31,61 +31,54 @@ const items = [
     href: `mailto:${profile.email}`,
     label: "Email",
     Icon: Mail,
-    hoverClass: "hover:text-accent hover:bg-accent/10",
     external: false,
   },
   {
     href: profile.links.orcid,
     label: "ORCID",
     Icon: OrcidIcon,
-    hoverClass: "hover:text-[#A6CE39] hover:bg-[#A6CE39]/10",
     external: true,
   },
   {
     href: profile.links.scholar,
     label: "Google Scholar",
     Icon: GraduationCap,
-    hoverClass: "hover:text-accent hover:bg-accent/10",
     external: true,
   },
   {
     href: profile.links.arxiv,
     label: "arXiv",
     Icon: ScrollText,
-    hoverClass: "hover:text-[#b31b1b] hover:bg-[#b31b1b]/10",
     external: true,
   },
   {
     href: profile.links.github,
     label: "GitHub",
     Icon: Github,
-    hoverClass: "hover:text-foreground hover:bg-white/5",
     external: true,
   },
   {
     href: profile.links.linkedin,
     label: "LinkedIn",
     Icon: Linkedin,
-    hoverClass: "hover:text-[#0a66c2] hover:bg-[#0a66c2]/10",
     external: true,
   },
   {
     href: profile.links.gumroad,
     label: "Gumroad",
     Icon: ShoppingBag,
-    hoverClass: "hover:text-accent hover:bg-accent/10",
     external: true,
   },
 ];
 
 const SocialLinks = ({ size = 18, className = "" }) => {
   return (
-    <div className={`flex items-center gap-2 ${className}`.trim()}>
-      {items.map(({ href, label, Icon, hoverClass, external }) => (
+    <div className={`flex items-center gap-1.5 ${className}`.trim()}>
+      {items.map(({ href, label, Icon, external }) => (
         <a
           key={label}
           href={href}
-          className={`p-2 text-muted-foreground rounded-full transition-all duration-300 ${hoverClass}`}
+          className="social-icon-link"
           aria-label={label}
           title={label}
           {...(external

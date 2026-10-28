@@ -15,7 +15,7 @@ const Timeline = ({ items }) => (
           <h3 className="timeline-org">{item.org}</h3>
           <p className="timeline-role">
             {item.role}
-            {item.place ? ` · ${item.place}` : ""}
+            {item.place ? `, ${item.place}` : ""}
           </p>
           {item.unit ? <p className="timeline-role">{item.unit}</p> : null}
         </div>

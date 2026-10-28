@@ -12,7 +12,7 @@ import {
 const YearList = ({ items }) => (
   <div>
     {groupByYear(items).map(([year, group]) => (
-      <section key={year}>
+      <section key={year} className="year-group">
         <h3 className="pub-year">{year}</h3>
         <div className="pub-list">
           {group.map((pub) => (
