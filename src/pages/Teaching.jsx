@@ -6,9 +6,11 @@ import ExternalTextLink from "../components/ExternalTextLink";
 import {
   codingResources,
   competitionResources,
+  everydayResources,
   firstTexUrl,
   italianLatexGuides,
   latexGuides,
+  learningResources,
   teachingApps,
   teachingBook,
   teachingNav,
@@ -138,7 +140,12 @@ const Teaching = () => {
         <section id="students" className="content-block">
           <h2>For students</h2>
 
-          <div className="mb-8">
+          <div id="students-everyday" className="mb-8">
+            <h3 className="text-base mb-2">Everyday tools</h3>
+            <ResourceLinkList items={everydayResources} />
+          </div>
+
+          <div id="students-typesetting" className="mb-8">
             <h3 className="text-base mb-2">Typesetting</h3>
             <ResourceLinkList items={latexGuides} />
             <p className="text-sm text-muted-foreground mt-4 mb-2">
@@ -147,23 +154,30 @@ const Teaching = () => {
             <ResourceLinkList items={italianLatexGuides} />
           </div>
 
-          <div className="mb-8">
-            <h3 className="text-base mb-2">Computation and pictures</h3>
+          <div id="students-learning" className="mb-8">
+            <h3 className="text-base mb-2">Learn and practice</h3>
+            <ResourceLinkList items={learningResources} />
+          </div>
+
+          <div id="students-computation" className="mb-8">
+            <h3 className="text-base mb-2">Computation</h3>
             <p className="text-sm text-muted-foreground mb-3">
               Python with NumPy, SymPy, and Matplotlib is enough to start.
             </p>
             <ResourceLinkList items={codingResources} />
-            <div className="mt-3">
-              <ResourceLinkList items={visualizationResources} />
-            </div>
           </div>
 
-          <div className="mb-8">
+          <div id="students-visualization" className="mb-8">
+            <h3 className="text-base mb-2">Visualization</h3>
+            <ResourceLinkList items={visualizationResources} />
+          </div>
+
+          <div id="students-problems" className="mb-8">
             <h3 className="text-base mb-2">Problems</h3>
             <ResourceLinkList items={competitionResources} />
           </div>
 
-          <div>
+          <div id="students-ai">
             <h3 className="text-base mb-2">Working with AI</h3>
             <p className="prose-quiet mb-3">
               If you are stuck, do not ask a model for the answer. Ask it to act

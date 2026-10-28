@@ -11,7 +11,31 @@ export const teachingBook = {
   note: "Open textbook for students of the School of Engineering and Management at the University of Nova Gorica.",
 };
 
+export const everydayResources = [
+  {
+    url: "https://www.wolframalpha.com/",
+    label: "Wolfram Alpha",
+    suffix: " — computational knowledge engine for checking calculations",
+  },
+  {
+    url: "https://math.stackexchange.com/",
+    label: "Mathematics Stack Exchange",
+    suffix:
+      " — question and answer archive across high-school and university mathematics",
+  },
+  {
+    url: "https://oeis.org/",
+    label: "OEIS",
+    suffix: " — On-Line Encyclopedia of Integer Sequences",
+  },
+];
+
 export const latexGuides = [
+  {
+    url: "https://www.overleaf.com/",
+    label: "Overleaf",
+    suffix: " — online LaTeX workspace",
+  },
   {
     url: "https://tug.org/TUGboat/Articles/tb23-2/tb74flynn.pdf",
     label: "A beginner’s introduction to typesetting with LaTeX",
@@ -32,6 +56,11 @@ export const latexGuides = [
     label: "TeX page",
     suffix: " — Gianluca Gorni",
   },
+  {
+    url: "https://tex.stackexchange.com/",
+    label: "TeX Stack Exchange",
+    suffix: " — questions and answers on TeX and LaTeX",
+  },
 ];
 
 export const italianLatexGuides = [
@@ -49,6 +78,36 @@ export const italianLatexGuides = [
   },
 ];
 
+export const learningResources = [
+  {
+    url: "https://www.khanacademy.org/math",
+    label: "Khan Academy Mathematics",
+    suffix: " — free lessons and practice (high school and early university)",
+  },
+  {
+    url: "https://www.youmath.it/",
+    label: "YouMath",
+    suffix:
+      " — Italian lessons and worked exercises (high school and introductory university)",
+  },
+  {
+    url: "https://tutorial.math.lamar.edu/",
+    label: "Paul’s Online Math Notes",
+    suffix:
+      " — algebra, calculus, and differential equations notes with worked examples (high school to university)",
+  },
+  {
+    url: "https://ocw.mit.edu/courses/18-01sc-single-variable-calculus-fall-2010/",
+    label: "MIT OCW Single Variable Calculus",
+    suffix: " — full university course with lectures, notes, and problem sets",
+  },
+  {
+    url: "https://ocw.mit.edu/courses/18-06-linear-algebra-spring-2010/",
+    label: "MIT OCW Linear Algebra",
+    suffix: " — Gilbert Strang’s university linear algebra course",
+  },
+];
+
 export const codingResources = [
   {
     url: "https://colab.research.google.com/",
@@ -59,6 +118,11 @@ export const codingResources = [
     url: "https://scipy-lectures.org/",
     label: "SciPy Lectures",
     suffix: " — scientific computing in Python",
+  },
+  {
+    url: "https://docs.sympy.org/latest/index.html",
+    label: "SymPy Documentation",
+    suffix: " — symbolic mathematics in Python",
   },
 ];
 
