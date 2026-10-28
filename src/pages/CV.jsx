@@ -3,26 +3,25 @@ import PageShell from "../components/PageShell";
 import PageMeta from "../components/PageMeta";
 import PageHeader from "../components/PageHeader";
 import ExternalTextLink from "../components/ExternalTextLink";
+import Timeline from "../components/Timeline";
+import { serviceLink } from "../lib/cvDisplay";
 import { credentials, cvData, education, positions, service } from "../data/cv";
 import profilePhoto from "../assets/profile.jpg";
 
-const Timeline = ({ items }) => (
-  <div className="timeline">
-    {items.map((item) => (
-      <article key={`${item.org}-${item.years}`} className="timeline-item">
-        <p className="timeline-years">{item.years}</p>
-        <div>
-          <h3 className="timeline-org">{item.org}</h3>
-          <p className="timeline-role">
-            {item.role}
-            {item.place ? `, ${item.place}` : ""}
-          </p>
-          {item.unit ? <p className="timeline-role">{item.unit}</p> : null}
-        </div>
-      </article>
-    ))}
-  </div>
-);
+const ServiceEntry = ({ item }) => {
+  const link = serviceLink(item);
+  return (
+    <li className="py-1">
+      <span>{item.text}</span>
+      {link ? (
+        <>
+          {". "}
+          <ExternalTextLink href={link.href}>{link.detail}</ExternalTextLink>
+        </>
+      ) : null}
+    </li>
+  );
+};
 
 const CV = () => {
   return (
@@ -85,17 +84,7 @@ const CV = () => {
           <h2>Editorial work</h2>
           <ul className="plain-list prose-quiet m-0">
             {service.map((item) => (
-              <li key={item.text} className="py-1">
-                <span>{item.text}</span>
-                {item.href && item.detail ? (
-                  <>
-                    {". "}
-                    <ExternalTextLink href={item.href}>
-                      {item.detail}
-                    </ExternalTextLink>
-                  </>
-                ) : null}
-              </li>
+              <ServiceEntry key={item.text} item={item} />
             ))}
           </ul>
         </section>
