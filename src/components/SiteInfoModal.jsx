@@ -50,9 +50,8 @@ const SiteInfoModal = ({ isOpen, onClose }) => {
         <div className="info-block">
           <h3>Privacy</h3>
           <p>
-            There are no cookies or analytics. Fonts are served from this site.
-            A Google Search Console file is present only so the pages can be
-            indexed.
+            There are no cookies or analytics. A Google Search Console file is
+            present only so the pages can be indexed.
           </p>
         </div>
 

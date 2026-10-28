@@ -6,7 +6,7 @@ const PageMeta = ({ title, description }) => {
   const { pathname } = useLocation();
 
   useEffect(() => {
-    document.title = title ? `${title} · ${SITE_NAME}` : SITE_NAME;
+    document.title = title ? `${title} | ${SITE_NAME}` : SITE_NAME;
 
     if (description) {
       const desc = document.querySelector('meta[name="description"]');
