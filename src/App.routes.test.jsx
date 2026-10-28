@@ -23,7 +23,7 @@ describe("App routes", () => {
       within(main).getByRole("heading", { name: "Selected papers" })
     ).toBeInTheDocument();
     expect(
-      within(main).getByRole("link", { name: "Research" })
+      within(main).getByRole("link", { name: "All publications" })
     ).toHaveAttribute("href", "/publications");
   });
 
