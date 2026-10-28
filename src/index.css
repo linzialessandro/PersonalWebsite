@@ -373,7 +373,7 @@
     background: var(--color-background);
     border: 1px solid var(--color-border);
     object-fit: cover;
-    object-position: 50% 28%;
+    object-position: 50% 45%;
     flex-shrink: 0;
   }
 
@@ -394,8 +394,8 @@
     height: 1.5rem;
     border-radius: 2px;
     border: 1px solid var(--color-border);
-    object-fit: cover;
-    object-position: 50% 28%;
+    object-fit: contain;
+    background: var(--color-background);
     flex-shrink: 0;
   }
 

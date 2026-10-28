@@ -3,7 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { navLinks } from "../data/nav";
 import { profile } from "../data/profile";
-import profilePhoto from "../assets/profile.jpg";
+import siteMark from "../assets/site-mark.svg";
 
 const Header = () => {
   const location = useLocation();
@@ -63,7 +63,7 @@ const Header = () => {
       <div className="masthead-inner">
         <Link to="/" className="masthead-brand" onClick={closeMenu}>
           <img
-            src={profilePhoto}
+            src={siteMark}
             alt=""
             width={24}
             height={24}

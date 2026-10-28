@@ -3,7 +3,7 @@ import PageMeta from "../components/PageMeta";
 import SocialLinks from "../components/SocialLinks";
 import { profile, researchThemes } from "../data/profile";
 import { selectedPublications } from "../data/publications";
-import profilePhoto from "../assets/profile.jpg";
+import heroWriting from "../assets/hero-writing.gif";
 
 const Home = () => {
   return (
@@ -14,8 +14,8 @@ const Home = () => {
         <div className="monograph-dossier">
           <div className="dossier-header">
             <img
-              src={profilePhoto}
-              alt="Alessandro Linzi"
+              src={heroWriting}
+              alt="Alessandro Linzi writing on a chalkboard"
               width={152}
               height={188}
               className="profile-photo"
