@@ -62,79 +62,83 @@ const Teaching = () => {
       <div className="content-stack">
         <section id="materials" className="content-block">
           <h2>Materials</h2>
-          <article className="glass-card mb-4">
-            <p className="page-kicker mb-2">Textbook</p>
-            <h3 className="text-lg mt-0 mb-2">
-              <i>{teachingBook.title}</i>
-            </h3>
-            <p className="text-muted-foreground m-0 mb-3">
-              {teachingBook.authors}. {teachingBook.imprint}
-            </p>
-            <p className="prose-quiet m-0 mb-4">{teachingBook.note}</p>
-            <ExternalTextLink href={teachingBook.url}>
-              Read online
-            </ExternalTextLink>
-          </article>
+          <div className="grid-2">
+            <article className="index-plate">
+              <p className="page-kicker mb-2">Textbook</p>
+              <h3 className="text-lg mt-0 mb-2">
+                <i>{teachingBook.title}</i>
+              </h3>
+              <p className="text-muted-foreground m-0 mb-3">
+                {teachingBook.authors}. {teachingBook.imprint}
+              </p>
+              <p className="prose-quiet m-0 mb-4">{teachingBook.note}</p>
+              <ExternalTextLink href={teachingBook.url}>
+                Read online
+              </ExternalTextLink>
+            </article>
 
-          <article className="glass-card">
-            <p className="page-kicker mb-2">Notes</p>
-            <h3 className="text-lg mt-0 mb-2">LaTeX for a first paper</h3>
-            <p className="prose-quiet m-0 mb-4">
-              A short presentation on the essentials of writing mathematics in
-              LaTeX.
-            </p>
-            <a
-              href={firstTexUrl}
-              download
-              className="btn btn-outline w-fit"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <Download size={16} />
-              Download
-            </a>
-          </article>
+            <article className="index-plate">
+              <p className="page-kicker mb-2">Notes</p>
+              <h3 className="text-lg mt-0 mb-2">LaTeX for a first paper</h3>
+              <p className="prose-quiet m-0 mb-4">
+                A short presentation on the essentials of writing mathematics in
+                LaTeX.
+              </p>
+              <a
+                href={firstTexUrl}
+                download
+                className="btn btn-outline w-fit"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Download size={16} />
+                Download
+              </a>
+            </article>
+          </div>
         </section>
 
         <section id="projects" className="content-block">
           <h2>Projects</h2>
-          <article className="glass-card mb-4">
-            <h3 className="text-lg mt-0 mb-2">SenzaTesto</h3>
-            <p className="prose-quiet m-0 mb-4">
-              An open collection of AI-generated mathematics exercises for
-              Italian students and teachers.
-            </p>
-            <ExternalTextLink href={teachingApps.senzaTesto}>
-              Open SenzaTesto
-            </ExternalTextLink>
-          </article>
-          <article className="glass-card">
-            <h3 className="text-lg mt-0 mb-2">Mate-matician</h3>
-            <p className="prose-quiet m-0 mb-4">
-              An experimental browser app for browsing MacTutor biographies. It
-              runs as a public preview on Google AI Studio and needs a Google
-              account.
-            </p>
-            <div className="flex flex-wrap gap-3">
-              <a
-                href={teachingApps.mateStudio}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn btn-outline w-fit"
-              >
-                <ExternalLink size={16} />
-                Open preview
-              </a>
-              <a
-                href={teachingApps.mateGithub}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn btn-outline w-fit"
-              >
-                GitHub
-              </a>
-            </div>
-          </article>
+          <div className="grid-2">
+            <article className="index-plate">
+              <h3 className="text-lg mt-0 mb-2">SenzaTesto</h3>
+              <p className="prose-quiet m-0 mb-4">
+                An open collection of AI-generated mathematics exercises for
+                Italian students and teachers.
+              </p>
+              <ExternalTextLink href={teachingApps.senzaTesto}>
+                Open SenzaTesto
+              </ExternalTextLink>
+            </article>
+            <article className="index-plate">
+              <h3 className="text-lg mt-0 mb-2">Mate-matician</h3>
+              <p className="prose-quiet m-0 mb-4">
+                An experimental browser app for browsing MacTutor biographies.
+                It runs as a public preview on Google AI Studio and needs a
+                Google account.
+              </p>
+              <div className="flex flex-wrap gap-3">
+                <a
+                  href={teachingApps.mateStudio}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn btn-outline w-fit"
+                >
+                  <ExternalLink size={16} />
+                  Open preview
+                </a>
+                <a
+                  href={teachingApps.mateGithub}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn btn-outline w-fit"
+                >
+                  GitHub
+                </a>
+              </div>
+            </article>
+          </div>
         </section>
 
         <section id="students" className="content-block">
