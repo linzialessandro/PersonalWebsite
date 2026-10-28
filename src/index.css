@@ -677,12 +677,6 @@
     gap: 1.25rem;
   }
 
-  .grid-3 {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 1.25rem;
-  }
-
   .timeline {
     display: flex;
     flex-direction: column;
@@ -832,10 +826,6 @@
 @media (min-width: 768px) {
   .grid-2 {
     grid-template-columns: 1fr 1fr;
-  }
-
-  .grid-3 {
-    grid-template-columns: 1fr 1fr 1fr;
   }
 }
 
