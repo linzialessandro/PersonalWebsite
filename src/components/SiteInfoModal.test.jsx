@@ -1,5 +1,5 @@
 import { fireEvent, render, screen, within } from "@testing-library/react";
-import { describe, expect, it } from "vitest";
+import { describe, expect, it, vi } from "vitest";
 import Footer from "./Footer";
 
 function openModal() {
@@ -72,6 +72,19 @@ describe("SiteInfoModal", () => {
 
     fireEvent.keyDown(document, { key: "Tab" });
     expect(close).toHaveFocus();
+  });
+
+  it("closes without restoring focus when nothing was focused before open", () => {
+    const active = vi
+      .spyOn(document, "activeElement", "get")
+      .mockReturnValue(null);
+    render(<Footer />);
+    fireEvent.click(screen.getByRole("button", { name: "About this site" }));
+    active.mockRestore();
+
+    fireEvent.keyDown(document, { key: "Escape" });
+
+    expect(screen.queryByRole("dialog")).not.toBeInTheDocument();
   });
 
   it("leaves Tab alone when focus is between the first and last items", () => {
