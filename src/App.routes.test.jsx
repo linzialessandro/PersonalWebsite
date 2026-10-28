@@ -15,7 +15,7 @@ describe("App routes", () => {
     expect(
       within(main).getByRole("heading", { level: 1, name: "Alessandro Linzi" })
     ).toBeInTheDocument();
-    expect(within(main).getByText("PhD, Udine, Italy")).toBeInTheDocument();
+    expect(within(main).getByText("Udine, Italy")).toBeInTheDocument();
     expect(
       within(main).getByRole("complementary", { name: "Areas of work" })
     ).toBeInTheDocument();
