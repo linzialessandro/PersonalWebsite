@@ -70,6 +70,10 @@ export const credentials = [
 ];
 
 export const service = [
-  "Editor, Mathematics (MDPI)",
-  "Referee for international journals",
+  {
+    text: "Editor, Mathematics (MDPI)",
+    detail: "Special issue: Algebraic Structures and Graph Theory, 2nd Edition",
+    href: "https://www.mdpi.com/journal/mathematics/special_issues/1RKT503SSL",
+  },
+  { text: "Referee for international journals" },
 ];

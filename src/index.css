@@ -574,6 +574,31 @@
     text-decoration-color: var(--color-accent);
   }
 
+  .profile-ledger {
+    border-top: 1px solid var(--color-border);
+  }
+
+  .profile-ledger-row {
+    display: grid;
+    gap: 0.25rem 1.5rem;
+    padding: 0.85rem 0;
+    border-bottom: 1px solid var(--color-border);
+    align-items: baseline;
+  }
+
+  @media (min-width: 720px) {
+    .profile-ledger-row {
+      grid-template-columns: 11rem minmax(0, 1fr);
+    }
+  }
+
+  .profile-ledger-label {
+    font-family: var(--font-heading);
+    font-size: 1.02rem;
+    font-weight: 500;
+    color: var(--color-foreground);
+  }
+
   .plain-list {
     list-style: none;
     padding-left: 0;
