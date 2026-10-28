@@ -1,4 +1,3 @@
-import { Mail } from "lucide-react";
 import { Link } from "react-router-dom";
 import PageMeta from "../components/PageMeta";
 import SocialLinks from "../components/SocialLinks";
@@ -28,14 +27,7 @@ const Home = () => {
             </div>
           </div>
           <div className="dossier-actions">
-            <Link to="/publications" className="btn btn-primary">
-              Research
-            </Link>
-            <a href={`mailto:${profile.email}`} className="btn btn-outline">
-              <Mail size={16} />
-              Write
-            </a>
-            <SocialLinks size={18} className="sm:ml-auto" />
+            <SocialLinks size={18} />
           </div>
         </div>
 
