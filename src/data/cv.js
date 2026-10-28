@@ -66,7 +66,7 @@ export const education = [
 ];
 
 export const credentials = [
-  "eCampus A026 abilitazione (Italian teaching qualification, Mathematics)",
+  "Italian secondary-school teaching habilitation (abilitazione), Class A026 — Mathematics; Università Telematica e-Campus; final exam 16 June 2026, grade 10/10; 60 CFU",
 ];
 
 export const service = [
