@@ -1,10 +1,25 @@
 {
   "name": "Alessandro Linzi",
   "short_name": "Linzi",
+  "start_url": "/PersonalWebsite/",
+  "scope": "/PersonalWebsite/",
   "icons": [
-    { "src": "/favicon-32.png", "sizes": "32x32", "type": "image/png" },
-    { "src": "/apple-touch-icon.png", "sizes": "180x180", "type": "image/png" },
-    { "src": "/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+    {
+      "src": "/PersonalWebsite/favicon-32.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "/PersonalWebsite/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    },
+    {
+      "src": "/PersonalWebsite/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
   ],
   "theme_color": "#f6f6f2",
   "background_color": "#f6f6f2",
