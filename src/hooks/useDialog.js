@@ -3,55 +3,63 @@ import { useEffect, useRef } from "react";
 const FOCUSABLE =
   'a[href], button:not([disabled]), textarea, input, select, [tabindex]:not([tabindex="-1"])';
 
+function focusableIn(root) {
+  return Array.from(root.querySelectorAll(FOCUSABLE));
+}
+
+function wrapTarget(items, active, backwards) {
+  const first = items[0];
+  const last = items[items.length - 1];
+  if (backwards && active === first) return last;
+  if (!backwards && active === last) return first;
+  return null;
+}
+
+function trapTab(event, root) {
+  const target = wrapTarget(
+    focusableIn(root),
+    document.activeElement,
+    event.shiftKey
+  );
+  if (!target) return;
+  event.preventDefault();
+  target.focus();
+}
+
+function lockScroll() {
+  const previous = document.body.style.overflow;
+  document.body.style.overflow = "hidden";
+  return () => {
+    document.body.style.overflow = previous;
+  };
+}
+
 export function useDialog({ isOpen, onClose }) {
   const dialogRef = useRef(null);
-  const lastFocusRef = useRef(null);
 
   useEffect(() => {
     if (!isOpen) return undefined;
 
-    lastFocusRef.current = document.activeElement;
     const root = dialogRef.current;
-    const focusable = () =>
-      root ? Array.from(root.querySelectorAll(FOCUSABLE)) : [];
-
-    const first = focusable()[0];
-    first?.focus();
+    const returnFocusTo = document.activeElement;
+    focusableIn(root)[0]?.focus();
 
     const onKeyDown = (event) => {
       if (event.key === "Escape") {
         event.preventDefault();
         onClose();
-        return;
-      }
-
-      if (event.key !== "Tab" || !root) return;
-
-      const items = focusable();
-      if (items.length === 0) return;
-
-      const firstEl = items[0];
-      const lastEl = items[items.length - 1];
-
-      if (event.shiftKey && document.activeElement === firstEl) {
-        event.preventDefault();
-        lastEl.focus();
-      } else if (!event.shiftKey && document.activeElement === lastEl) {
-        event.preventDefault();
-        firstEl.focus();
+      } else if (event.key === "Tab") {
+        trapTab(event, root);
       }
     };
 
-    const previousOverflow = document.body.style.overflow;
-    document.body.style.overflow = "hidden";
+    const unlockScroll = lockScroll();
     document.addEventListener("keydown", onKeyDown);
 
     return () => {
-      document.body.style.overflow = previousOverflow;
+      unlockScroll();
       document.removeEventListener("keydown", onKeyDown);
-      if (lastFocusRef.current instanceof HTMLElement) {
-        lastFocusRef.current.focus();
-      }
+      if (returnFocusTo instanceof HTMLElement) returnFocusTo.focus();
     };
   }, [isOpen, onClose]);
 
