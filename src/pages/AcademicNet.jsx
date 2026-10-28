@@ -4,6 +4,45 @@ import PageHeader from "../components/PageHeader";
 import ExternalTextLink from "../components/ExternalTextLink";
 import { colleagues, otherLinks } from "../data/academicNet";
 
+function listedLinks(links) {
+  return Array.isArray(links) ? links : [];
+}
+
+const ColleagueName = ({ person }) => {
+  if (!person.url) return person.name;
+  return <ExternalTextLink href={person.url}>{person.name}</ExternalTextLink>;
+};
+
+const ColleagueLinks = ({ links }) => {
+  const items = listedLinks(links);
+  if (items.length === 0) return null;
+  return (
+    <span className="colleague-links">
+      {items.map((link) => (
+        <ExternalTextLink key={link.url} href={link.url}>
+          {link.text}
+        </ExternalTextLink>
+      ))}
+    </span>
+  );
+};
+
+const ColleagueCard = ({ person }) => (
+  <article className="colleague-card">
+    <span className="colleague-name">
+      <ColleagueName person={person} />
+    </span>
+    <ColleagueLinks links={person.links} />
+  </article>
+);
+
+const ReferenceRow = ({ item }) => (
+  <article className="resource-row">
+    <ExternalTextLink href={item.url}>{item.label}</ExternalTextLink>
+    <p className="m-0 text-muted-foreground">{item.text}</p>
+  </article>
+);
+
 const AcademicNet = () => {
   return (
     <PageShell>
@@ -20,26 +59,7 @@ const AcademicNet = () => {
           <h2>People</h2>
           <div className="colleague-grid">
             {colleagues.map((person) => (
-              <article key={person.name} className="colleague-card">
-                <span className="colleague-name">
-                  {person.url ? (
-                    <ExternalTextLink href={person.url}>
-                      {person.name}
-                    </ExternalTextLink>
-                  ) : (
-                    person.name
-                  )}
-                </span>
-                {person.links?.length ? (
-                  <span className="colleague-links">
-                    {person.links.map((link) => (
-                      <ExternalTextLink key={link.url} href={link.url}>
-                        {link.text}
-                      </ExternalTextLink>
-                    ))}
-                  </span>
-                ) : null}
-              </article>
+              <ColleagueCard key={person.name} person={person} />
             ))}
           </div>
         </section>
@@ -48,12 +68,7 @@ const AcademicNet = () => {
           <h2>References</h2>
           <div>
             {otherLinks.map((item) => (
-              <article key={item.url} className="resource-row">
-                <ExternalTextLink href={item.url}>
-                  {item.label}
-                </ExternalTextLink>
-                <p className="m-0 text-muted-foreground">{item.text}</p>
-              </article>
+              <ReferenceRow key={item.url} item={item} />
             ))}
           </div>
         </section>
