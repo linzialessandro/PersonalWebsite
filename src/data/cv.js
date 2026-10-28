@@ -8,7 +8,7 @@ export const cvData = {
 
 export const positions = [
   {
-    org: "Bonaldo Stringher (Udine)",
+    org: "ISIS Bonaldo Stringher (Udine)",
     role: "Mathematics Teacher (class A026)",
     unit: "Full-time, 18 weekly hours. Also taught here Nov 2025–Jun 2026; current contract ends 30 Jun 2027.",
     place: "Udine, Italy",
