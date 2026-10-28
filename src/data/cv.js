@@ -8,7 +8,7 @@ export const cvData = {
 
 export const positions = [
   {
-    org: "Bonaldo Stringher (Udine)",
+    org: "ISIS Bonaldo Stringher (Udine)",
     role: "Mathematics Teacher (class A026)",
     unit: "Full-time, 18 weekly hours. Also taught here Nov 2025–Jun 2026; current contract ends 30 Jun 2027.",
     place: "Udine, Italy",
@@ -70,6 +70,10 @@ export const credentials = [
 ];
 
 export const service = [
-  "Editor, Mathematics (MDPI)",
-  "Referee for international journals",
+  {
+    text: "Editor, Mathematics (MDPI)",
+    detail: "Special issue: Algebraic Structures and Graph Theory, 2nd Edition",
+    href: "https://www.mdpi.com/journal/mathematics/special_issues/1RKT503SSL",
+  },
+  { text: "Referee for international journals" },
 ];

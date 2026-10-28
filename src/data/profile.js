@@ -11,6 +11,7 @@ export const profile = {
     linkedin: "https://www.linkedin.com/in/alessandro-linzi-65bb41354/",
     orcid: "https://orcid.org/0000-0002-1422-7674",
     scholar: "https://scholar.google.com/citations?user=9nI0sgsAAAAJ&hl=it",
+    scopus: "https://www.scopus.com/authid/detail.uri?authorId=57211482898",
     arxiv: "https://arxiv.org/search/?searchtype=author&query=Linzi,+A",
     gumroad: "https://alessandrolinzi.gumroad.com/",
   },

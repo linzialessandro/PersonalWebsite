@@ -85,8 +85,16 @@ const CV = () => {
           <h2>Editorial work</h2>
           <ul className="plain-list prose-quiet m-0">
             {service.map((item) => (
-              <li key={item} className="py-1">
-                {item}
+              <li key={item.text} className="py-1">
+                <span>{item.text}</span>
+                {item.href && item.detail ? (
+                  <>
+                    {". "}
+                    <ExternalTextLink href={item.href}>
+                      {item.detail}
+                    </ExternalTextLink>
+                  </>
+                ) : null}
               </li>
             ))}
           </ul>

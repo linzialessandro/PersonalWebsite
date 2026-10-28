@@ -176,3 +176,26 @@ export function groupByYear(items) {
   }
   return [...groups.entries()].sort((a, b) => Number(b[0]) - Number(a[0]));
 }
+
+export const researchProfiles = [
+  {
+    label: "Google Scholar",
+    url: "https://scholar.google.com/citations?user=9nI0sgsAAAAJ&hl=it",
+    host: "scholar.google.com",
+  },
+  {
+    label: "Scopus",
+    url: "https://www.scopus.com/authid/detail.uri?authorId=57211482898",
+    host: "scopus.com",
+  },
+  {
+    label: "ORCID",
+    url: "https://orcid.org/0000-0002-1422-7674",
+    host: "orcid.org",
+  },
+  {
+    label: "ResearchGate",
+    url: "https://www.researchgate.net/profile/Alessandro-Linzi",
+    host: "researchgate.net",
+  },
+];
