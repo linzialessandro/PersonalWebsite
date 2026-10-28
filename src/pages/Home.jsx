@@ -22,9 +22,7 @@ const Home = () => {
               className="profile-photo"
             />
             <div>
-              <p className="page-kicker">
-                {profile.honorific}, {profile.location}
-              </p>
+              <p className="page-kicker">{profile.location}</p>
               <h1 className="hero-title">{profile.name}</h1>
               <p className="monograph-epigraph">{profile.tagline}</p>
             </div>
