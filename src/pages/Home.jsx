@@ -13,22 +13,22 @@ const Home = () => {
       <section className="monograph-hero">
         <div className="monograph-dossier">
           <div className="dossier-header">
-            <img
-              src={heroWriting}
-              alt="Alessandro Linzi writing on a chalkboard"
-              width={152}
-              height={188}
-              className="profile-photo"
-            />
-            <div>
-              <p className="page-kicker">{profile.location}</p>
-              <h1 className="hero-title">{profile.name}</h1>
-              <p className="monograph-epigraph">{profile.tagline}</p>
-            </div>
+            <p className="page-kicker">{profile.location}</p>
+            <h1 className="hero-title">{profile.name}</h1>
+            <p className="monograph-epigraph">{profile.tagline}</p>
           </div>
           <div className="dossier-actions">
             <SocialLinks size={18} />
           </div>
+          <figure className="hero-writing">
+            <img
+              src={heroWriting}
+              alt="Alessandro Linzi writing on a chalkboard"
+              width={640}
+              height={360}
+              className="archival-figure-img"
+            />
+          </figure>
         </div>
 
         <aside className="seminar-index" aria-labelledby="areas-heading">
