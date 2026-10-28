@@ -20,7 +20,7 @@ The website is a modern single-page application built primarily using React and 
 
 - **Tailwind CSS 4**: Used for utility-first styling (`tailwindcss`, `@tailwindcss/vite`).
 - **Lucide React**: Icon library (`lucide-react`).
-- **Fonts**: Self-hosted via `@fontsource` (Archivo, Space Grotesk).
+- **Fonts**: Self-hosted via `@fontsource` (Archivo).
 
 ## Deployment & Tooling
 

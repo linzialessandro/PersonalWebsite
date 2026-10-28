@@ -7,6 +7,5 @@ export function getBasename() {
 }
 
 export function absoluteUrl(pathname = "/") {
-  const path = pathname === "/" ? "/" : pathname;
-  return `${SITE_URL}${path === "/" ? "/" : path}`;
+  return `${SITE_URL}${pathname}`;
 }

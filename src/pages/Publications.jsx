@@ -3,8 +3,9 @@ import PageMeta from "../components/PageMeta";
 import PageHeader from "../components/PageHeader";
 import PublicationItem from "../components/PublicationItem";
 import ExternalTextLink from "../components/ExternalTextLink";
+import { groupByYear } from "../lib/groupByYear";
+import { publicationKey } from "../lib/publicationDisplay";
 import {
-  groupByYear,
   preprints,
   publications,
   researchProfiles,
@@ -18,7 +19,7 @@ const YearList = ({ items }) => (
         <h3 className="pub-year">{year}</h3>
         <div className="pub-list">
           {group.map((pub) => (
-            <PublicationItem key={pub.id ?? pub.title} pub={pub} />
+            <PublicationItem key={publicationKey(pub)} pub={pub} />
           ))}
         </div>
       </section>
@@ -86,7 +87,7 @@ const Publications = () => {
           <h2>Submitted</h2>
           <div className="pub-list">
             {submissions.map((pub) => (
-              <PublicationItem key={pub.id ?? pub.title} pub={pub} />
+              <PublicationItem key={publicationKey(pub)} pub={pub} />
             ))}
           </div>
         </section>

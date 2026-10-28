@@ -160,23 +160,6 @@ export const selectedPublications = publications
   .filter((item) => item.selected)
   .sort((a, b) => b.year - a.year);
 
-export function groupByYear(items) {
-  const groups = new Map();
-  for (const item of items) {
-    const year = item.year ?? "Other";
-    if (!groups.has(year)) groups.set(year, []);
-    groups.get(year).push(item);
-  }
-  for (const group of groups.values()) {
-    group.sort((a, b) => {
-      if (a.kind === "preface" && b.kind !== "preface") return 1;
-      if (b.kind === "preface" && a.kind !== "preface") return -1;
-      return 0;
-    });
-  }
-  return [...groups.entries()].sort((a, b) => Number(b[0]) - Number(a[0]));
-}
-
 export const researchProfiles = [
   {
     label: "Google Scholar",
