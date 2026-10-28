@@ -193,4 +193,9 @@ export const researchProfiles = [
     url: "https://orcid.org/0000-0002-1422-7674",
     host: "orcid.org",
   },
+  {
+    label: "ResearchGate",
+    url: "https://www.researchgate.net/profile/Alessandro-Linzi",
+    host: "researchgate.net",
+  },
 ];
