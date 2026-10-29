@@ -10,9 +10,9 @@ export const positions = [
   {
     org: "ISIS Bonaldo Stringher (Udine)",
     role: "Mathematics Teacher (class A026)",
-    unit: "Full-time, 18 weekly hours. Also taught here Nov 2025–Jun 2026; current contract ends 30 Jun 2027.",
+    unit: "Full-time, 18 weekly hours. First contract Nov 2025–Jun 2026; current contract Sep 2026–30 Jun 2027.",
     place: "Udine, Italy",
-    years: "Sep 2026–Present",
+    years: "Nov 2025–Present",
   },
   {
     org: "ISIS Mattei Latisana",
