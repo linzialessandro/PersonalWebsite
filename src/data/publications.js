@@ -163,7 +163,7 @@ export const selectedPublications = publications
 export const researchProfiles = [
   {
     label: "Google Scholar",
-    url: "https://scholar.google.com/citations?user=9nI0sgsAAAAJ&hl=it",
+    url: "https://scholar.google.com/citations?user=9nI0sgsAAAAJ",
     host: "scholar.google.com",
   },
   {
