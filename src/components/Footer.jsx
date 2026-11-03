@@ -1,10 +1,13 @@
 import { useState } from "react";
+import ExternalTextLink from "./ExternalTextLink";
 import SocialLinks from "./SocialLinks";
 import SiteInfoModal from "./SiteInfoModal";
 import { profile } from "../data/profile";
 
-const Footer = () => {
+const Footer = ({ pathname = "" }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  // Keep support links away from teaching/student resources.
+  const showSupport = !/\/teaching(\/|$)/.test(pathname);
 
   return (
     <footer className="site-footer">
@@ -20,6 +23,19 @@ const Footer = () => {
           >
             About this site
           </button>
+          {showSupport && (
+            <p className="mt-1 mb-0">
+              Like my writing? Support it on{" "}
+              <ExternalTextLink href={profile.links.gumroad}>
+                Gumroad
+              </ExternalTextLink>{" "}
+              or{" "}
+              <ExternalTextLink href={profile.links.buymeacoffee}>
+                Buy Me a Coffee
+              </ExternalTextLink>
+              .
+            </p>
+          )}
         </div>
         <SocialLinks />
       </div>
