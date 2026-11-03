@@ -14,6 +14,7 @@ export const profile = {
     scopus: "https://www.scopus.com/authid/detail.uri?authorId=57211482898",
     arxiv: "https://arxiv.org/search/?searchtype=author&query=Linzi,+A",
     gumroad: "https://alessandrolinzi.gumroad.com/",
+    buymeacoffee: "https://buymeacoffee.com/alinzi",
   },
 };
 

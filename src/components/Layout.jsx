@@ -1,8 +1,9 @@
-import { Outlet } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
 import Header from "./Header";
 import Footer from "./Footer";
 
 const Layout = () => {
+  const { pathname } = useLocation();
   return (
     <>
       <a href="#main-content" className="skip-link">
@@ -12,7 +13,7 @@ const Layout = () => {
       <main id="main-content">
         <Outlet />
       </main>
-      <Footer />
+      <Footer pathname={pathname} />
     </>
   );
 };
