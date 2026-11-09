@@ -17,4 +17,16 @@ describe("SocialLinks", () => {
     expect(link).toHaveAttribute("target", "_blank");
     expect(link).toHaveAttribute("rel", "noopener noreferrer");
   });
+
+  it("renders an external Buy Me a Coffee link pointing to profile.links.buymeacoffee", () => {
+    expect(profile.links.buymeacoffee).toBe("https://buymeacoffee.com/alinzi");
+
+    render(<SocialLinks />);
+
+    const link = screen.getByRole("link", { name: "Buy Me a Coffee" });
+    expect(link).toHaveAttribute("href", "https://buymeacoffee.com/alinzi");
+    expect(link).toHaveAttribute("target", "_blank");
+    expect(link).toHaveAttribute("rel", "noopener noreferrer");
+    expect(link).toHaveAttribute("title", "Buy Me a Coffee");
+  });
 });

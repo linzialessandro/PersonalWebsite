@@ -1,4 +1,5 @@
 import {
+  Coffee,
   Github,
   GraduationCap,
   Linkedin,
@@ -67,6 +68,12 @@ const items = [
     href: profile.links.gumroad,
     label: "Gumroad",
     Icon: ShoppingBag,
+    external: true,
+  },
+  {
+    href: profile.links.buymeacoffee,
+    label: "Buy Me a Coffee",
+    Icon: Coffee,
     external: true,
   },
 ];
