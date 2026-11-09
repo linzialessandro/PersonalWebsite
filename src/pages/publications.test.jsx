@@ -24,4 +24,19 @@ describe("Publications page", () => {
       [...publications, ...preprints].filter((item) => item.link).length
     );
   });
+
+  it("offers BibTeX copy only where a stored entry exists", () => {
+    render(
+      <MemoryRouter>
+        <Publications />
+      </MemoryRouter>
+    );
+
+    const withBibtex = [...publications, ...preprints, ...submissions].filter(
+      (item) => item.bibtex
+    );
+    expect(screen.getAllByRole("button", { name: "BibTeX" })).toHaveLength(
+      withBibtex.length
+    );
+  });
 });

@@ -1,13 +1,27 @@
-import { render, screen, within } from "@testing-library/react";
-import { describe, expect, it } from "vitest";
-import { publications, submissions } from "../data/publications";
+import {
+  fireEvent,
+  render,
+  screen,
+  within,
+  waitFor,
+} from "@testing-library/react";
+import { afterEach, describe, expect, it, vi } from "vitest";
+import { publications, preprints, submissions } from "../data/publications";
 import PublicationItem from "./PublicationItem";
 
 const preface = publications.find((item) => item.kind === "preface");
 const withExtra = publications.find((item) => item.extraLink);
 const doi = publications.find((item) => item.link?.includes("doi.org"));
+const noBibtex = publications.find(
+  (item) => item.link && !item.link.includes("doi.org") && !item.bibtex
+);
+const preprint = preprints.find((item) => item.bibtex);
 
 describe("PublicationItem", () => {
+  afterEach(() => {
+    vi.restoreAllMocks();
+  });
+
   it("emphasizes each occurrence of A. Linzi and shows a DOI", () => {
     render(<PublicationItem pub={doi} />);
 
@@ -46,6 +60,9 @@ describe("PublicationItem", () => {
     render(<PublicationItem pub={submissions[0]} />);
     expect(screen.getByText("In review")).toBeInTheDocument();
     expect(screen.queryByRole("link")).not.toBeInTheDocument();
+    expect(
+      screen.queryByRole("button", { name: "BibTeX" })
+    ).not.toBeInTheDocument();
   });
 
   it("covers missing years, non-DOI labels, and an unlabeled extra link", () => {
@@ -69,6 +86,9 @@ describe("PublicationItem", () => {
       "https://example.com/notes",
       "https://example.com/extra",
     ]);
+    expect(
+      screen.queryByRole("button", { name: "BibTeX" })
+    ).not.toBeInTheDocument();
   });
 
   it("emphasizes a repeated author mark", () => {
@@ -89,5 +109,36 @@ describe("PublicationItem", () => {
     expect(
       screen.getByRole("link", { name: "arXiv:0000.00000" })
     ).toHaveAttribute("href", "https://doi.org/10.1000/example");
+  });
+
+  it("copies stored BibTeX for DOI papers and hides the control without it", async () => {
+    const writeText = vi.fn().mockResolvedValue(undefined);
+    Object.assign(navigator, { clipboard: { writeText } });
+
+    const { unmount } = render(<PublicationItem pub={doi} />);
+    fireEvent.click(screen.getByRole("button", { name: "BibTeX" }));
+    await waitFor(() => {
+      expect(writeText).toHaveBeenCalledWith(doi.bibtex);
+      expect(
+        screen.getByRole("button", { name: "Copied" })
+      ).toBeInTheDocument();
+    });
+    unmount();
+
+    render(<PublicationItem pub={noBibtex} />);
+    expect(
+      screen.queryByRole("button", { name: "BibTeX" })
+    ).not.toBeInTheDocument();
+  });
+
+  it("copies stored BibTeX for arXiv preprints", async () => {
+    const writeText = vi.fn().mockResolvedValue(undefined);
+    Object.assign(navigator, { clipboard: { writeText } });
+
+    render(<PublicationItem pub={preprint} />);
+    fireEvent.click(screen.getByRole("button", { name: "BibTeX" }));
+    await waitFor(() => {
+      expect(writeText).toHaveBeenCalledWith(preprint.bibtex);
+    });
   });
 });
