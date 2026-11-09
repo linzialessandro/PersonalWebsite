@@ -751,19 +751,6 @@
     border: 1px solid var(--color-border);
   }
 
-  .hero-writing {
-    width: 100%;
-    max-width: 40rem;
-    margin: 0 auto;
-  }
-
-  .hero-writing .archival-figure-img {
-    display: block;
-    width: 100%;
-    height: auto;
-    margin-inline: auto;
-  }
-
   .modal-overlay {
     position: fixed;
     inset: 0;
