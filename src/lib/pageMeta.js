@@ -14,6 +14,6 @@ export function applyPageMeta({ title, description, pathname }) {
   }
   const url = absoluteUrl(pathname);
   setAttr('link[rel="canonical"]', "href", url);
-  setAttr('meta[property="og:url"]', "href", url);
+  setAttr('meta[property="og:url"]', "content", url);
   setAttr('meta[property="og:title"]', "content", document.title);
 }
