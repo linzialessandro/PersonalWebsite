@@ -15,7 +15,7 @@
   --font-heading:
     "Newsreader", "Iowan Old Style", "Charter", "Palatino Linotype", Georgia,
     serif;
-  --font-body: "Source Sans 3", "Archivo", system-ui, -apple-system, sans-serif;
+  --font-body: "Source Sans 3", system-ui, -apple-system, sans-serif;
 }
 
 @layer base {
