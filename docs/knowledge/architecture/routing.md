@@ -9,7 +9,7 @@ timestamp: 2026-08-13T18:00:00Z
 
 # Routing
 
-The app uses `BrowserRouter` with a production basename of `/PersonalWebsite/`. GitHub Pages has no rewrite rules, so the Vite build copies `index.html` to `404.html`. Legacy `#/path` URLs are rewritten on first load.
+The app uses `BrowserRouter` with a production basename of `/PersonalWebsite/`. GitHub Pages has no rewrite rules, so the Vite build copies `index.html` into each known route directory (for HTTP 200 on deep links) and to `404.html` for unknown paths. Legacy `#/path` URLs are rewritten on first load.
 
 Home is imported eagerly. Inner pages are `React.lazy` route modules.
 

@@ -62,7 +62,7 @@ export const colleagues = [
   },
   {
     name: "Christos Massouros",
-    url: "http://users.uoa.gr/~chrmas/",
+    url: "https://www.core.uoa.gr/tmima/prosopiko/meli_didaktikoy_ereynitikoy_prosopikoy_dep/kathigites_protis_bathmidas/christos_massoyros/",
     links: [],
   },
   {
@@ -94,7 +94,7 @@ export const otherLinks = [
   {
     label: "HAndA Symposium",
     text: "Hypercompositional Algebra — New Developments and Applications",
-    url: "http://projects.ung.si/handa/index.html",
+    url: "https://projects.ung.si/handa/",
   },
   {
     label: "Thesaurus of Hyperstructures",

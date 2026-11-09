@@ -15,7 +15,7 @@
   --font-heading:
     "Newsreader", "Iowan Old Style", "Charter", "Palatino Linotype", Georgia,
     serif;
-  --font-body: "Source Sans 3", "Archivo", system-ui, -apple-system, sans-serif;
+  --font-body: "Source Sans 3", system-ui, -apple-system, sans-serif;
 }
 
 @layer base {
@@ -545,6 +545,15 @@
 
   .pub-link:hover {
     text-decoration-color: var(--color-accent);
+  }
+
+  button.pub-bibtex {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    font: inherit;
+    text-align: left;
   }
 
   .profile-ledger {

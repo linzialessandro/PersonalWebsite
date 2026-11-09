@@ -39,7 +39,7 @@ describe("applyPageMeta", () => {
       `${SITE_URL}/publications`
     );
     expect(document.querySelector('meta[property="og:url"]')).toHaveAttribute(
-      "href",
+      "content",
       `${SITE_URL}/publications`
     );
     expect(content('meta[property="og:title"]')).toBe(document.title);

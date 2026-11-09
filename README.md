@@ -49,7 +49,7 @@ npm test
 
 Pushes to `main` run GitHub Actions: lint, test, build, then publish `dist` to the `gh-pages` branch. GitHub Pages is served from that branch at `/PersonalWebsite/`.
 
-A production build also copies `index.html` to `404.html` so deep links such as `/publications` work on GitHub Pages. Older `#/publications` URLs are rewritten to path routes on first load.
+A production build copies `index.html` into each known route folder (`dist/cv/index.html`, and so on) so deep links return HTTP 200 on GitHub Pages, and also keeps `404.html` for unknown paths. Older `#/publications` URLs are rewritten to path routes on first load.
 
 Manual deploy is still available:
 

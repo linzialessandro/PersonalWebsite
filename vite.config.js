@@ -1,4 +1,4 @@
-import { copyFileSync, existsSync } from "node:fs";
+import { copyFileSync, existsSync, mkdirSync } from "node:fs";
 import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import tailwindcss from "@tailwindcss/vite";
@@ -7,13 +7,28 @@ import { defineConfig } from "vite";
 
 const rootDir = dirname(fileURLToPath(import.meta.url));
 
+/** Client routes that need a real file so GitHub Pages returns 200. */
+export const SPA_ROUTE_SHELLS = [
+  "publications",
+  "teaching",
+  "cv",
+  "academic-net",
+  "ai-gallery",
+];
+
 function spaFallback() {
   return {
     name: "spa-fallback",
     closeBundle() {
       const index = resolve(rootDir, "dist/index.html");
-      if (existsSync(index)) {
-        copyFileSync(index, resolve(rootDir, "dist/404.html"));
+      if (!existsSync(index)) return;
+
+      copyFileSync(index, resolve(rootDir, "dist/404.html"));
+
+      for (const route of SPA_ROUTE_SHELLS) {
+        const dir = resolve(rootDir, "dist", route);
+        mkdirSync(dir, { recursive: true });
+        copyFileSync(index, resolve(dir, "index.html"));
       }
     },
   };
