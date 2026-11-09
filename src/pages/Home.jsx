@@ -3,7 +3,6 @@ import PageMeta from "../components/PageMeta";
 import SocialLinks from "../components/SocialLinks";
 import { profile, researchThemes } from "../data/profile";
 import { selectedPublications } from "../data/publications";
-import heroWriting from "../assets/hero-writing.gif";
 
 const Home = () => {
   return (
@@ -20,15 +19,6 @@ const Home = () => {
           <div className="dossier-actions">
             <SocialLinks size={18} />
           </div>
-          <figure className="hero-writing">
-            <img
-              src={heroWriting}
-              alt="Alessandro Linzi writing on a chalkboard"
-              width={640}
-              height={360}
-              className="archival-figure-img"
-            />
-          </figure>
         </div>
 
         <aside className="seminar-index" aria-labelledby="areas-heading">

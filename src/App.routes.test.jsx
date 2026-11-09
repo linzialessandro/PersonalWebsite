@@ -25,6 +25,12 @@ describe("App routes", () => {
     expect(
       within(main).getByRole("link", { name: "All publications" })
     ).toHaveAttribute("href", "/publications");
+    expect(
+      within(main).queryByRole("img", {
+        name: /writing on a chalkboard/i,
+      })
+    ).not.toBeInTheDocument();
+    expect(main.querySelector(".hero-writing")).toBeNull();
   });
 
   it("renders a 404 page for unknown paths", async () => {
