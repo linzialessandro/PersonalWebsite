@@ -3,6 +3,14 @@ import PageShell from "../components/PageShell";
 import PageMeta from "../components/PageMeta";
 import PageHeader from "../components/PageHeader";
 import ExternalTextLink from "../components/ExternalTextLink";
+import CopyButton from "../components/CopyButton";
+import {
+  aiGuides,
+  aiHowTo,
+  aiLastChecked,
+  aiPrompts,
+  aiToolGroups,
+} from "../data/aiGuide";
 import {
   codingResources,
   competitionResources,
@@ -180,22 +188,94 @@ const Teaching = () => {
             <h3 className="text-base mb-2">Problems</h3>
             <ResourceLinkList items={competitionResources} />
           </div>
+        </section>
 
-          <div id="students-ai">
-            <h3 className="text-base mb-2">Working with AI</h3>
-            <p className="prose-quiet mb-3">
-              If you are stuck, do not ask a model for the answer. Ask it to act
-              as a Socratic tutor: explain the relevant idea and give a first
-              hint.
-            </p>
-            <p className="text-sm text-muted-foreground m-0">
-              Google’s{" "}
-              <ExternalTextLink href={teachingApps.aiLiteracy}>
-                AI Literacy Guide
-              </ExternalTextLink>{" "}
-              is a short, general introduction.
-            </p>
+        <section id="ai" className="content-block">
+          <h2>Working with AI</h2>
+          <p className="prose-quiet mb-6">
+            If you are stuck, do not ask a model for the answer. Ask it to act
+            as a Socratic tutor: explain the relevant idea and give a first
+            hint.
+          </p>
+
+          <div id="ai-method" className="mb-8">
+            <h3 className="text-base mb-2">How to use it</h3>
+            <ol className="list-decimal pl-5 m-0">
+              {aiHowTo.map((step) => (
+                <li key={step.title} className="py-1.5">
+                  <strong>{step.title}</strong> {step.text}
+                </li>
+              ))}
+            </ol>
           </div>
+
+          <div id="ai-tools" className="mb-8">
+            <h3 className="text-base mb-2">Tools by task</h3>
+            <p className="text-sm text-muted-foreground mb-4">
+              Last checked: {aiLastChecked}. These tools change quickly.
+            </p>
+            {aiToolGroups.map((group) => (
+              <div key={group.id} id={`ai-tools-${group.id}`} className="mb-6">
+                <h4 className="text-sm font-semibold mb-1">{group.title}</h4>
+                <ResourceLinkList items={group.tools} />
+                <p className="text-sm text-muted-foreground mt-1 mb-0">
+                  {group.caution}
+                </p>
+              </div>
+            ))}
+          </div>
+
+          <div id="ai-prompts" className="mb-8">
+            <h3 className="text-base mb-2">Prompts to copy</h3>
+            <p className="text-sm text-muted-foreground">
+              Replace the parts in brackets before you send them.
+            </p>
+            <ul className="plain-list m-0">
+              {aiPrompts.map((p) => (
+                <li key={p.id} className="py-3">
+                  <h4 className="text-sm font-semibold mb-1">{p.title}</h4>
+                  <p className="prose-quiet mb-2">{p.text}</p>
+                  <CopyButton
+                    text={p.text}
+                    label="Copy"
+                    ariaLabel={`Copy prompt: ${p.title}`}
+                    className="btn btn-outline w-fit"
+                  />
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div id="ai-guides" className="mb-8">
+            <h3 className="text-base mb-2">Guides (PDF)</h3>
+            <div className="grid-2">
+              {aiGuides.map((g) => (
+                <article key={g.file} className="index-plate">
+                  <h4 className="text-sm font-semibold mt-0 mb-2">{g.title}</h4>
+                  <p className="prose-quiet m-0 mb-4">{g.description}</p>
+                  <a
+                    href={`${import.meta.env.BASE_URL}guides/${g.file}`}
+                    download
+                    className="btn btn-outline w-fit"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`Download ${g.title} (PDF)`}
+                  >
+                    <Download size={16} />
+                    Download PDF
+                  </a>
+                </article>
+              ))}
+            </div>
+          </div>
+
+          <p className="text-sm text-muted-foreground m-0">
+            Google’s{" "}
+            <ExternalTextLink href={teachingApps.aiLiteracy}>
+              AI Literacy Guide
+            </ExternalTextLink>{" "}
+            is a short, general introduction.
+          </p>
         </section>
       </div>
     </PageShell>
