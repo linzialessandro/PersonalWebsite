@@ -1,4 +1,5 @@
-import { Fragment, useState } from "react";
+import { Fragment } from "react";
+import CopyButton from "./CopyButton";
 import ExternalTextLink from "./ExternalTextLink";
 import {
   extraLinkLabel,
@@ -18,47 +19,6 @@ const AuthorNames = ({ authors }) => {
   ));
 };
 
-async function copyText(text) {
-  if (navigator.clipboard?.writeText) {
-    await navigator.clipboard.writeText(text);
-    return;
-  }
-  throw new Error("Clipboard unavailable");
-}
-
-const BibTeXCopy = ({ bibtex }) => {
-  const [status, setStatus] = useState("idle");
-
-  const onCopy = async () => {
-    try {
-      await copyText(bibtex);
-      setStatus("copied");
-      window.setTimeout(() => setStatus("idle"), 1600);
-    } catch {
-      setStatus("failed");
-      window.setTimeout(() => setStatus("idle"), 1600);
-    }
-  };
-
-  const label =
-    status === "copied"
-      ? "Copied"
-      : status === "failed"
-        ? "Copy failed"
-        : "BibTeX";
-
-  return (
-    <button
-      type="button"
-      className="pub-link pub-bibtex"
-      onClick={onCopy}
-      aria-live="polite"
-    >
-      {label}
-    </button>
-  );
-};
-
 const PublicationLinks = ({ pub }) => (
   <div className="flex flex-col gap-1">
     <ExternalTextLink href={pub.link} className="pub-link">
@@ -69,7 +29,13 @@ const PublicationLinks = ({ pub }) => (
         {extraLinkLabel(pub)}
       </ExternalTextLink>
     ) : null}
-    {pub.bibtex ? <BibTeXCopy bibtex={pub.bibtex} /> : null}
+    {pub.bibtex ? (
+      <CopyButton
+        text={pub.bibtex}
+        label="BibTeX"
+        className="pub-link pub-bibtex"
+      />
+    ) : null}
   </div>
 );
 
