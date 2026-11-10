@@ -1,14 +1,15 @@
-\documentclass[11pt]{article}
+\documentclass[10pt]{article}
 \usepackage{aiguide}
 \guidekicker{Guide 2 of 3}
 \newcolumntype{L}{>{\raggedright\arraybackslash}X}
-\newcommand{\toolrow}[4]{\textbf{#1}\newline{\footnotesize\href{#2}{#3}} & #4 \\ \addlinespace[0.35em]}
+\newcommand{\toolrow}[4]{\textbf{#1}\newline{\footnotesize\href{#2}{#3}} & #4 \\ \addlinespace[0.15em]}
 \newcommand{\tooltable}[1]{%
   \begin{tabularx}{\linewidth}{@{}p{0.31\linewidth}L@{}}
   #1
   \end{tabularx}}
 \newcommand{\caution}[1]{{\small\color{muted}\textbf{Watch out:} #1}\par}
 \begin{document}
+\newgeometry{margin=2.1cm,top=1.9cm,bottom=2.1cm}
 \makeguidetitle{Which AI Tool for Which Job}{A map of AI tools for students of mathematics, grouped by what you need to do.}
 
 Pick the tool for the job, not the other way round. A chat assistant is good at
@@ -21,10 +22,11 @@ a feature.
 \tooltable{%
 \toolrow{ChatGPT}{https://chatgpt.com/}{chatgpt.com}{General assistant from OpenAI. Study mode asks questions and gives hints instead of the final answer.}
 \toolrow{Gemini}{https://gemini.google.com/}{gemini.google.com}{General assistant from Google. Guided Learning walks you through a problem step by step.}
+\toolrow{Grok}{https://grok.com/}{grok.com}{General assistant from xAI (now SpaceXSI), with real-time answers from the web and X.}
 \toolrow{Claude}{https://claude.com/}{claude.com}{General assistant from Anthropic.}
 }
 \caution{They write wrong answers as fluently as right ones. Age rules differ:
-ChatGPT is 13+ with a parent's permission under 18, Gemini needs a Google Account
+ChatGPT and Grok are 13+ with a parent's permission under 18, Gemini needs a Google Account
 you may manage yourself (14+ in Italy), and Claude is 18+.}
 
 \section{Studying from your own material}
@@ -53,15 +55,25 @@ the problem you meant.}
 \caution{Read every line of generated LaTeX or code before you use it. A
 one-sentence summary is not the paper.}
 
+\section{Coding agents}
+\tooltable{%
+\toolrow{Grok Build}{https://x.ai/build}{x.ai/build}{xAI's coding agent for the terminal: plans, edits files, runs builds and tests. Free to try.}
+\toolrow{Claude Code}{https://claude.com/product/claude-code}{claude.com/product/claude-code}{Anthropic's coding agent for the terminal, editors, and the web. Asks before it changes files or runs commands. Paid Claude plans.}
+\toolrow{Codex}{https://chatgpt.com/codex/}{chatgpt.com/codex}{OpenAI's coding agent in ChatGPT, your editor, and the terminal, with cloud environments for each repository. Included in paid ChatGPT plans.}
+\toolrow{Google Antigravity}{https://antigravity.google/}{antigravity.google}{Google's agentic development platform: an app, a CLI, an IDE, and editor extensions where agents write, run, and test code.}
+}
+\caution{They edit and run code on your machine or in your repository. Review
+every change, use version control, and do not hand them graded coursework.}
+
 \section{Agents and personal assistants}
 Agents do not just answer: they carry out multi-step tasks such as browsing,
 running code, organising files, and scheduling.
 
 \tooltable{%
 \toolrow{Grok Bot}{https://x.ai/bot}{x.ai/bot}{Agents with their own cloud computer that use apps and websites, write and run code, and work on a schedule.}
-\toolrow{ChatGPT Work}{https://chatgpt.com/work/}{chatgpt.com/work}{ChatGPT's agent for longer, multi-step tasks that end in a document, spreadsheet, or presentation.}
-\toolrow{Claude Cowork}{https://support.claude.com/en/articles/13345190-get-started-with-claude-cowork}{support.claude.com}{Claude carries out multi-step tasks across your files and connected apps. Paid plans.}
-\toolrow{Tasks in Gemini}{https://support.google.com/gemini/answer/16596215}{support.google.com/gemini}{Gemini runs tasks and schedules across Gmail, Calendar, Drive, and websites. 18+, paid plan, not yet available in the EU.}
+\toolrow{OpenAI Dots}{https://chatgpt.com/features/dots/}{chatgpt.com/features/dots}{Always-on ChatGPT agents with their own cloud computer that keep working on your projects between conversations. Paid plans, 18+, not yet available in the EU.}
+\toolrow{Meta Muse}{https://about.fb.com/news/2026/09/introducing-muse-personal-ai-agent/}{about.fb.com}{Meta's personal agent on its own cloud computer: it browses, fills in forms, and books things, and asks before it sends an email or buys. Rolling out in the US, free with a usage limit.}
+\toolrow{Claude Duet}{https://claude.com/product/claude-duet}{claude.com/product/claude-duet}{Anthropic's proactive agent on its own cloud computer that works in your connected apps and asks before it sends, pays, or deletes. US research preview for paid plans, by waitlist.}
 }
 \caution{Agents act on your accounts and can be confidently wrong. Review what
 they do, keep personal data and school accounts out, and never let them submit
@@ -77,6 +89,7 @@ revise from my own notes & Gemini Notebook \\
 check an answer or a calculation & Wolfram|Alpha, GeoGebra CAS, Desmos \\
 fix a LaTeX error & Overleaf Error Assist \\
 understand or debug Python & Gemini in Colab \\
+work on a coding project & a coding agent, inside version control \\
 find papers on a topic & Semantic Scholar, then read the papers \\
 be certain a proof is correct & Lean, or a careful human reader \\
 hand off a multi-step chore & an agent, and check everything it did \\

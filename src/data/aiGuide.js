@@ -28,7 +28,7 @@ export const aiToolGroups = [
     id: "assistants",
     title: "General assistants",
     caution:
-      "They write wrong answers as fluently as right ones. Age rules differ: ChatGPT is 13+ with a parent’s permission under 18, Gemini needs a Google Account you may manage yourself (14+ in Italy), and Claude is 18+.",
+      "They write wrong answers as fluently as right ones. Age rules differ: ChatGPT and Grok are 13+ with a parent’s permission under 18, Gemini needs a Google Account you may manage yourself (14+ in Italy), and Claude is 18+.",
     tools: [
       {
         url: "https://chatgpt.com/",
@@ -41,6 +41,12 @@ export const aiToolGroups = [
         label: "Gemini",
         suffix:
           " — general assistant from Google; Guided Learning walks you through a problem step by step",
+      },
+      {
+        url: "https://grok.com/",
+        label: "Grok",
+        suffix:
+          " — general assistant from xAI (now SpaceXSI) with real-time answers from the web and X",
       },
       {
         url: "https://claude.com/",
@@ -122,6 +128,38 @@ export const aiToolGroups = [
     ],
   },
   {
+    id: "coding",
+    title: "Coding agents",
+    caution:
+      "They edit and run code on your machine or in your repository. Review every change, use version control, and do not hand them graded coursework.",
+    tools: [
+      {
+        url: "https://x.ai/build",
+        label: "Grok Build",
+        suffix:
+          " — xAI’s coding agent for the terminal: plans, edits files, runs builds and tests; free to try",
+      },
+      {
+        url: "https://claude.com/product/claude-code",
+        label: "Claude Code",
+        suffix:
+          " — Anthropic’s coding agent for the terminal, editors, and the web; asks before it changes files or runs commands; paid Claude plans",
+      },
+      {
+        url: "https://chatgpt.com/codex/",
+        label: "Codex",
+        suffix:
+          " — OpenAI’s coding agent in ChatGPT, your editor, and the terminal, with cloud environments for each repository; included in paid ChatGPT plans",
+      },
+      {
+        url: "https://antigravity.google/",
+        label: "Google Antigravity",
+        suffix:
+          " — Google’s agentic development platform: an app, a CLI, an IDE, and editor extensions where agents write, run, and test code",
+      },
+    ],
+  },
+  {
     id: "agents",
     title: "Agents and personal assistants",
     caution:
@@ -134,22 +172,22 @@ export const aiToolGroups = [
           " — agents with their own cloud computer that use apps and websites, write and run code, and work on a schedule",
       },
       {
-        url: "https://chatgpt.com/work/",
-        label: "ChatGPT Work",
+        url: "https://chatgpt.com/features/dots/",
+        label: "OpenAI Dots",
         suffix:
-          " — ChatGPT’s agent for longer, multi-step tasks that end in a document, spreadsheet, or presentation",
+          " — always-on ChatGPT agents with their own cloud computer that keep working on your projects between conversations; paid plans, 18+, not yet available in the EU",
       },
       {
-        url: "https://support.claude.com/en/articles/13345190-get-started-with-claude-cowork",
-        label: "Claude Cowork",
+        url: "https://about.fb.com/news/2026/09/introducing-muse-personal-ai-agent/",
+        label: "Meta Muse",
         suffix:
-          " — Claude carries out multi-step tasks across your files and connected apps; paid plans",
+          " — Meta’s personal agent on its own cloud computer: it browses, fills in forms, and books things, and asks before it sends an email or buys; rolling out in the US, free with a usage limit",
       },
       {
-        url: "https://support.google.com/gemini/answer/16596215",
-        label: "Tasks in Gemini",
+        url: "https://claude.com/product/claude-duet",
+        label: "Claude Duet",
         suffix:
-          " — Gemini runs tasks and schedules across Gmail, Calendar, Drive, and websites; 18+, paid plan, not yet available in the EU",
+          " — Anthropic’s proactive agent on its own cloud computer that works in your connected apps and asks before it sends, pays, or deletes; US research preview for paid plans, by waitlist",
       },
     ],
   },
