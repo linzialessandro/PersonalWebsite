@@ -1,0 +1,88 @@
+\documentclass[11pt]{article}
+\usepackage{aiguide}
+\guidekicker{Guide 3 of 3}
+\newcommand{\mistake}[1]{\subsection{#1}}
+\newcommand{\aisays}[1]{\par\textbf{\color{BrickRed}The model writes:} #1\par}
+\newcommand{\catch}[1]{\textbf{How to catch it:} #1\par}
+\newcommand{\correct}[1]{\textbf{\color{prussian}Correct:} #1\par}
+\begin{document}
+\makeguidetitle{Spotting AI Mistakes in Mathematics}{Six errors that chat assistants make with confidence, how to catch each one, and a checklist.}
+
+A language model predicts text that looks like a solution. Most of the time
+that text is right, which is exactly why the wrong cases are dangerous: they
+look the same. None of the mistakes below comes with a warning. Each example is
+small enough to check by hand, and you should.
+
+\section{Six typical mistakes}
+
+\mistake{1. A sign error in an inequality}
+\aisays{Solve $3 - 2x > 7$. Subtract 3: $-2x > 4$. Divide by $-2$: \wrong{$x > -2$}.}
+\catch{Test a value from the answer. $x = 0$ satisfies $x > -2$, but $3 - 0 = 3$
+is not greater than $7$.}
+\correct{dividing by a negative number reverses the inequality, so $x < -2$.
+Check: $x = -3$ gives $3 + 6 = 9 > 7$.}
+
+\mistake{2. A dropped case}
+\aisays{Solve $x^2 > 9$. Take square roots: \wrong{$x > 3$}.}
+\catch{Try a negative number. $x = -4$ gives $16 > 9$, yet $-4$ is not in the answer.}
+\correct{$\sqrt{x^2} = |x|$, so $|x| > 3$, that is $x < -3$ or $x > 3$.}
+
+\mistake{3. Ignoring the domain}
+\aisays{Solve $\log x + \log(x-3) = \log 4$. Combine: $x(x-3) = 4$, so
+$x^2 - 3x - 4 = (x-4)(x+1) = 0$ and \wrong{$x = 4$ or $x = -1$}.}
+\catch{Write the domain before you start: both logarithms need positive
+arguments, so $x > 3$. Then substitute each root back in: $\log(-1)$ is not defined.}
+\correct{$x = 4$ only. Check: $\log 4 + \log 1 = \log 4$. The same trap appears
+when you square both sides: $\sqrt{x+2} = x$ gives $x^2 - x - 2 = 0$, with roots
+$2$ and $-1$, but only $x = 2$ works, because $\sqrt{1} = 1 \neq -1$.}
+
+\mistake{4. A real theorem used without its hypotheses, or an invented one}
+\aisays{\wrong{By the Mean Value Theorem, every continuous function on $[0,1]$
+is differentiable at some point of $(0,1)$.}}
+\catch{Look the theorem up and read its hypotheses. The Mean Value Theorem
+\emph{assumes} that $f$ is differentiable on $(0,1)$; it cannot prove it.}
+\correct{the claim is false. Weierstrass constructed a function that is
+continuous everywhere and differentiable nowhere. The same check applies to
+references: a model can produce a paper with plausible authors, journal, and
+year that does not exist. Search the title or the DOI before you cite it.}
+
+\mistake{5. A confident arithmetic slip}
+\aisays{$1 + 2 + 3 + \dots + 100 = \wrong{5500}$.}
+\catch{Use a second method. Pair the first and last terms: $1 + 100$,
+$2 + 99$, \dots{} gives $50$ pairs, each summing to $101$. Or use a CAS.}
+\correct{$100 \cdot 101 / 2 = 5050$. A model may also get the method
+right and the final multiplication wrong, so redo the last line yourself.}
+
+\mistake{6. A circular proof}
+\aisays{Prove $a^2 + b^2 \ge 2ab$ for all real $a, b$. \wrong{Since
+$a^2 + b^2 \ge 2ab$, we get $a^2 - 2ab + b^2 \ge 0$, that is $(a-b)^2 \ge 0$,
+which is true.} $\square$}
+\catch{Ask what the first line assumes. Here it assumes the statement to be
+proved. Deriving a true statement from a claim does not prove the claim:
+from $1 = 2$ you can derive $0 \cdot 1 = 0 \cdot 2$, which is true.}
+\correct{start from what you know and end at the claim. For all real $a, b$,
+$(a - b)^2 \ge 0$. Expanding gives $a^2 - 2ab + b^2 \ge 0$, so
+$a^2 + b^2 \ge 2ab$. $\square$}
+
+\section{Checklist before you trust an answer}
+\begin{enumerate}[label=$\square$,leftmargin=1.6em]
+  \item I substituted the answer back into the original problem.
+  \item I tested at least one value inside and one outside the solution set.
+  \item I wrote down the domain before solving, and every root lies in it.
+  \item Every time I multiplied or divided an inequality, I checked the sign of
+    the factor. Every time I divided, I checked it could not be zero.
+  \item If I squared both sides, I checked every root in the original equation.
+  \item I looked up every named theorem and checked its hypotheses.
+  \item I found every cited paper myself, by title or DOI.
+  \item The proof starts from what is known, not from what it wants to prove.
+  \item I redid the arithmetic with a second method: an estimate, a CAS, or by hand.
+  \item I plotted the function (Desmos or GeoGebra) and the picture agrees.
+\end{enumerate}
+
+\begin{notebox}
+If you cannot tell whether a step is right, that is the step to ask about. Use
+the prompt \emph{Find the error in this step} from Guide~1, and then check the
+reply with this list too.
+\end{notebox}
+
+\end{document}

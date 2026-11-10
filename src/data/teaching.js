@@ -171,4 +171,5 @@ export const teachingNav = [
   { id: "materials", label: "Materials" },
   { id: "projects", label: "Projects" },
   { id: "students", label: "For students" },
+  { id: "ai", label: "Working with AI" },
 ];

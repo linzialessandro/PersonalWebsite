@@ -1,0 +1,93 @@
+\documentclass[11pt]{article}
+\usepackage{aiguide}
+\guidekicker{Guide 1 of 3}
+\begin{document}
+\makeguidetitle{Studying Mathematics with AI}{A method for using chat assistants without letting them do the learning for you.}
+
+An AI assistant can explain an idea in five different ways, at midnight, without
+losing patience. It can also hand you a finished solution that you copy, nod
+at, and forget by morning. Used well, it is a tutor. Used badly, it is a way to
+skip the part of mathematics that makes you better at it: getting stuck and
+finding the way out yourself.
+
+\section{Five rules}
+\begin{enumerate}[label=\textbf{\arabic*.}]
+  \item \textbf{Ask for hints, not answers.} A finished solution feels like
+    progress but teaches little. Ask for the next hint, then do the step
+    yourself.
+  \item \textbf{Redo every step by hand.} Close the chat and solve the problem
+    again on paper. If you cannot, you have not learned it yet.
+  \item \textbf{Check every number and every claim.} Substitute your answer
+    back into the equation, test a value, or run it through a computer algebra
+    system such as Wolfram|Alpha or GeoGebra. Look up any theorem or source a
+    model names; they are sometimes invented.
+  \item \textbf{Say when you used AI.} Follow your teacher's or your course's
+    rules. When in doubt, say what you used it for.
+  \item \textbf{Keep personal data out.} Never paste names, grades, photos,
+    passwords, or anything about classmates into a chat.
+\end{enumerate}
+
+\section{A study session in three steps}
+\begin{description}[leftmargin=0pt,labelsep=0.4em]
+  \item[Before.] Try the problem alone for at least ten minutes. Write down
+    exactly where you got stuck: that sentence is your question.
+  \item[During.] Use one of the prompts below. Answer the tutor's questions
+    in your own words. If it gives away the solution, say so and ask it to go
+    back to hints.
+  \item[After.] Solve a similar problem with the chat closed. Check the result
+    yourself (Guide~3 lists what to look for). Note the idea you were missing.
+\end{description}
+
+\begin{notebox}
+\textbf{Not during tests or graded work,} unless your teacher or course says
+you may. Practice is where AI helps; an assessment checks what \emph{you} can do.
+\end{notebox}
+
+\section{Prompts to copy}
+Replace the parts in brackets before you send them. They work in ChatGPT,
+Gemini, Claude, and similar assistants. ChatGPT's study mode and Gemini's
+Guided Learning are built-in versions of the first prompt.
+
+\begin{promptbox}{Socratic tutor}
+Act as a Socratic tutor. I am working on this problem: [paste the problem]. Do
+not give me the solution. Ask me one question at a time to help me find the
+next step, and wait for my answer before you continue.
+\end{promptbox}
+
+\begin{promptbox}{Check my solution without solving it}
+Here is a problem and my solution: [paste both]. Do not write a full solution.
+Tell me whether each step is correct. For the first wrong step, say which line
+it is and give me a hint, not the fix.
+\end{promptbox}
+
+\begin{promptbox}{Quiz me}
+Quiz me on [topic] at the level of [class or course]. Ask five questions, one at
+a time, from easy to hard. After each answer, tell me whether I am right and
+why, then ask the next one.
+\end{promptbox}
+
+\begin{promptbox}{Explain it at my level}
+Explain [concept] to a student in [class or course]. Use one short worked
+example with small numbers, then give me a similar exercise to try on my own. Do
+not solve the exercise.
+\end{promptbox}
+
+\begin{promptbox}{Find the error in this step}
+This step is wrong, but I cannot see why: [paste the line before and the line
+after]. Point to the mistake and name the rule I broke. Do not continue the
+solution.
+\end{promptbox}
+
+\begin{promptbox}{Make a study plan}
+I have a test on [topics] in [number] days and can study [time] per day. Make a
+day-by-day plan that mixes review, practice problems, and one practice test.
+Keep the last day for revision only.
+\end{promptbox}
+
+\section{Why this works}
+You remember what you produce, not what you read. A hint leaves the hard step
+to you; a full solution takes it away. Checking the answer yourself is also
+practice: it is the same skill you need when no one, human or machine, is there
+to check it for you.
+
+\end{document}
