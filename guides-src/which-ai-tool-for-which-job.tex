@@ -1,0 +1,86 @@
+\documentclass[11pt]{article}
+\usepackage{aiguide}
+\guidekicker{Guide 2 of 3}
+\newcolumntype{L}{>{\raggedright\arraybackslash}X}
+\newcommand{\toolrow}[4]{\textbf{#1}\newline{\footnotesize\href{#2}{#3}} & #4 \\ \addlinespace[0.35em]}
+\newcommand{\tooltable}[1]{%
+  \begin{tabularx}{\linewidth}{@{}p{0.31\linewidth}L@{}}
+  #1
+  \end{tabularx}}
+\newcommand{\caution}[1]{{\small\color{muted}\textbf{Watch out:} #1}\par}
+\begin{document}
+\makeguidetitle{Which AI Tool for Which Job}{A map of AI tools for students of mathematics, grouped by what you need to do.}
+
+Pick the tool for the job, not the other way round. A chat assistant is good at
+explaining and bad at arithmetic; a computer algebra system is the opposite.
+Facts below come from each tool's official pages and were last checked in
+November 2026. These tools change quickly, so check the page before you rely on
+a feature.
+
+\section{Explaining and tutoring: general assistants}
+\tooltable{%
+\toolrow{ChatGPT}{https://chatgpt.com/}{chatgpt.com}{General assistant from OpenAI. Study mode asks questions and gives hints instead of the final answer.}
+\toolrow{Gemini}{https://gemini.google.com/}{gemini.google.com}{General assistant from Google. Guided Learning walks you through a problem step by step.}
+\toolrow{Claude}{https://claude.com/}{claude.com}{General assistant from Anthropic.}
+}
+\caution{They write wrong answers as fluently as right ones. Age rules differ:
+ChatGPT is 13+ with a parent's permission under 18, Gemini needs a Google Account
+you may manage yourself (14+ in Italy), and Claude is 18+.}
+
+\section{Studying from your own material}
+\tooltable{%
+\toolrow{Gemini Notebook\newline{\footnotesize\mdseries(formerly NotebookLM)}}{https://notebook.google/}{notebook.google}{Answers questions about the notes, slides, and PDFs you upload, cites the passages it used, and makes study guides, flashcards, and quizzes.}
+}
+\caution{Answers come only from what you upload, so a gap in your notes is a gap
+in the answer. Open the cited passage before you trust a summary.}
+
+\section{Computing and checking}
+\tooltable{%
+\toolrow{Wolfram|Alpha}{https://www.wolframalpha.com/}{wolframalpha.com}{Solves equations, limits, and integrals from plain-language input. Step-by-step solutions need Pro.}
+\toolrow{GeoGebra CAS Calculator}{https://www.geogebra.org/cas}{geogebra.org/cas}{Free computer algebra in the browser: solve, factor, differentiate.}
+\toolrow{Desmos Graphing Calculator}{https://www.desmos.com/calculator}{desmos.com/calculator}{Plot a function to check zeros, signs, and asymptotes.}
+}
+\caution{These compute exactly, but only what you typed. Check that the input is
+the problem you meant.}
+
+\section{University work: LaTeX, code, papers, proofs}
+\tooltable{%
+\toolrow{Overleaf AI features}{https://docs.overleaf.com/integrations-and-add-ons/ai-features}{docs.overleaf.com}{Error Assist explains LaTeX errors and suggests fixes. Free within daily limits.}
+\toolrow{Gemini in Colab}{https://developers.google.com/colab}{developers.google.com/colab}{Python notebooks where Gemini generates, explains, and debugs code. Learn Mode guides you instead of writing the code.}
+\toolrow{Semantic Scholar}{https://www.semanticscholar.org/}{semanticscholar.org}{Search research papers. TLDRs give a one-sentence AI summary of each result.}
+\toolrow{Lean and Mathlib}{https://lean-lang.org/}{lean-lang.org}{Advanced: a proof assistant that checks every step of a proof, and its library of formalized mathematics (\href{https://mathlib.org/}{mathlib.org}).}
+}
+\caution{Read every line of generated LaTeX or code before you use it. A
+one-sentence summary is not the paper.}
+
+\section{Agents and personal assistants}
+Agents do not just answer: they carry out multi-step tasks such as browsing,
+running code, organising files, and scheduling.
+
+\tooltable{%
+\toolrow{Grok Bot}{https://x.ai/bot}{x.ai/bot}{Agents with their own cloud computer that use apps and websites, write and run code, and work on a schedule.}
+\toolrow{ChatGPT Work}{https://chatgpt.com/work/}{chatgpt.com/work}{ChatGPT's agent for longer, multi-step tasks that end in a document, spreadsheet, or presentation.}
+\toolrow{Claude Cowork}{https://support.claude.com/en/articles/13345190-get-started-with-claude-cowork}{support.claude.com}{Claude carries out multi-step tasks across your files and connected apps. Paid plans.}
+\toolrow{Tasks in Gemini}{https://support.google.com/gemini/answer/16596215}{support.google.com/gemini}{Gemini runs tasks and schedules across Gmail, Calendar, Drive, and websites. 18+, paid plan, not yet available in the EU.}
+}
+\caution{Agents act on your accounts and can be confidently wrong. Review what
+they do, keep personal data and school accounts out, and never let them submit
+graded work.}
+
+\section{Quick map}
+\begin{tabularx}{\linewidth}{@{}p{0.42\linewidth}L@{}}
+\toprule
+\textbf{I want to\,\dots} & \textbf{Reach for} \\
+\midrule
+understand an idea or get a hint & a general assistant in study or tutor mode \\
+revise from my own notes & Gemini Notebook \\
+check an answer or a calculation & Wolfram|Alpha, GeoGebra CAS, Desmos \\
+fix a LaTeX error & Overleaf Error Assist \\
+understand or debug Python & Gemini in Colab \\
+find papers on a topic & Semantic Scholar, then read the papers \\
+be certain a proof is correct & Lean, or a careful human reader \\
+hand off a multi-step chore & an agent, and check everything it did \\
+\bottomrule
+\end{tabularx}
+
+\end{document}

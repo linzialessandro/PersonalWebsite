@@ -1,0 +1,70 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{aiguide}[2026/11/10 Style for the AI study guides]
+\RequirePackage[T1]{fontenc}
+\RequirePackage[utf8]{inputenc}
+\RequirePackage{mathpazo}
+\RequirePackage{tgpagella}
+\RequirePackage[scaled=0.92]{helvet}
+\RequirePackage{amsmath,amssymb}
+\RequirePackage[a4paper,margin=2.2cm,top=2cm,bottom=2.2cm]{geometry}
+\RequirePackage{microtype}
+\RequirePackage[dvipsnames]{xcolor}
+\RequirePackage{enumitem}
+\RequirePackage{titlesec}
+\RequirePackage{fancyhdr}
+\RequirePackage{booktabs,tabularx,array}
+\RequirePackage[most]{tcolorbox}
+\RequirePackage{needspace}
+\RequirePackage{hyperref}
+
+\definecolor{ink}{HTML}{16181D}
+\definecolor{prussian}{HTML}{1B3B6F}
+\definecolor{paper}{HTML}{F6F6F2}
+\definecolor{rule}{HTML}{D6D4CC}
+\definecolor{muted}{HTML}{525866}
+
+\hypersetup{colorlinks=true,urlcolor=prussian,linkcolor=prussian,
+  pdfauthor={Alessandro Linzi}}
+\urlstyle{same}
+\color{ink}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.45em}
+\linespread{1.06}
+
+\titleformat{\section}{\Needspace{7\baselineskip}\large\bfseries\color{prussian}}{}{0pt}{}
+  [{\color{rule}\titlerule[0.5pt]}]
+\titlespacing*{\section}{0pt}{1.1em}{0.5em}
+\titleformat{\subsection}{\normalsize\bfseries\color{ink}}{}{0pt}{}
+\titlespacing*{\subsection}{0pt}{0.8em}{0.2em}
+
+\setlist{itemsep=0.15em,topsep=0.25em,leftmargin=1.4em}
+
+\newcommand{\guidekicker}[1]{\def\@guidekicker{#1}}
+\newcommand{\makeguidetitle}[2]{%
+  \hypersetup{pdftitle={#1}}%
+  {\color{prussian}\rule{\linewidth}{2pt}}\par\vspace{0.2em}
+  {\sffamily\small\color{prussian}\MakeUppercase{\@guidekicker}}\par\vspace{0.1em}
+  {\fontsize{21}{25}\selectfont\bfseries #1}\par\vspace{0.3em}
+  {\color{muted}#2}\par\vspace{0.1em}
+  {\color{muted}\small Alessandro Linzi \textperiodcentered{} November 2026}\par
+  \vspace{0.2em}{\color{rule}\rule{\linewidth}{0.5pt}}\par\vspace{0.3em}}
+
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\fancyfoot[L]{\footnotesize\color{muted}\@footerleft}
+\fancyfoot[R]{\footnotesize\color{muted}\thepage}
+\newcommand{\footerleft}[1]{\def\@footerleft{#1}}
+\footerleft{\href{https://linzialessandro.github.io/PersonalWebsite/teaching/}{linzialessandro.github.io/PersonalWebsite/teaching}}
+
+\newtcolorbox{promptbox}[1]{enhanced,breakable,colback=paper,colframe=rule,
+  boxrule=0.5pt,arc=0pt,left=6pt,right=6pt,top=4pt,bottom=4pt,
+  borderline west={2pt}{0pt}{prussian},
+  title={\bfseries #1},coltitle=prussian,colbacktitle=paper,
+  attach title to upper={\par\vspace{0.15em}},fontupper=\small}
+\newtcolorbox{notebox}{enhanced,colback=paper,colframe=rule,boxrule=0.5pt,
+  arc=0pt,left=6pt,right=6pt,top=4pt,bottom=4pt,
+  borderline west={2pt}{0pt}{prussian}}
+
+\newcommand{\wrong}[1]{{\color{BrickRed}#1}}
+\newcommand{\fixed}[1]{{\color{prussian}#1}}
