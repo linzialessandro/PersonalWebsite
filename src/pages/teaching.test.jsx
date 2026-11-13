@@ -8,6 +8,7 @@ import {
 import { MemoryRouter } from "react-router-dom";
 import { describe, expect, it, vi } from "vitest";
 import { aiGuides, aiPrompts, aiToolGroups } from "../data/aiGuide";
+import { leanGuide, leanResources } from "../data/leanGuide";
 import {
   codingResources,
   competitionResources,
@@ -53,6 +54,7 @@ describe("Teaching page", () => {
       { id: "students-computation", heading: "Computation" },
       { id: "students-visualization", heading: "Visualization" },
       { id: "students-problems", heading: "Problems" },
+      { id: "students-lean", heading: "Formalizing mathematics in Lean" },
     ];
 
     for (const { id, heading } of expectedSubsections) {
@@ -135,6 +137,52 @@ describe("Teaching page", () => {
       .getAllByRole("link")
       .map((anchor) => anchor.getAttribute("href"));
     expect(allHrefs).not.toContain("https://ocw.mit.edu/courses/18-06scf11/");
+  });
+
+  it("renders the Lean subsection with resources and guide download", () => {
+    const { container } = render(
+      <MemoryRouter>
+        <Teaching />
+      </MemoryRouter>
+    );
+
+    const lean = container.querySelector("#students-lean");
+    expect(lean).not.toBeNull();
+
+    for (const item of leanResources) {
+      const link = within(lean).getByRole("link", { name: item.label });
+      expect(link).toHaveAttribute("href", item.url);
+      expect(link).toHaveAttribute("target", "_blank");
+      expect(link).toHaveAttribute("rel", "noopener noreferrer");
+
+      if (item.extra) {
+        const extra = within(lean).getByRole("link", {
+          name: item.extra.label,
+        });
+        expect(extra).toHaveAttribute("href", item.extra.url);
+        expect(extra).toHaveAttribute("target", "_blank");
+        expect(extra).toHaveAttribute("rel", "noopener noreferrer");
+      }
+    }
+
+    expect(
+      within(lean).getByText("Last checked: November 2026.")
+    ).toBeInTheDocument();
+
+    const guide = within(lean).getByRole("link", {
+      name: `Download ${leanGuide.title} (PDF)`,
+    });
+    expect(guide).toHaveAttribute(
+      "href",
+      "/guides/getting-started-with-lean.pdf"
+    );
+    expect(guide).toHaveAttribute("download");
+
+    for (const anchor of within(lean).getAllByRole("link")) {
+      expect(anchor.getAttribute("href")).not.toContain(
+        "github.com/linzialessandro"
+      );
+    }
   });
 
   it("renders the Working with AI section", () => {

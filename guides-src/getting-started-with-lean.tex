@@ -1,0 +1,109 @@
+\documentclass[11pt]{article}
+\usepackage{aiguide}
+\usepackage{textcomp}
+\usepackage{listings}
+\lstdefinestyle{lean}{basicstyle=\ttfamily\small,keywordstyle=\color{prussian}\bfseries,
+  commentstyle=\color{muted}\itshape,columns=fullflexible,keepspaces=true,
+  morekeywords={theorem,example,by,with,induction,rfl,rw,exact,fun},
+  backgroundcolor=\color{paper},frame=leftline,framerule=2pt,rulecolor=\color{prussian},
+  xleftmargin=8pt,framexleftmargin=6pt,aboveskip=0.6em,belowskip=0.6em}
+\lstset{style=lean,upquote=true}
+\guidekicker{Teaching guide}
+\begin{document}
+\makeguidetitle{Getting Started with Lean}{What a proof assistant is, a first proof checked by a computer, and where to go next.}
+
+\section{What Lean is}
+A \textbf{proof assistant} is a program that checks proofs. You write each step
+in a precise language, and the computer accepts the proof only when every step
+follows from the previous ones. Nothing is left as ``clearly'' or ``similarly''.
+
+\textbf{Lean 4} is an open-source programming language and proof assistant.
+\textbf{Mathlib} is its community library of formalized mathematics, from
+algebra and number theory to analysis and topology. When you formalize a proof,
+you find out exactly what it needs: which hypothesis is used where, which case
+you forgot, which step you only believed.
+
+\section{A first proof: $0 + n = n$}
+In Lean the natural numbers are defined by the Peano axioms: every natural
+number is either $0$ or the successor $k + 1$ of another one, and addition is
+defined by recursion on the second argument, so $m + (k+1) = (m + k) + 1$. The
+statement $0 + n = n$ is therefore not immediate; it needs induction on $n$.
+
+\begin{lstlisting}
+theorem my_zero_add (n : Nat) : 0 + n = n := by
+  induction n with
+  | zero => rfl
+  | succ k ih => rw [Nat.add_succ, ih]
+\end{lstlisting}
+
+Read it line by line:
+\begin{itemize}
+  \item \texttt{induction n with} splits the proof into the two cases of the
+    induction principle.
+  \item \texttt{| zero => rfl}: the base case $0 + 0 = 0$ holds by the
+    definition of addition, so \texttt{rfl} (``both sides are the same by
+    definition'') closes it.
+  \item \texttt{| succ k ih => \dots}: we must prove $0 + (k+1) = k + 1$, and
+    \texttt{ih} is the induction hypothesis $0 + k = k$. The rewrite
+    \texttt{Nat.add\_succ} turns the left side into $(0 + k) + 1$, and
+    rewriting with \texttt{ih} turns it into $k + 1$. The goal is closed.
+\end{itemize}
+
+\textbf{When a step is wrong, Lean says so.} Replace the last line by
+\texttt{| succ k ih => rfl} and Lean rejects the proof:
+
+\begin{lstlisting}[keywordstyle=\color{ink}]
+error: Tactic `rfl` failed: The left-hand side
+  0 + (k + 1)
+is not definitionally equal to the right-hand side
+  k + 1
+\end{lstlisting}
+
+The error points at the exact step that does not follow. That is the whole idea:
+you can never fool the checker, so a proof it accepts has no gaps.
+
+{\small\color{muted}Both versions were checked with Lean 4.35.0 (core library
+only, no Mathlib) in November 2026. Lean already contains this fact as
+\texttt{Nat.zero\_add}; we prove our own copy to see how it works. The Natural
+Number Game builds the same result step by step, in its own simplified style.}
+
+\section{A learning path}
+\begin{enumerate}[label=\textbf{\arabic*.}]
+  \item \textbf{Play the Natural Number Game} in the browser. It rebuilds the
+    natural numbers from the Peano axioms and teaches the basic tactics. It is
+    available in Italian too.
+  \item \textbf{Try more games} on the Lean Game Server, for example Scribble,
+    which covers first-year university topics, or the Set Theory Game.
+  \item \textbf{Experiment in Lean 4 Web}, the official web editor, which has
+    Mathlib: paste the proof above and change it.
+  \item \textbf{Install Lean} on your computer (VS Code with the Lean 4
+    extension) when you want to work on longer files.
+  \item \textbf{Work through Mathematics in Lean}, the standard tutorial for
+    doing mathematics with Mathlib.
+  \item \textbf{Go deeper} with \emph{Theorem Proving in Lean 4} (how Lean
+    works underneath) or Kevin Buzzard's \emph{Formalising Mathematics}
+    handbook (written for final-year undergraduates).
+  \item \textbf{When you are stuck,} search Mathlib with Loogle, and ask in the
+    new members channel of the Lean Zulip chat.
+\end{enumerate}
+
+\section{Links}
+\newcolumntype{L}{>{\raggedright\arraybackslash}X}
+\small
+\begin{tabularx}{\linewidth}{@{}p{0.36\linewidth}L@{}}
+Natural Number Game & \href{https://adam.math.hhu.de/\#/g/leanprover-community/nng4}{adam.math.hhu.de/\#/g/leanprover-community/nng4} \\
+Lean Game Server & \href{https://adam.math.hhu.de/}{adam.math.hhu.de} \\
+Lean 4 Web & \href{https://live.lean-lang.org/}{live.lean-lang.org} \\
+Install Lean & \href{https://lean-lang.org/install/}{lean-lang.org/install} \\
+Mathematics in Lean & \href{https://leanprover-community.github.io/mathematics_in_lean/}{leanprover-community.github.io/mathematics\_in\_lean} \\
+Theorem Proving in Lean 4 & \href{https://lean-lang.org/theorem_proving_in_lean4/}{lean-lang.org/theorem\_proving\_in\_lean4} \\
+Formalising Mathematics (K.~Buzzard) & \href{https://www.ma.imperial.ac.uk/~buzzard/xena/formalising-mathematics-2024/}{ma.imperial.ac.uk/\textasciitilde buzzard/xena/formalising-mathematics-2024} \\
+Mathlib and its documentation & \href{https://mathlib.org/}{mathlib.org}, \href{https://leanprover-community.github.io/mathlib4_docs/}{leanprover-community.github.io/mathlib4\_docs} \\
+Loogle (Mathlib search) & \href{https://loogle.lean-lang.org/}{loogle.lean-lang.org} \\
+Lean Zulip chat & \href{https://leanprover.zulipchat.com/}{leanprover.zulipchat.com} \\
+\end{tabularx}
+
+\vspace{0.4em}
+{\color{muted}Last checked: November 2026.}
+
+\end{document}
