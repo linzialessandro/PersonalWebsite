@@ -103,7 +103,7 @@ const Publications = () => {
 
         <section id={formalization.id} className="content-block">
           <h2>{formalization.title}</h2>
-          <p className="prose-quiet">
+          <p className="prose-quiet mb-6">
             {formalization.intro.map((seg, i) => {
               const text = seg.italic ? <i>{seg.text}</i> : seg.text;
               return seg.link ? (
@@ -116,24 +116,27 @@ const Publications = () => {
             })}
           </p>
           <p
-            className="prose-quiet"
+            className="text-lg my-6"
             role="math"
             aria-label={formalization.inequalityLabel}
           >
             <Rich parts={formalization.inequality} />
           </p>
-          <h3>{formalization.resultsHeading}</h3>
-          <ul className="plain-list prose-quiet">
+          <h3 className="text-base mb-2">{formalization.resultsHeading}</h3>
+          <ul className="plain-list prose-quiet m-0 mb-6">
             {formalization.results.map((parts) => (
-              <li key={parts.join("")}>
+              <li
+                key={typeof parts[0] === "string" ? parts[0] : parts[0].v}
+                className="py-1.5"
+              >
                 <Rich parts={parts} />
               </li>
             ))}
           </ul>
-          <p className="prose-quiet">{formalization.leanVersion}</p>
-          <ul className="plain-list prose-quiet">
+          <p className="prose-quiet mb-4">{formalization.leanVersion}</p>
+          <ul className="plain-list prose-quiet m-0">
             {formalization.links.map((link) => (
-              <li key={link.href}>
+              <li key={link.href} className="py-1.5">
                 <ExternalTextLink href={formalization[link.href]}>
                   {link.label}
                 </ExternalTextLink>
