@@ -5,6 +5,7 @@ import PublicationItem from "../components/PublicationItem";
 import ExternalTextLink from "../components/ExternalTextLink";
 import { groupByYear } from "../lib/groupByYear";
 import { publicationKey } from "../lib/publicationDisplay";
+import { formalization } from "../data/formalization";
 import {
   preprints,
   publications,
@@ -26,6 +27,11 @@ const YearList = ({ items }) => (
     ))}
   </div>
 );
+
+const Rich = ({ parts }) =>
+  parts.map((part, i) =>
+    typeof part === "string" ? part : <i key={i}>{part.v}</i>
+  );
 
 const Publications = () => {
   return (
@@ -51,6 +57,9 @@ const Publications = () => {
         </li>
         <li>
           <a href="#submitted">Submitted</a>
+        </li>
+        <li>
+          <a href={`#${formalization.id}`}>{formalization.title}</a>
         </li>
       </ul>
 
@@ -90,6 +99,50 @@ const Publications = () => {
               <PublicationItem key={publicationKey(pub)} pub={pub} />
             ))}
           </div>
+        </section>
+
+        <section id={formalization.id} className="content-block">
+          <h2>{formalization.title}</h2>
+          <p className="prose-quiet mb-6">
+            {formalization.intro.map((seg, i) => {
+              const text = seg.italic ? <i>{seg.text}</i> : seg.text;
+              return seg.link ? (
+                <ExternalTextLink key={i} href={formalization[seg.link]}>
+                  {text}
+                </ExternalTextLink>
+              ) : (
+                <span key={i}>{text}</span>
+              );
+            })}
+          </p>
+          <p
+            className="text-lg my-6"
+            role="math"
+            aria-label={formalization.inequalityLabel}
+          >
+            <Rich parts={formalization.inequality} />
+          </p>
+          <h3 className="text-base mb-2">{formalization.resultsHeading}</h3>
+          <ul className="plain-list prose-quiet m-0 mb-6">
+            {formalization.results.map((parts) => (
+              <li
+                key={typeof parts[0] === "string" ? parts[0] : parts[0].v}
+                className="py-1.5"
+              >
+                <Rich parts={parts} />
+              </li>
+            ))}
+          </ul>
+          <p className="prose-quiet mb-4">{formalization.leanVersion}</p>
+          <ul className="plain-list prose-quiet m-0">
+            {formalization.links.map((link) => (
+              <li key={link.href} className="py-1.5">
+                <ExternalTextLink href={formalization[link.href]}>
+                  {link.label}
+                </ExternalTextLink>
+              </li>
+            ))}
+          </ul>
         </section>
       </div>
     </PageShell>
