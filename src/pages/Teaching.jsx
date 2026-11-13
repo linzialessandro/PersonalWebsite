@@ -12,6 +12,12 @@ import {
   aiToolGroups,
 } from "../data/aiGuide";
 import {
+  leanGuide,
+  leanIntro,
+  leanLastChecked,
+  leanResources,
+} from "../data/leanGuide";
+import {
   codingResources,
   competitionResources,
   everydayResources,
@@ -187,6 +193,32 @@ const Teaching = () => {
           <div id="students-problems" className="mb-8">
             <h3 className="text-base mb-2">Problems</h3>
             <ResourceLinkList items={competitionResources} />
+          </div>
+
+          <div id="students-lean" className="mb-8">
+            <h3 className="text-base mb-2">Formalizing mathematics in Lean</h3>
+            {leanIntro.map((paragraph) => (
+              <p key={paragraph} className="prose-quiet mb-3">
+                {paragraph}
+              </p>
+            ))}
+            <p className="text-sm text-muted-foreground mb-3">
+              Last checked: {leanLastChecked}.
+            </p>
+            <ResourceLinkList items={leanResources} />
+            <p className="mt-4 mb-0">
+              <a
+                href={`${import.meta.env.BASE_URL}guides/${leanGuide.file}`}
+                download
+                className="btn btn-outline w-fit"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`Download ${leanGuide.title} (PDF)`}
+              >
+                <Download size={16} />
+                {`${leanGuide.title} (PDF)`}
+              </a>
+            </p>
           </div>
         </section>
 
